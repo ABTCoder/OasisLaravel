@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="home_box">
-<img id="coverpic" src="https://wallpaperaccess.com/full/781752.jpg">
+<img id="coverpic" src="{{ asset('images/ui_images/oasis_home.jpg') }}">
 <br>
 <br>
 <br>

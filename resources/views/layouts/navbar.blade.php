@@ -1,6 +1,6 @@
 <nav id="topnav">
     <a class="homelink" href="home.html">
-        <img src="assets/img/logo.png">
+        <img src="{{ asset('images/ui_images/logo.png') }}">
         <span> OASIS </span>
     </a>
     <ul>

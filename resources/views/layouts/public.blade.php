@@ -21,7 +21,7 @@
             <br>
             <a href="privacypolicy.html"> Privacy e policy </a>
             <div class="linksocial">
-                <img src="assets/img/social-icons.png" usemap="#social-icons-map">
+                <img src="{{ asset('images/ui_images/social-icons.png') }}" usemap="#social-icons-map">
                 <map name="social-icons-map">
                     <area target="_blank" alt="instagram" title="instagram" href="https://www.instagram.com/" coords="134,157,154,146,162,132,164,68,158,48,136,31,68,31,48,41,36,63,36,127,46,145,64,157" shape="poly">
                     <area target="_blank" alt="facebook" title="facebook" href="https://www.facebook.com/" coords="250,158,354,158,364,145,364,43,354,30,248,30,236,41,236,148" shape="poly">
