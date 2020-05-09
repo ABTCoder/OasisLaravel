@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', 'test titolo')
+@section('title', 'Home')
 
 @section('content')
 <div class="home_box">

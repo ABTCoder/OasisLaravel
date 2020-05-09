@@ -13,4 +13,7 @@
 
 Route::view('/', 'home')
         ->name('home');
+		
+Route::view('/products', 'products')
+        ->name('products');
 

@@ -4,8 +4,8 @@
         <span> OASIS </span>
     </a>
     <ul>
-        <li class="{{ Request::is('home') ? 'active' : '' }}"><a href="home.html">HOME</a></li>
-        <li><a href="products.html">PRODOTTI</a></li>
+        <li class="{{ Request::is('*') ? 'active' : '' }}"><a href="home.html">HOME</a></li>
+        <li><a href="{{route('products')}">PRODOTTI</a></li>
         <li><a href="howtobuy.html">COME ACQUISTARE</a></li>
         <li id="account">
             <div class="dropdown">
