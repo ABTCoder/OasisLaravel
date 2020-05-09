@@ -1,8 +1,9 @@
-@extends('layout.public')
+@extends('layouts.public')
 
 @section('title', 'test titolo')
 
 @section('content')
+<div class="home_box">
 <img id="coverpic" src="https://wallpaperaccess.com/full/781752.jpg">
 <br>
 <br>
@@ -68,4 +69,5 @@
 <br>
 <br>
 <br>
+</div>
 @endsection

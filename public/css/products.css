@@ -1,0 +1,212 @@
+.products_main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.sidenav{
+    background-color: #a3a3a3;
+    color: white;
+    width: 20%;
+    margin: 0 2%;
+    text-align: center;
+    font-size: 30pt;
+}
+.cat{
+    margin: 10% 0;
+}
+.cat a img{
+    position: relative;
+    left: 15px;
+    bottom: -4px;
+    width: 25px;
+    height: 35px;
+    transform: rotate(90deg);
+    transition: 0.25s;
+}
+.cat:hover a, .cat:hover img{
+    cursor: pointer;
+}
+/*
+.cat:hover img{
+    transform: rotate(-90deg);
+}*/
+.sub{
+    display: none;
+    font-size: 24pt;
+    margin: 10%;
+}
+/*
+.cat:hover .sub{
+    display: block;
+}*/
+.show{
+    display: block;
+}
+.rotate img{
+    transform: rotate(-90deg) !important;
+}
+.sub a:hover{
+    text-decoration: underline;
+}
+.sidenav hr{
+    margin: 0 5%;
+    border: 3px solid white;
+    border-radius: 5px;
+}
+
+.products_content {
+    width: 73%;
+    padding: 1% 0 2% 0;
+    text-align: center;
+
+}
+.search_bar{
+    width: 100%;
+    background: #919191;
+}
+.search_bar input[type="text"]{
+
+    border: 0;
+    background: #919191;
+    width: 80%;
+    padding: 1% 5%;
+    outline: none;
+    color: white;
+    font-size: 250%;
+}
+.search_bar input[type="submit"]{
+    float: right;
+    border: 0;
+    background: #009eff;
+    text-align: center;
+    width: 10%;
+    padding: 1% 0;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    font-size: 250%;
+}
+.products_box{
+    margin-top: 1%;
+    width: 100%;
+    background: #656565;
+    text-align: center;
+    display:grid;
+    inline-box-align: inherit;
+}
+.page_nav{
+    display: inline-block;
+    margin-top: 2%;
+    padding: 3px 0;
+    text-align: center;
+    font-size: 18pt;
+    background-color: #919191;
+}
+.page_nav a{
+    margin: 0;
+    padding: 5px;
+    color: #202020;
+    cursor: pointer;
+}
+.page_nav a:hover{
+    text-decoration: underline;
+}
+.page_nav #ctrl{
+    background-color: #a3a3a3;
+    color: white;
+    margin: 0;
+    text-decoration: none !important;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #a3a3a3;
+    width: 445px;
+    height: 100%;
+    padding: 16px;
+    margin-top:16px;
+    text-align: justify; 
+    font-family: lato;
+    text-decoration: none;
+    overflow-wrap:break-word;
+    position:relative;
+    display:block;
+ 
+}
+
+.price {
+    color: red; 
+    text-align: center;
+    font-size: 30px;
+}
+.name{
+    display:block;
+    width:100%;
+    padding-left: 6px;
+    color: whitesmoke;
+    text-align: center;
+}
+.description{
+    padding-left: 8px;
+    color: whitesmoke;
+    opacity: 0.9;
+    text-align: center;
+}
+.card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+}
+.card img{
+    height: 80%;
+    width: 80%;
+    display:block;
+    margin:auto;
+
+
+}
+.card button:hover {
+    opacity: 0.8;
+}
+.card a[href^="account.html"]:hover {
+    color:white;
+}
+* {
+    box-sizing: border-box;
+}
+
+/* Float four columns side by side */
+.column {
+    float: left;
+    height: 100%;
+    width: auto;
+    padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {
+    margin: 0 -5px;
+    height: max-content;
+}
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 1000px) {
+    .column {
+        width: 100%;
+        display: block;
+
+    }
+}
+
