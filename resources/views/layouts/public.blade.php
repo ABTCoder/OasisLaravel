@@ -19,7 +19,7 @@
         <footer class="main_footer">
             <a href="about.html"> Contattaci </a>
             <br>
-            <a href="privacypolicy.html"> Privacy e policy </a>
+            <a href="{{ route('privacypolicy') }}"> Privacy e policy </a>
             <div class="linksocial">
                 <img src="{{ asset('images/ui_images/social-icons.png') }}" usemap="#social-icons-map">
                 <map name="social-icons-map">

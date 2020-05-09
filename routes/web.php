@@ -16,4 +16,7 @@ Route::view('/', 'home')
 		
 Route::view('/products', 'products')
         ->name('products');
+		
+Route::view('/privacypolicy', 'privacypolicy')
+        ->name('privacypolicy');
 

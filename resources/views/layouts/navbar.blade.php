@@ -1,5 +1,5 @@
 <nav id="topnav">
-    <a class="homelink" href="home.html">
+    <a class="homelink" href="{{ route('home') }}">
         <img src="{{ asset('images/ui_images/logo.png') }}">
         <span> OASIS </span>
     </a>
