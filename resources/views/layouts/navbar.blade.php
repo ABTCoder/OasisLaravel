@@ -4,14 +4,14 @@
         <span> OASIS </span>
     </a>
     <ul>
-        <li class="active"><a href="home.html">HOME</a></li>
+        <li class="{{ Request::is('home') ? 'active' : '' }}"><a href="home.html">HOME</a></li>
         <li><a href="products.html">PRODOTTI</a></li>
         <li><a href="howtobuy.html">COME ACQUISTARE</a></li>
         <li id="account">
             <div class="dropdown">
                 <a id="profile">
                     ACCOUNT 
-                    <img src="assets/img/profile.png">
+                    <img src="{{ asset('images/ui_images/profile.png') }}">
                 </a>
                 <div class="dropdown-content">
                     <a href="login.html">ACCEDI</a>
