@@ -198,12 +198,15 @@ map area{
     text-align: left;
     padding-top: 10%;
     display: inline-block;
+		transform: translateY(-40px);
+
 }
 /* Centered text */
 .centered {
     position: absolute;
     width: 100%;
-    top: 50%;
+
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -212,8 +215,14 @@ map area{
     font-size: 40px;
 }
 .centered a {
-    text-decoration: underline;
-    color: black; 
+    text-decoration: none;
+    color: #009eff;
+	font-weight: 600;
+}
+
+.centered span{
+	font-size: 20pt;
+	font-weight: 400;
 }
 
 .hide {
