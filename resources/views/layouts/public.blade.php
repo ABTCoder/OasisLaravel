@@ -17,7 +17,7 @@
 			@yield('content')	
 		</div>
         <footer class="main_footer">
-            <a href="about.html"> Contattaci </a>
+            <a href="{{ route('about') }}"> Chi siamo </a>
             <br>
             <a href="{{ route('privacypolicy') }}"> Privacy e policy </a>
             <div class="linksocial">
