@@ -179,6 +179,42 @@ map area{
     width: 100%;
     margin: 0;
 }
+#not_found{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+#big{
+    font-size: 190pt;
+    font-weight: 800;
+    display: inline-block;
+}
+#small{
+    text-align: left;
+    padding-top: 10%;
+    display: inline-block;
+}
+/* Centered text */
+.centered {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-weight: 800;
+    font-size: 40px;
+}
+.centered a {
+    text-decoration: underline;
+    color: black; 
+}
 
 .hide {
     display: none;
