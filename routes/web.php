@@ -19,4 +19,10 @@ Route::view('/products', 'products')
 		
 Route::view('/privacypolicy', 'privacypolicy')
         ->name('privacypolicy');
+		
+Route::view('/login', 'login')
+        ->name('login');
+		
+Route::view('/signup', 'signup')
+        ->name('signup');
 

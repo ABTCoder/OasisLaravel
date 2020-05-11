@@ -7,15 +7,15 @@
         <li class="{{ Route::is('home*') ? 'active' : '' }}"><a href="{{ route('home') }}">HOME</a></li>
         <li class="{{ Route::is('products*') ? 'active' : '' }}"><a href="{{ route('products') }}">PRODOTTI</a></li>
         <li><a href="howtobuy.html">COME ACQUISTARE</a></li>
-        <li id="account">
+        <li class="{{ Route::is('login* || signup*') ? 'active' : '' }}" id="account">
             <div class="dropdown">
                 <a id="profile">
                     ACCOUNT 
                     <img src="{{ asset('images/ui_images/profile.png') }}">
                 </a>
                 <div class="dropdown-content">
-                    <a href="login.html">ACCEDI</a>
-                    <a href="signup.html">REGISTRATI</a>
+                    <a href="{{ route('login') }}">ACCEDI</a>
+                    <a href="{{ route('signup') }}">REGISTRATI</a>
                 </div>
             </div>
         </li>
