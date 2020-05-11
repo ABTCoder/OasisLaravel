@@ -7,7 +7,7 @@
         <li class="{{ Route::is('home*') ? 'active' : '' }}"><a href="{{ route('home') }}">HOME</a></li>
         <li class="{{ Route::is('products*') ? 'active' : '' }}"><a href="{{ route('products') }}">PRODOTTI</a></li>
         <li><a href="howtobuy.html">COME ACQUISTARE</a></li>
-        <li class="{{ Route::is('login* || signup*') ? 'active' : '' }}" id="account">
+        <li class="{{ Route::is(['login*', 'signup*']) ? 'active' : '' }}" id="account">
             <div class="dropdown">
                 <a id="profile">
                     ACCOUNT 
