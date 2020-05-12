@@ -32,3 +32,8 @@ Route::view('/login', 'login')
 Route::view('/signup', 'signup')
         ->name('signup');
 
+Route::view('/staffdashboard', 'staffdashboard')
+        ->name('staffdashboard');
+
+Route::view('/admindashboard', 'admindashboard')
+        ->name('admindashboard');
