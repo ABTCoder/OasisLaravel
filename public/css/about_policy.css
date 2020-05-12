@@ -42,6 +42,10 @@
 }
 .about-policy p {
     margin: 0;
+    margin:35px 0 8px;
+    color: #B5DADE;
+    font-weight: 500;
+    
 }
 .about-policy a[href^="mailto"] {
     text-decoration: none;

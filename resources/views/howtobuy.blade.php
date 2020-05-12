@@ -3,33 +3,48 @@
 @section('title', 'Come acquistare')
 
 @section('asset')
-<link rel="stylesheet" type="text/css" href="{{ asset('css/about_policy.css') }}" >
+<link rel="stylesheet" type="text/css" href="{{ asset('css/howtobuy.css') }}" >
 @endsection
 
 @section('content')
 <div class="howtobuy">
     <div>
-    <p><b>
-        Per acquistare un prodotto o più prodotti basta mandare una e-mail con il codice prodotto 
+        <p><b>
+                <br>
+                Per acquistare uno o più prodotti potete inviare una &nbsp<a href="mailto:oasis@gmail.com"> EMAIL </a>&nbsp 
+                <br>
+                scrivendo il codice e il nome del prodotto 
+                <br>
+            </b></p> 
         <br>
-        (ESEMPIO: XXXXXXXX) alla seguente &nbsp<a href="mailto:oasis@gmail.com">EMAIL </a> 
-    </b></p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 </div>
 @endsection
