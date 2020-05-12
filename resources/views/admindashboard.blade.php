@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', 'Area Staff')
+@section('title', 'Area Admin')
 
 @section('asset')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/products.css') }}" >
