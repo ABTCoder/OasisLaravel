@@ -9,13 +9,14 @@
 @section('content')
 <div class="products_main">
     <div class="sidenav">
-		@isset($categories)
-		@foreach ($categories as $category)
+		@isset($subCategories)
+		@foreach ($subCategories as $category)
         <div class="cat">
-            <a> {{ $category->name }} <img src="{{ asset('images/ui_images/arrow.png') }}"> </a>
+            <a> {{ $category->id }} <img src="{{ asset('images/ui_images/arrow.png') }}"> </a>
             <div class="sub">
                 <a> Sottocategoria 1.1 </a>
                 <a> Sottocategoria 1.2 </a>
+			</div>
         </div>
         <hr>
 		@endforeach
