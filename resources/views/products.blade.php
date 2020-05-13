@@ -16,7 +16,10 @@
 			@isset($subCategories)
             <div class="sub">
 				@foreach($subCategories as $subCategory)
-                <a> @if ($subCategory->categoria == $category->nome) {{ $subCategory->nome }} @endif </a>
+                @if ($subCategory->categoria == $category->nome) 
+				<a> {{ $subCategory->nome }} </a>
+				<br>
+				@endif 
 				@endforeach
 			</div>
 			@endisset
