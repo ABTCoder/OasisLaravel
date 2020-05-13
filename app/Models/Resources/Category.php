@@ -8,5 +8,6 @@ class Category extends Model {
 
     protected $table = 'categoria';
     protected $primaryKey = 'nome';
+	public $incrementing = false;
     public $timestamps = false;
 }

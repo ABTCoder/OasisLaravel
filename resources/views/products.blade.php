@@ -9,14 +9,17 @@
 @section('content')
 <div class="products_main">
     <div class="sidenav">
-		@isset($subCategories)
-		@foreach ($subCategories as $category)
+		@isset($categories)
+		@foreach ($categories as $category)
         <div class="cat">
-            <a> {{ $category->id }} <img src="{{ asset('images/ui_images/arrow.png') }}"> </a>
+            <a> {{ $category->nome }} <img src="{{ asset('images/ui_images/arrow.png') }}"> </a>
+			@isset($subCategories)
             <div class="sub">
-                <a> Sottocategoria 1.1 </a>
-                <a> Sottocategoria 1.2 </a>
+				@foreach($subCategories as $subCategory)
+                <a> @if ($subCategory->categoria == $category->nome) {{ $subCategory->nome }} @endif </a>
+				@endforeach
 			</div>
+			@endisset
         </div>
         <hr>
 		@endforeach
