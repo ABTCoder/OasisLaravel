@@ -14,7 +14,7 @@
 Route::view('/', 'home')
         ->name('home');
 		
-Route::view('/products', 'products')
+Route::get('/products', 'PublicController@showProducts1')
         ->name('products');
 		
 Route::view('/howtobuy', 'howtobuy')

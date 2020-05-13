@@ -8,32 +8,22 @@
 
 @section('content')
 <div class="products_main">
-            <div class="sidenav">
-                <div class="cat">
-                    <a> Categoria 1 <img src="{{ asset('images/ui_images/arrow.png') }}"> </a>
-                    <div class="sub">
-                        <a> Sottocategoria 1.1 </a>
-                        <a> Sottocategoria 1.2 </a>
-                    </div>
-                    <hr>
-                </div>
-                <div class="cat">
-                    <a> Categoria 2 <img src="{{ asset('images/ui_images/arrow.png') }}"> </a>
-                    <div class="sub">
-                        <a> Sottocategoria 2.1 </a>
-                        <a> Sotttocategoria 2.2 </a>
-                    </div>
-                    <hr>
-                </div>
-				   <div class="cat">
-                    <a> Categoria 3 <img src="{{ asset('images/ui_images/arrow.png') }}"> </a>
-                    <div class="sub">
-                        <a> Sottocategoria 3.1 </a>
-                        <a> Sottocategoria 3.2 </a>
-                    </div>
-                    <hr>
-                </div>
-            </div>
+    <div class="sidenav">
+		@isset($categories)
+		@foreach ($categories as $category)
+        <div class="cat">
+            <a> {{ $category->name }} <img src="{{ asset('images/ui_images/arrow.png') }}"> </a>
+            <div class="sub">
+                <a> Sottocategoria 1.1 </a>
+                <a> Sottocategoria 1.2 </a>
+        </div>
+        <hr>
+		@endforeach
+		@endisset
+	</div>
+			
+			
+			
             <div class="products_content">
                 <form class="search_bar">
                     <input type="text" placeholder="Ricerca">

@@ -12,17 +12,17 @@ class PublicController extends Controller {
         $this->_catalogModel = new Catalog;
     }
 
-    public function showCatalog1() {
+    public function showProducts1() {
 
-        //Categorie Top
-        $topCats = $this->_catalogModel->getTopCats();
-
-        //Prodotti in sconto di tutte le categorie, ordinati per sconto decrescente
-        $prods = $this->_catalogModel->getProdsByCat($topCats->map->only(['catId']), 2, 'desc', true);
-
-        return view('catalog')
-                        ->with('topCategories', $topCats)
-                        ->with('products', $prods);
+        //Categorie
+        $cats = $this->_catalogModel->getCats();
+		
+		//Sottocategorie
+		$subCats = $this->_catalogModel->getSubCats();
+		
+        return view('products')
+                        ->with('categories', $cats)
+                        ->with('subCategories', $subCats);
     }
 
     public function showCatalog2($topCatId) {
