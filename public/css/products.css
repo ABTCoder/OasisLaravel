@@ -132,7 +132,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     background-color: #a3a3a3;
     width: 445px;
-    height: 100%;
+    height: 475px;
     margin-top:16px;
     text-align: justify; 
     font-family: lato;
@@ -167,6 +167,7 @@
     display:block;
     width:100%;
     color: whitesmoke;
+	font-size: 20pt;
     text-align: left;
 		margin: 0;
 		text-align: justify;
@@ -177,23 +178,13 @@
     opacity: 0.9;
     text-align: center;
 }
-.card button {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    font-size: 18px;
-}
+
 .card img{
-    height: 100%;
     width: 100%;
+	height: 50%;
+	object-fit: cover;
     display:block;
     margin:auto;
-
-
 }
 
 .card a[href^="account.html"]:hover {
@@ -218,6 +209,7 @@
 	padding: 10px;
 	justify-content: space-between;
 	width: 100%;
+	height: 50%;
 }
 
 .card_info, .card_prices{
