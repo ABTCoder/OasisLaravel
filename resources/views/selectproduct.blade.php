@@ -17,7 +17,7 @@
                     <a href="#addprod"><img src="{{ asset('images/ui_images/add_white.png') }}">Aggiungi prodotto</a><br>   
                     <a href="#editcat"><img src="{{ asset('images/ui_images/edit_white.png') }}">Modifica categoria</a><br>   
                     <a><img src="{{ asset('images/ui_images/edit_white.png') }}">Modifica sottocategoria</a><br>   
-                    <a><img src="{{ asset('images/ui_images/edit_white.png') }}">Modifica prodotto</a><br>
+                    <a href="{{ route('selectproduct') }}"><img src="{{ asset('images/ui_images/edit_white.png') }}">Modifica prodotto</a><br>
                     <a><img src="{{ asset('images/ui_images/delete_white.png') }}">Elimina categoria</a><br>
                     <a><img src="{{ asset('images/ui_images/delete_white.png') }}">Elimina sottocategoria</a><br>
                     <a><img src="{{ asset('images/ui_images/delete_white.png') }}">Elimina prodotto</a><br>
@@ -45,9 +45,9 @@
                         <div id="info">
                             <h1 id="name"> Rick </h1>
                             <h3 id="code"> N3V3R60NN46IV3Y0UUP </h3>
-                            <h3 id="description"> Just Rick, the best singer ever. </h3>
+                            <h3 id="description"> Just Rick, the best singer eveeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeer. </h3>
                         </div>
-                        <h3 id="price"> $999,99 </h3>
+                        <h3 id="price"> $99999,99 </h3>
                     </div>
                     <hr>
                     <div class="productrow">
