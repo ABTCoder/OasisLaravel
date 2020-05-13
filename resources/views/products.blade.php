@@ -12,12 +12,13 @@
 		@isset($categories)
 		@foreach ($categories as $category)
         <div class="cat">
-            <a> {{ $category->nome }} <img src="{{ asset('images/ui_images/arrow.png') }}"> </a>
+            <a class="cat_name"> {{ $category->nome }}</a>
+			<img src="{{ asset('images/ui_images/arrow.png') }}">
 			@isset($subCategories)
             <div class="sub">
 				@foreach($subCategories as $subCategory)
                 @if ($subCategory->categoria == $category->nome) 
-				<a> {{ $subCategory->nome }} </a>
+				<a class="subcat_name"> {{ $subCategory->nome }} </a>
 				<br>
 				@endif 
 				@endforeach
