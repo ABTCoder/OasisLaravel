@@ -12,7 +12,7 @@
     overflow-x: hidden;
 }
 .list_box hr{
-    margin: 0 5px;
+    margin: 0;
     border: 2px solid white;
     border-radius: 5px;
 }
@@ -27,13 +27,18 @@
     color: white;
     cursor: pointer;
 }
+.productrow:hover{
+    background-color: #009eff;
+}
 
 #p_img{
     height: 150px;
 }
 #info{
     margin: 5px 0;
-    width: 75%;
+    width: 60%;
+    overflow-wrap:break-word;
+    flex: 1 1 0;
 }
 #name{
     font-size: 24pt;
@@ -50,4 +55,5 @@
 }
 #price{
     font-size: 30pt;
+    flex: 0 1 0;
 }

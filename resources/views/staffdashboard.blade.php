@@ -16,7 +16,7 @@
                     <a href="#addprod"><img src="{{ asset('images/ui_images/add_white.png') }}">Aggiungi prodotto</a><br>   
                     <a href="#editcat"><img src="{{ asset('images/ui_images/edit_white.png') }}">Modifica categoria</a><br>   
                     <a><img src="{{ asset('images/ui_images/edit_white.png') }}">Modifica sottocategoria</a><br>   
-                    <a><img src="{{ asset('images/ui_images/edit_white.png') }}">Modifica prodotto</a><br>
+                    <a href="{{ route('selectproduct') }}"><img src="{{ asset('images/ui_images/edit_white.png') }}">Modifica prodotto</a><br>
                     <a><img src="{{ asset('images/ui_images/delete_white.png') }}">Elimina categoria</a><br>
                     <a><img src="{{ asset('images/ui_images/delete_white.png') }}">Elimina sottocategoria</a><br>
                     <a><img src="{{ asset('images/ui_images/delete_white.png') }}">Elimina prodotto</a><br>

@@ -41,99 +41,105 @@
                 </form>
                 <div class="products_box">
                     <div class="row">
-                        <div class="column">
-                            <div class="card">
-                                <a  style="text-decoration:none" href="account.html">
-                                    <img src="{{ asset('images/ui_images/smartphone.png') }}" alt="Smartphone"   >
-                                    <h1  class="name">Nome Prodotto</h1>
-                                    <p class="description">Descrizione</p>   
-                                    <p class="price">19.99€</p>                                               
-                                </a>   
-                            </div>                                            
-                        </div>
-                        <div class="column">
-                            <div class="card">
-                                <a  style="text-decoration:none" href="account.html">
-                                    <img src="{{ asset('images/ui_images/smartphone.png') }}" alt="Smartphone"   >
-                                    <h1  class="name">Nome Prodotto</h1>
-                                    <p class="description">Descrizione</p>   
-                                    <p class="price">19.99€</p>                                               
-                                </a>   
-                            </div>                                            
-                        </div>
-                        <div class="column">
-                            <div class="card">
-                                <a  style="text-decoration:none" href="account.html">
-                                    <img src="{{ asset('images/ui_images/smartphone.png') }}" alt="Smartphone"   >
-                                    <h1  class="name">Nome Prodotto</h1>
-                                    <p class="description">Descrizione</p>   
-                                    <p class="price">19.99€</p>                                               
-                                </a>   
-                            </div>                                            
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="column">
-                            <div class="card">
-                                <a  style="text-decoration:none" href="account.html">
-                                    <img src="{{ asset('images/ui_images/smartphone.png') }}" alt="Smartphone"   >
-                                    <h1  class="name">Nome Prodotto</h1>
-                                    <p class="description">Descrizione</p>    
-                                    <p class="price">19.99€</p>                                               
-                                </a>   
-                            </div>                                            
-                        </div>
-                        <div class="column">
-                            <div class="card">
-                                <a  style="text-decoration:none" href="account.html">
-                                    <img src="{{ asset('images/ui_images/smartphone.png') }}" alt="Smartphone"   >
-                                    <h1  class="name">Nome Prodotto</h1>
-                                    <p class="description">Descrizione</p>   
-                                    <p class="price">19.99€</p>                                               
-                                </a>   
-                            </div>                                            
-                        </div>
-                        <div class="column">
-                            <div class="card">
-                                <a  style="text-decoration:none" href="account.html">
-                                    <img src="{{ asset('images/ui_images/smartphone.png') }}" alt="Smartphone"   >
-                                    <h1  class="name">Nome Prodotto</h1>
-                                    <p class="description">Descrizione</p>   
-                                    <p class="price">19.99€</p>                                               
-                                </a>   
-                            </div>                                            
-                        </div>
-                    </div>
 
-
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+                        <div class="card">
+                            <a  style="text-decoration:none" href="{{ route('viewproduct') }}">
+                                <img src="{{ asset('images/ui_images/smartphone.png') }}" alt="Smartphone">
+                                <div class="card_text">
+                                    <div class="card_info">
+                                        <h1  class="name">00000000000000000000000000000000000000000000000000</h1>
+                                        <span class="description">00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</span>
+                                    </div>
+                                    <div class="card_prices">
+                                        <div class="og_price">19.99€</div>
+                                        <div class="discount">-%20 Sconto</div>
+                                        <div class="discounted_price">99999.99€</div>
+                                    </div>	
+                                </div>
+                            </a>   
+                        </div>                                            
+                        <div class="card">
+                            <a  style="text-decoration:none" href="{{ route('viewproduct') }}">
+                                <img src="{{ asset('images/ui_images/smartphone.png') }}" alt="Smartphone">
+                                <div class="card_text">
+                                    <div class="card_info">
+                                        <h1  class="name">Nikon D3500</h1>
+                                        <span class="description">Nikon D3500 Fotocamera Reflex Digitale con Obiettivo Nikkor AF-P 18-55, F/3.5-5.6G VR DX, 24.2 Megapixel, LCD 3", SD da 16 GB 300x Premium Lexar, Nero</span>
+                                    </div>
+                                    <div class="card_prices">
+                                        <div class="og_price">19.99€</div>
+                                        <div class="discount">-%20 Sconto</div>
+                                        <div class="discounted_price">1200.99€</div>
+                                    </div>	
+                                </div>
+                            </a>   
+                        </div>                                            
+                        <div class="card">
+                            <a  style="text-decoration:none" href="{{ route('viewproduct') }}">
+                                <img src="{{ asset('images/ui_images/smartphone.png') }}" alt="Smartphone">
+                                <div class="card_text">
+                                    <div class="card_info">
+                                        <h1  class="name">Nome Prodotto</h1>
+                                        <span class="description">Descrizione</span>
+                                    </div>
+                                    <div class="card_prices">
+                                        <div class="og_price">19.99€</div>
+                                        <div class="discount">-%20 Sconto</div>
+                                        <div class="discounted_price">19.99€</div>
+                                    </div>	
+                                </div>
+                            </a>   
+                        </div>                                            
+                        <div class="card">
+                            <a  style="text-decoration:none" href="{{ route('viewproduct') }}">
+                                <img src="{{ asset('images/ui_images/smartphone.png') }}" alt="Smartphone">
+                                <div class="card_text">
+                                    <div class="card_info">
+                                        <h1  class="name">Nome Prodotto</h1>
+                                        <span class="description">Descrizione</span>
+                                    </div>
+                                    <div class="card_prices">
+                                        <div class="og_price">19.99€</div>
+                                        <div class="discount">-%20 Sconto</div>
+                                        <div class="discounted_price">19.99€</div>
+                                    </div>	
+                                </div>
+                            </a>   
+                        </div>                                            
+                        <div class="card">
+                            <a  style="text-decoration:none" href="{{ route('viewproduct') }}">
+                                <img src="{{ asset('images/ui_images/smartphone.png') }}" alt="Smartphone">
+                                <div class="card_text">
+                                    <div class="card_info">
+                                        <h1  class="name">Nome Prodotto</h1>
+                                        <span class="description">Descrizione</span>
+                                    </div>
+                                    <div class="card_prices">
+                                        <div class="og_price">19.99€</div>
+                                        <div class="discount">-%20 Sconto</div>
+                                        <div class="discounted_price">19.99€</div>
+                                    </div>	
+                                </div>
+                            </a>   
+                        </div>                                            
+                        <div class="card">
+                            <a  style="text-decoration:none" href="{{ route('viewproduct') }}">
+                                <img src="{{ asset('images/ui_images/smartphone.png') }}" alt="Smartphone">
+                                <div class="card_text">
+                                    <div class="card_info">
+                                        <h1  class="name">Nome Prodotto</h1>
+                                        <span class="description">Descrizione</span>
+                                    </div>
+                                    <div class="card_prices">
+                                        <div class="og_price">19.99€</div>
+                                        <div class="discount">-%20 Sconto</div>
+                                        <div class="discounted_price">19.99€</div>
+                                    </div>	
+                                </div>
+                            </a>   
+                        </div>  
+                        
+                    </div>                      
                 </div>
                 <nav class="page_nav">
                     <a id="ctrl"> &lt; </a>
