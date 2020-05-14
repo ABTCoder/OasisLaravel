@@ -12,7 +12,7 @@ class PublicController extends Controller {
         $this->_catalogModel = new Catalog;
     }
 
-    public function showProducts1() {
+    public function showProductsAll() {
 
         //Categorie
         $cats = $this->_catalogModel->getCats();
@@ -28,14 +28,28 @@ class PublicController extends Controller {
                         ->with('subCategories', $subCats)
 						->with('products', $prods);
     }
-    public function showProductsList() {
+	
+	public function showProductsSubCat($subCatId) {
 
+        //Categorie
+        $cats = $this->_catalogModel->getCats();
+		
+		//Sottocategorie
+		$subCats = $this->_catalogModel->getSubCats();
+		
+		//Prodotti
+		$prods = $this->_catalogModel->getProdsBySubCat([$subCatId]);
+		
+        return view('products')
+                        ->with('categories', $cats)
+                        ->with('subCategories', $subCats)
+						->with('products', $prods);
+    }
+	
+    public function showProductsList() {
 		//Prodotti
 		$prods = $this->_catalogModel->getAllProds();
-		
-        return view('selectproduct')
-                        
-            ->with('products', $prods);
+        return view('selectproduct')->with('products', $prods);
     }
 
     public function showCatalog2($topCatId) {

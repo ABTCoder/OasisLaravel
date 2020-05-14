@@ -18,7 +18,7 @@
             <div class="sub">
                 @foreach($subCategories as $subCategory)
                 @if ($subCategory->categoria == $category->nome) 
-                <a class="subcat_name"> {{ $subCategory->nome }} </a>
+                <a href="{{ route('products2', [$subCategory->id]) }}" class="subcat_name"> {{ $subCategory->nome }} </a>
                 <br>
                 @endif 
                 @endforeach
@@ -44,7 +44,8 @@
                 <div class="card">
                     <a  style="text-decoration:none" href="{{ route('viewproduct') }}">
                         <div class="card_img_container">
-                            @include('helpers/imgProducts', ['imgFile' => $product->immagine])</div>
+                            @include('helpers/imgProducts', ['imgFile' => $product->immagine])
+						</div>
                         <div class="card_text">
                             <div class="card_info">
                                 <h1  class="name">{{ $product->nome }}</h1>

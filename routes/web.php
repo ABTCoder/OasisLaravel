@@ -14,8 +14,11 @@
 Route::view('/', 'home')
         ->name('home');
 		
-Route::get('/products', 'PublicController@showProducts1')
+Route::get('/products', 'PublicController@showProductsAll')
         ->name('products');
+		
+Route::get('/products/selSubCat/{subCatId}', 'PublicController@showProductsSubCat')
+        ->name('products2');
 		
 Route::view('/howtobuy', 'howtobuy')
         ->name('howtobuy');

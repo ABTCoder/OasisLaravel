@@ -32,7 +32,8 @@ class Catalog {
         if (!is_null($order)) {
             $prods = $prods->orderBy('sconto', $order);
         }
-        return $prods->paginate($paged);
+		return $prods;
+        //return $prods->paginate($paged);
     }
 
 }
