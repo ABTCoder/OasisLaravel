@@ -33,10 +33,12 @@
                     @isset($products)
                     @foreach ($products as $product)
                     <div class="productrow">
-                        @include('helpers/imgProducts', ['imgFile' => $product->immagine])
+                        <div id="immagine">
+                            @include('helpers/imgProducts', ['imgFile' => $product->immagine])
+                        </div>
                         <div id="info">
                             <h1 id="name"> {{ $product->nome }} </h1>
-                            <h3 id="code"> codice prodotto:  {{ $product->codice }} </h3>
+                            <h3 id="code"> Codice prodotto:  {{ $product->codice }} </h3>
                             <h3 id="description"> {{ $product->desc_breve }} </h3>
                         </div>
                         <h3 id="price"> {{ $product->prezzo }}€ </h3>

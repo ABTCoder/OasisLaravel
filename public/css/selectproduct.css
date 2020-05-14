@@ -31,8 +31,18 @@
     background-color: #009eff;
 }
 
-#p_img{
+#immagine{
+    background-color: white;
     height: 150px;
+    width: 150px;
+    align-items: center;
+    display: flex;
+    text-align: center;
+}
+#p_img{
+    max-height: 100%;
+    max-width: 100%;
+    margin: auto;
 }
 #info{
     margin: 5px 0;
