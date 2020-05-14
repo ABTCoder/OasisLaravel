@@ -43,14 +43,15 @@
                 @foreach ($products as $product)
                 <div class="card">
                     <a  style="text-decoration:none" href="{{ route('viewproduct') }}">
-                        @include('helpers/imgProducts', ['imgFile' => $product->immagine])
+                        <div class="card_img_container">
+                            @include('helpers/imgProducts', ['imgFile' => $product->immagine])</div>
                         <div class="card_text">
                             <div class="card_info">
                                 <h1  class="name">{{ $product->nome }}</h1>
                                 <span class="description">{{ $product->desc_breve }}</span>
                             </div>
                             <div class="card_prices">
-                                @include('helpers/productPrice')
+                                @include('helpers/priceProducts')
                             </div>	
                         </div>
                     </a>   
