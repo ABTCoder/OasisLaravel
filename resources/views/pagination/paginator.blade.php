@@ -11,7 +11,7 @@
 
     <!-- Link alla pagina precedente -->
     @if ($paginator->currentPage() != 1)
-    <a href="{{ $paginator->previousPageUrl() }}">&lt; Indietro</a> | //genera l'url della pagina precedente alla pagina attuale
+    <a href="{{ $paginator->previousPageUrl() }}">&lt; Indietro</a> | 
     @else
     &lt; Indietro |
     @endif

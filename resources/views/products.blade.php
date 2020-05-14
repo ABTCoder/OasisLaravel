@@ -31,7 +31,7 @@
     </div>
     <!-- fine sidenav -->		
 
-
+	@isset($products)
     <div class="products_content">
         <form class="search_bar">
             <input type="text" placeholder="Ricerca">
@@ -39,7 +39,6 @@
         </form>
         <div class="products_box">
             <div class="row">
-                @isset($products)
                 @foreach ($products as $product)
                 <div class="card">
                     <a  style="text-decoration:none" href="{{ route('viewproduct') }}">
@@ -57,8 +56,7 @@
                         </div>
                     </a>   
                 </div>
-                @endforeach
-                @endisset      
+                @endforeach  
             </div>                      
         </div>
         <nav class="page_nav">
@@ -77,5 +75,6 @@
             <a id="ctrl"> &gt; </a>
         </nav>
     </div>
+	@endisset
 </div>
 @endsection
