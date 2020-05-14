@@ -17,12 +17,12 @@ class Catalog {
     }
 	
 	public function getAllProds() {
-		$prods = Product::all();
+		$prods = Product::paginate(9);
 		return $prods;
 	}
 
     // Estrae i prodotti della categoria/e $catId (tutti o solo quelli in sconto), eventualmente ordinati
-    public function getProdsBySubCat($catId, $paged = 1, $order = null, $discounted = true) {
+    public function getProdsBySubCat($catId, $paged = 9, $order = null, $discounted = true) {
 
         $prods = Product::whereIn('sottocategoria', $catId);
             
@@ -32,8 +32,7 @@ class Catalog {
         if (!is_null($order)) {
             $prods = $prods->orderBy('sconto', $order);
         }
-		return $prods->get();
-        //return $prods->paginate($paged);
+		return $prods->paginate($paged);
     }
 
 }
