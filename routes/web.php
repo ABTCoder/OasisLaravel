@@ -35,7 +35,7 @@ Route::view('/signup', 'signup')
 Route::view('/staffdashboard', 'staffdashboard')
         ->name('staffdashboard');
 
-Route::view('/selectproduct', 'selectproduct')
+Route::get('/selectproduct', 'PublicController@showProductsList')
         ->name('selectproduct');
 
 Route::view('/viewproduct', 'viewproduct')
