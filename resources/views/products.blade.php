@@ -50,7 +50,7 @@
                                 <span class="description">{{ $product->desc_breve }}</span>
                             </div>
 							<div class="card_prices">
-								@include('helpers/productPrice')
+								@include('helpers/priceProducts')
 							</div>	
                         </div>
                     </a>   
