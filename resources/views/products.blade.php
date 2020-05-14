@@ -43,17 +43,14 @@
 				@foreach ($products as $product)
 				<div class="card">
 					<a  style="text-decoration:none" href="{{ route('viewproduct') }}">
-						@include('helpers/productImg', ['imgFile' => $product->image])
-                        <img src="{{ asset('images/ui_images/smartphone.png') }}" >
+						@include('helpers/imgProducts', ['imgFile' => $product->immagine])
                         <div class="card_text">
                             <div class="card_info">
                                 <h1  class="name">{{ $product->nome }}</h1>
                                 <span class="description">{{ $product->desc_breve }}</span>
                             </div>
 							<div class="card_prices">
-								<div class="og_price">{{ $product->prezzo }} €</div>
-								<div class="discount">-%20 Sconto</div>
-								<div class="discounted_price">99999.99€</div>
+								@include('helpers/productPrice')
 							</div>	
                         </div>
                     </a>   

@@ -1,6 +1,10 @@
-<p class="price"> {{ number_format($product->getPrice($product->prezzo), 2, ',', '.') }} € </p>
-
-@if ($product->prezzo == 1)
-<p class="discprice"> Valore <del>{{ number_format($product->getPrice(false), 2, ',', '.') }} €</del><br>
-    Sconto {{ $product->sconto }}%</p>
+@if ( $product->sconto == 0 ) 
+<div class="og_price"> {{ number_format($product->getPrice(), 2, ',', '.') }} € </div>
+@else
+<div class="og_price_crossed">{{ $product->prezzo }} €</div>
+<div class="discount">-{{ %product->sconto }}% Sconto</div>
+<div class="discounted_price">{{ number_format($product->getPrice(true), 2, ',', '.') }} €</div>
 @endif
+
+
+
