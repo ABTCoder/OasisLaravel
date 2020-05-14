@@ -15,6 +15,11 @@ class Catalog {
     public function getSubCats() {
         return SubCategory::all();
     }
+	
+	public function getAllProds() {
+		$prods = Product::all()->orderBy('sconto', 'desc');
+		return $prods;
+	}
 
     // Estrae i prodotti della categoria/e $catId (tutti o solo quelli in sconto), eventualmente ordinati
     public function getProdsBySubCat($catId, $paged = 1, $order = null, $discounted = false) {

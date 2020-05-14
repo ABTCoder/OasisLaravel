@@ -20,9 +20,13 @@ class PublicController extends Controller {
 		//Sottocategorie
 		$subCats = $this->_catalogModel->getSubCats();
 		
+		//Prodotti
+		$prods = $this->_catalogModel->getAllProds();
+		
         return view('products')
                         ->with('categories', $cats)
-                        ->with('subCategories', $subCats);
+                        ->with('subCategories', $subCats)
+						->with('products', $prods);
     }
 
     public function showCatalog2($topCatId) {
