@@ -17,7 +17,7 @@ class Catalog {
     }
 	
 	public function getAllProds() {
-		$prods = Product::all()->orderBy('sconto', 'desc');
+		$prods = Product::all();
 		return $prods;
 	}
 

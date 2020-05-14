@@ -43,7 +43,8 @@
 				@foreach ($products as $product)
 				<div class="card">
 					<a  style="text-decoration:none" href="{{ route('viewproduct') }}">
-                        <img src="{{ asset('images/ui_images/smartphone.png') }}" alt="Smartphone">
+						@include('helpers/productImg', ['imgFile' => $product->image])
+                        <img src="{{ asset('images/ui_images/smartphone.png') }}" >
                         <div class="card_text">
                             <div class="card_info">
                                 <h1  class="name">{{ $product->nome }}</h1>
