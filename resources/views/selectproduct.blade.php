@@ -30,55 +30,20 @@
                 </form>
                 <div class="list_box">
                     <h1 id="title"> Seleziona il prodotto </h1>
+                    @isset($products)
+                    @foreach ($products as $product)
                     <div class="productrow">
-                        <img id="p_img" src="{{ asset('images/ui_images/rick.gif') }}">
+                        @include('helpers/imgProducts', ['imgFile' => $product->immagine])
                         <div id="info">
-                            <h1 id="name"> Rick </h1>
-                            <h3 id="code"> N3V3R60NN46IV3Y0UUP </h3>
-                            <h3 id="description"> Just Rick, the best singer ever. </h3>
+                            <h1 id="name"> {{ $product->nome }} </h1>
+                            <h3 id="code"> codice prodotto:  {{ $product->codice }} </h3>
+                            <h3 id="description"> {{ $product->desc_breve }} </h3>
                         </div>
-                        <h3 id="price"> $999,99 </h3>
+                        <h3 id="price"> {{ $product->prezzo }}€ </h3>
                     </div>
                     <hr>
-                    <div class="productrow">
-                        <img id="p_img" src="{{ asset('images/ui_images/rick.gif') }}">
-                        <div id="info">
-                            <h1 id="name"> Rick </h1>
-                            <h3 id="code"> N3V3R60NN46IV3Y0UUP </h3>
-                            <h3 id="description"> Just Rick, the best singer eveeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeer. </h3>
-                        </div>
-                        <h3 id="price"> $99999,99 </h3>
-                    </div>
-                    <hr>
-                    <div class="productrow">
-                        <img id="p_img" src="{{ asset('images/ui_images/rick.gif') }}">
-                        <div id="info">
-                            <h1 id="name"> Rick </h1>
-                            <h3 id="code"> N3V3R60NN46IV3Y0UUP </h3>
-                            <h3 id="description"> Just Rick, the best singer ever. </h3>
-                        </div>
-                        <h3 id="price"> $999,99 </h3>
-                    </div>
-                    <hr>
-                    <div class="productrow">
-                        <img id="p_img" src="{{ asset('images/ui_images/rick.gif') }}">
-                        <div id="info">
-                            <h1 id="name"> Rick </h1>
-                            <h3 id="code"> N3V3R60NN46IV3Y0UUP </h3>
-                            <h3 id="description"> Just Rick, the best singer ever. </h3>
-                        </div>
-                        <h3 id="price"> $999,99 </h3>
-                    </div>
-                    <hr>
-                    <div class="productrow">
-                        <img id="p_img" src="{{ asset('images/ui_images/rick.gif') }}">
-                        <div id="info">
-                            <h1 id="name"> Rick </h1>
-                            <h3 id="code"> N3V3R60NN46IV3Y0UUP </h3>
-                            <h3 id="description"> Just Rick, the best singer ever. </h3>
-                        </div>
-                        <h3 id="price"> $999,99 </h3>
-                    </div>
+                    @endforeach
+                    @endisset
                 </div>
             </div>
         </div>

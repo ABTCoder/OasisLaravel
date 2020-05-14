@@ -28,6 +28,15 @@ class PublicController extends Controller {
                         ->with('subCategories', $subCats)
 						->with('products', $prods);
     }
+    public function showProductsList() {
+
+		//Prodotti
+		$prods = $this->_catalogModel->getAllProds();
+		
+        return view('selectproduct')
+                        
+            ->with('products', $prods);
+    }
 
     public function showCatalog2($topCatId) {
 
