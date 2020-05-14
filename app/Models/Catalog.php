@@ -16,9 +16,15 @@ class Catalog {
         return SubCategory::all();
     }
 	
-	public function getAllProds() {
-		$prods = Product::paginate(9);
-		return $prods;
+	public function getAllProds($pag = true) {
+		if($pag) {
+			$prods = Product::paginate(9);
+			return $prods;
+		}
+		else {
+			$prods = Product::all();
+			return $prods;
+		}
 	}
 
     // Estrae i prodotti della categoria/e $catId (tutti o solo quelli in sconto), eventualmente ordinati

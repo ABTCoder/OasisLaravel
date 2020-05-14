@@ -48,7 +48,7 @@ class PublicController extends Controller {
 	
     public function showProductsList() {
 		//Prodotti
-		$prods = $this->_catalogModel->getAllProds();
+		$prods = $this->_catalogModel->getAllProds(false);
         return view('selectproduct')->with('products', $prods);
     }
 
