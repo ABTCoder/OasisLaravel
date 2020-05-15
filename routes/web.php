@@ -38,7 +38,7 @@ Route::view('/signup', 'signup')
 Route::view('/staff', 'staffdashboard')
         ->name('staff');
 
-Route::get('/staff/selectproduct', 'ProductController@showProductsList')
+Route::get('/staff/selectproduct', 'StaffController@showProductsList')
         ->name('selectproduct');
 
 Route::get('/staff/addproduct', 'StaffController@showProductsList')
