@@ -45,8 +45,13 @@ class ProductController extends Controller {
                         ->with('subCategories', $subCats)
                         ->with('products', $prods);
     }
-
     
+    public function showProduct($productCode){
+        //Prodotto
+    $product = $this->_catalogModel->getProductByCode([$productCode]);
+    return view('viewproduct')
+                ->with('product', $product);
+    }
 
     public function showCatalog2($topCatId) {
 

@@ -40,5 +40,9 @@ class Catalog {
         }
 		return $prods->paginate($paged);
     }
+    
+    public function getProductByCode($code){
+        return Product::findOrFail($code);
+    }
 
 }
