@@ -7,16 +7,24 @@
     text-align: center;
 }
 .view_box #prod_img{
-    padding-top: 2%;
+    padding: 2%;
     height: 300px;
+    background-color: white;
+}
+.view_box #prod_img #p_img{
+    max-height: 100%;
+    max-width: 100%;
+    margin: auto;
 }
 .view_box #nameandprice{
-    text-align: left;
+    display: flex;
     margin-top: 10px;
     color: white;
 }
 .view_box #nameandbrand{
     margin-left: 30px;
+    text-align: left;
+    flex: 1 1 0;
 }
 .view_box #nameandbrand h1, .view_box #nameandbrand span{
     margin-top: 0;
@@ -32,14 +40,14 @@
     color: #009eff;
 }
 .view_box #price{
-    font-size: 36pt;
-    float: right;
     text-align: right;
+    margin: auto;
     margin-right: 30px;
+    flex: 0 1 0;
 }
 .view_box #prod_code{
     text-align: left;
-    margin: 20px 0 15px 30px;
+    margin: 15px 0;
     color: white;
     font-size: 14pt;
 }
@@ -52,6 +60,7 @@
     margin: 40px 30px;
     color: white;
     font-size: 16pt;
+    text-align: justify;
 }
 .view_box #buy{
     padding: 5px;
@@ -61,4 +70,33 @@
     text-decoration: none;
     cursor: pointer;
     border-radius: 10px;
+}
+
+/*prezzo*/
+
+.og_price {
+    color: white;
+    text-align: right;
+    font-size: 35px;
+    font-weight: 600;
+}
+.og_price_crossed {
+    color: white; 
+    text-align: right;
+    font-size: 25px;
+    font-weight: 400;
+    text-decoration: line-through;
+    text-decoration-color: red;
+}
+.discount{
+    color: red;
+    text-align: right;
+    font-size: 15px;
+    font-weight: 600;
+}
+.discounted_price{
+    color: red;
+    text-align: right;
+    font-size: 35px;
+    font-weight: 600;
 }

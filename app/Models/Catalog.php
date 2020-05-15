@@ -59,7 +59,7 @@ class Catalog {
     }
     
     public function getProductByCode($code){
-        return Product::findOrFail($code);
+        return Product::whereIn('codice',$code)->firstOrFail();
     }
 
 }

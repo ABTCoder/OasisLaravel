@@ -4,17 +4,15 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-
-class NewProductRequest extends FormRequest {
-
+class NewProductRequest extends FormRequest
+{
     /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
-    public function authorize() {
-        // Nella form non mettiamo restrizioni d'uso su base utente
-        // Gestiamo l'autorizzazione ad un altro livello
+    public function authorize()
+    {
         return true;
     }
 
@@ -23,17 +21,17 @@ class NewProductRequest extends FormRequest {
      *
      * @return array
      */
-    public function rules() {
+    public function rules()
+    {
         return [
-            'nome' => 'required|max:50',
+            'nome' => 'required|min:5|max:50',
             'sottocategoria' => 'required',
-            'marca' => 'require|max:30',
-            'descShort' => 'required|max:100',
-            'descLong' => 'required|max:3000',
+            'marca' => 'required|max:30',
+            'desc_breve' => 'required|max:100',
+            'desc_esaustiva' => 'required|max:3000',
             'immagine' => 'image|max:2048',
             'prezzo' => 'required|numeric|min:0',
-            'sconto' => 'required|integer|min:0|max:99',
+            'sconto' => 'required|integer|min:0|max:99'
         ];
     }
-
 }
