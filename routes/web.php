@@ -23,7 +23,7 @@ Route::get('/products/selCat/{catId}', 'ProductController@showProductsCat')
 Route::get('/products/selSubCat/{subCatId}', 'ProductController@showProductsSubCat')
         ->name('products3');
 		
-Route::get('/products/viewproduct/{productCode}', 'ProductController@showProductCode')
+Route::get('/products/viewproduct/{productCode}', 'ProductController@showProduct')
         ->name('viewproduct');
 
 Route::view('/howtobuy', 'howtobuy')

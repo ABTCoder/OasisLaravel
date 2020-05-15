@@ -75,8 +75,9 @@
 
 .sc_hint{
     color: white;
-    font-size: 30px;
+    font-size: 20pt;
     margin: 0;
+	text-align: left;
 }
 
 .sc_textinput{
@@ -94,46 +95,59 @@
 .alpha{
     margin-top: 10px;
     display: flex;
+	width: 100%;
 }
 .bravo{
-    display: inline-block;
-    margin-top: -500;
+    display: flex;
     padding: 0;
+	flex-direction: column;
+	flex: 1;
+	margin-top: 30px;
+	
 }
-.bravo_triple{
-    /*display: block;*/
-    width: 100%;
+
+.charlie{
+	display: flex;
 
 }
-.bravo_price, .bravo_discount, .bravo_brand{
-    display: inline-block;
-    width: 33%;
-    text-align: left
-}
-.bravo_desc{
-    width: 100%;
-    text-align: left;
-}
-.delta{
-    text-align: left;
-    width: 100%;
-}
-.error{
-	font-size: 12pt;
-	font-weight: 500;
-	color: #FF7E7E;
+
+.charlie_inner{
+	width: 100%;
 }
 
 .select_placeholder {
     color:ghostwhite
 }
 
+.publish{
+	
+	border: 0;
+    background: #009eff;
+    display: block;
+    margin: auto;
+    text-align: center;
+	font-size: 13pt;
+	font-weight: 600;
+    padding: 10px;
+    width: 150px;;
+    outline: none;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.button_container{
+	margin-top: 25px;
+	display: flex;
+	width: 100%;
+	align-items: flex-end;
+}
+
 .select_cat {
     border: 0;
-    margin-left: 2%;
     text-align: center;
     width: 100%;
-    padding: 3% 3%;
+    padding: 13px;
     outline: none;
     color: black;
     border-radius: 10px;
