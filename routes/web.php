@@ -41,18 +41,16 @@ Route::view('/staff', 'staffdashboard')
 Route::get('/staff/selectproduct', 'StaffController@showProductsList')
         ->name('selectproduct');
 
-Route::get('/staff/addproduct', 'StaffController@showProductsList')
-        ->name('addproduct');
 
-Route::view('/viewproduct', 'viewproduct')
+Route::get('/products/viewproduct/{productCode}', 'ProductController@showProductCode')
         ->name('viewproduct');
 
 Route::get('/staff/addproduct', 'StaffController@addProduct') //visualizza la form vuota 
-        ->name('newproduct');
+        ->name('addproduct');
 
 Route::post('/staff/addproduct', 'StaffController@storeProduct') //al sumbit della form attiva il processo di validazione, che,
         //se va a buon fine, gestirà memorizzando nella tabella prodotti del db il prodotto inserito.
-        ->name('newproduct.store');
+        ->name('addproduct.store');
 
 Route::view('/admindashboard', 'admindashboard')
         ->name('admindashboard');
