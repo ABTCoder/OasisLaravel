@@ -43,9 +43,6 @@ class Catalog {
 		return $prods->paginate($paged);
     }
     
-    public function getProductByCode($code){
-        return Product::findOrFail($code);
-    }
 
     // Estrae i prodotti della sottocategoria (tutti o solo quelli in sconto), eventualmente ordinati
     public function getProdsBySubCat($catId, $paged = 9, $order = null, $discounted = true) {
