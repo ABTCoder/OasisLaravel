@@ -37,7 +37,7 @@ class ProductController extends Controller {
         $subCats = $this->_catalogModel->getSubCats();
 
         //Prodotti
-        $prods = $this->_catalogModel->getProdsByCat();
+        $prods = $this->_catalogModel->getProdsByCat([$catId]);
 
         return view('products')
                         ->with('categories', $cats)
