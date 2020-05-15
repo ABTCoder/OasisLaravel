@@ -150,13 +150,10 @@
     display:block;
 }
 .card:hover {
-    background-color: #009eff;
+    background-color: #009EFF;
 }
-.card a {
+.sidenav a {
 	text-decoration: none;
-}
-.card a:hover {
-    color:white;
 }
 .card img{
 	max-width: 100%;
