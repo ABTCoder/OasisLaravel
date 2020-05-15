@@ -26,8 +26,28 @@ class Catalog {
 			return $prods;
 		}
 	}
+	
+	// Estrae i prodotti della categoria (tutti o solo quelli in sconto), eventualmente ordinati
+    public function getProdsBySubCat($catName, $paged = 9, $order = null, $discounted = true) {
 
-    // Estrae i prodotti della categoria/e $catId (tutti o solo quelli in sconto), eventualmente ordinati
+        $prods = Product::whereHas('prodCat', function ($query) use ($catId) {
+                        $query->whereIn('parId', $catId);
+		});
+            
+        if ($discounted) {
+            $prods = $prods->where('sconto', '>=', 0);
+        }
+        if (!is_null($order)) {
+            $prods = $prods->orderBy('sconto', $order);
+        }
+		return $prods->paginate($paged);
+    }
+    
+    public function getProductByCode($code){
+        return Product::findOrFail($code);
+    }
+
+    // Estrae i prodotti della sottocategoria (tutti o solo quelli in sconto), eventualmente ordinati
     public function getProdsBySubCat($catId, $paged = 9, $order = null, $discounted = true) {
 
         $prods = Product::whereIn('sottocategoria', $catId);
