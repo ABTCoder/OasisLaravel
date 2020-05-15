@@ -41,7 +41,6 @@ Route::view('/staff', 'staffdashboard')
 Route::get('/staff/selectproduct', 'StaffController@showProductsList')
         ->name('selectproduct');
 
-
 Route::get('/products/viewproduct/{productCode}', 'ProductController@showProductCode')
         ->name('viewproduct');
 
