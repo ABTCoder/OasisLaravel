@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Catalog;
 
-class PublicController extends Controller {
+class ProductController extends Controller {
 
     protected $_catalogModel;
 
@@ -46,11 +46,7 @@ class PublicController extends Controller {
                         ->with('products', $prods);
     }
 
-    public function showProductsList() {
-        //Prodotti
-        $prods = $this->_catalogModel->getAllProds(false);
-        return view('selectproduct')->with('products', $prods);
-    }
+    
 
     public function showCatalog2($topCatId) {
 

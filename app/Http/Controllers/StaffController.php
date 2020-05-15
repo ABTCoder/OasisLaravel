@@ -8,15 +8,17 @@ use App\Http\Requests\NewProductRequest;
 
 class StaffController extends Controller {
 
-    protected $_staffModel;
+    protected $_catalogModel;
 
     public function __construct() {
-        $this->_staffModel = new Staff; //metodo che viene attivato ogni volta che un'azione dell'admin viene richiesta
+        $this->_catalogModel = new Catalog; //metodo che viene attivato ogni volta che un'azione dell'admin viene richiesta
         //Admin è la classe che definisce il model associato al controller admin
     }
 
-    public function index() {
-        return view('staff'); //corrisponde al file admin.blade.php
+	public function showProductsList() {
+        //Prodotti
+        $prods = $this->_catalogModel->getAllProds(false);
+        return view('selectproduct')->with('products', $prods);
     }
 
     public function addProduct() {

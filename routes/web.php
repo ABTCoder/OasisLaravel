@@ -14,10 +14,10 @@
 Route::view('/', 'home')
         ->name('home');
 
-Route::get('/products', 'PublicController@showProductsAll')
+Route::get('/products', 'ProductController@showProductsAll')
         ->name('products');
 
-Route::get('/products/selSubCat/{subCatId}', 'PublicController@showProductsSubCat')
+Route::get('/products/selSubCat/{subCatId}', 'ProductController@showProductsSubCat')
         ->name('products2');
 
 Route::view('/howtobuy', 'howtobuy')
@@ -38,10 +38,10 @@ Route::view('/signup', 'signup')
 Route::view('/staff', 'staffdashboard')
         ->name('staff');
 
-Route::get('/staff/selectproduct', 'PublicController@showProductsList')
+Route::get('/staff/selectproduct', 'ProductController@showProductsList')
         ->name('selectproduct');
 
-Route::get('/staff/addproduct', 'PublicController@showProductsList')
+Route::get('/staff/addproduct', 'StaffController@showProductsList')
         ->name('addproduct');
 
 Route::view('/viewproduct', 'viewproduct')
