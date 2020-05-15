@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
+use App\Models\Catalog;
 use App\Models\Resources\Product;
 use App\Http\Requests\NewProductRequest;
 
@@ -15,16 +15,16 @@ class StaffController extends Controller {
         //Admin è la classe che definisce il model associato al controller admin
     }
 
-	public function showProductsList() {
+    public function showProductsList() {
         //Prodotti
         $prods = $this->_catalogModel->getAllProds(false);
         return view('selectproduct')->with('products', $prods);
     }
 
     public function addProduct() {
-        $prodCats = $this->_staffModel->getProdsCats();
-        return view('product.insert')
-                        ->with('cats', $prodCats);
+        $prodCats = $this->_catalogModel->getSubCats();
+        return view('addproduct')
+                        ->with('subCategories', $prodCats);
     }
 
     //il client non invia al server solo il nome dell'immagine, ma un oggetto complesso che contiene sia il nome che i byte dell'immagine
