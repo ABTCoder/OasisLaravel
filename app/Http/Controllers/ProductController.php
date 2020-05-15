@@ -29,7 +29,7 @@ class ProductController extends Controller {
                         ->with('products', $prods);
     }
 	
-	public function showProductCat($catId) {
+	public function showProductsCat($catId) {
 		//Categorie
         $cats = $this->_catalogModel->getCats();
 
