@@ -41,7 +41,7 @@
             <div class="row">
                 @foreach ($products as $product)
                 <div class="card">
-                    <a  style="text-decoration:none" href="{{ route('viewproduct') }}">
+                    <a  style="text-decoration:none" href="{{ route('viewproduct', [$product->codice]) }}">
                         <div class="card_img_container">
                             @include('helpers/imgProducts', ['imgFile' => $product->immagine])
 						</div>
