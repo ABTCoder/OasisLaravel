@@ -11,12 +11,13 @@
     height: 300px;
 }
 .view_box #nameandprice{
-    text-align: left;
+    display: flex;
     margin-top: 10px;
     color: white;
 }
 .view_box #nameandbrand{
     margin-left: 30px;
+    flex: 1 1 0;
 }
 .view_box #nameandbrand h1, .view_box #nameandbrand span{
     margin-top: 0;
@@ -32,10 +33,9 @@
     color: #009eff;
 }
 .view_box #price{
-    font-size: 36pt;
-    float: right;
     text-align: right;
     margin-right: 30px;
+    flex: 0 1 0;
 }
 .view_box #prod_code{
     text-align: left;
@@ -61,4 +61,33 @@
     text-decoration: none;
     cursor: pointer;
     border-radius: 10px;
+}
+
+/*prezzo*/
+
+.og_price {
+    color: white;
+    text-align: right;
+    font-size: 35px;
+    font-weight: 600;
+}
+.og_price_crossed {
+    color: white; 
+    text-align: right;
+    font-size: 25px;
+    font-weight: 400;
+    text-decoration: line-through;
+    text-decoration-color: red;
+}
+.discount{
+    color: red;
+    text-align: right;
+    font-size: 15px;
+    font-weight: 600;
+}
+.discounted_price{
+    color: red;
+    text-align: right;
+    font-size: 35px;
+    font-weight: 600;
 }
