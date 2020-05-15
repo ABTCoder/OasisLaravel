@@ -1,7 +1,7 @@
 <div class="staff_sidenav">
     <div class="staffnav_items">
         <a href="#addcat"><img src="{{ asset('images/ui_images/add_white.png') }}">Aggiungi categoria</a><br>
-        <a href="#addsub"><img src="{{ asset('images/ui_images/add_white.png') }}">Aggiungi sottoategoria</a><br>   
+        <a href="#addsub"><img src="{{ asset('images/ui_images/add_white.png') }}">Aggiungi sottocategoria</a><br>   
         <a href="{{ route('addproduct') }}"><img src="{{ asset('images/ui_images/add_white.png') }}">Aggiungi prodotto</a><br>   
         <a href="#editcat"><img src="{{ asset('images/ui_images/edit_white.png') }}">Modifica categoria</a><br>   
         <a><img src="{{ asset('images/ui_images/edit_white.png') }}">Modifica sottocategoria</a><br>   
