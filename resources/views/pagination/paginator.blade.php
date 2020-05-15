@@ -11,16 +11,35 @@
 
     <!-- Link alla pagina precedente -->
     @if ($paginator->currentPage() != 1)
-    <a href="{{ $paginator->previousPageUrl() }}">&lt; Indietro</a> | 
+    <a id="ctrl" href="{{ $paginator->previousPageUrl() }}"> &lt; </a> | 
     @else
-    &lt; Indietro |
+    <a id="ctrl"> &lt; </a>
     @endif
-
+	
+	@if ($paginator->total() > 2)
+	@php
+		$current = $paginator->currentPage();
+		$total = ceil($paginator->total() / 9);
+		$remaining = $total-$current;
+		$max = 9;
+		$start = 0;
+		$floor = floor($current / 5);
+		$start = ($floor * 5);
+		if($start != 0 ) $start -= 1;
+		$max += $floor * 5;
+		$max = ($remaining < 9) ? $total: $max;
+		if($max - $start <= 1) $start -= 4;
+	@endphp
+	@for($i = $start; $i < $max; $i++)
+	<a href="{{ $paginator->url($i + 1) }}">{{ $i + 1 }} </a>
+	@endfor
+	@endif
+	
     <!-- Link alla pagina successiva -->
     @if ($paginator->hasMorePages())
-    <a href="{{ $paginator->nextPageUrl() }}">Avanti &gt;</a> |
+    <a id="ctrl" href="{{ $paginator->nextPageUrl() }}"> &gt; </a> |
     @else
-    Avanti &gt; |
+    <a id="ctrl"> &gt; </a>
     @endif
 
     <!-- Link all'ultima pagina -->

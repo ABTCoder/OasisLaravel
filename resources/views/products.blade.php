@@ -62,17 +62,6 @@
         <nav class="page_nav">
 			<!--Paginazione-->
 			@include('pagination.paginator', ['paginator' => $products])
-            <a id="ctrl"> &lt; </a>
-            <a> 1 </a>
-            <a> 2 </a>
-            <a> 3 </a>
-            <a> 4 </a>
-            <a> 5 </a>
-            <a> 6 </a>
-            <a> 7 </a>
-            <a> 8 </a>
-            <a> 9 </a>
-            <a id="ctrl"> &gt; </a>
         </nav>
     </div>
 	@endisset
