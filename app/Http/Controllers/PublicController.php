@@ -16,39 +16,39 @@ class PublicController extends Controller {
 
         //Categorie
         $cats = $this->_catalogModel->getCats();
-		
-		//Sottocategorie
-		$subCats = $this->_catalogModel->getSubCats();
-		
-		//Prodotti
-		$prods = $this->_catalogModel->getAllProds();
-		
+
+        //Sottocategorie
+        $subCats = $this->_catalogModel->getSubCats();
+
+        //Prodotti
+        $prods = $this->_catalogModel->getAllProds();
+
         return view('products')
                         ->with('categories', $cats)
                         ->with('subCategories', $subCats)
-						->with('products', $prods);
+                        ->with('products', $prods);
     }
-	
-	public function showProductsSubCat($subCatId) {
+
+    public function showProductsSubCat($subCatId) {
 
         //Categorie
         $cats = $this->_catalogModel->getCats();
-		
-		//Sottocategorie
-		$subCats = $this->_catalogModel->getSubCats();
-		
-		//Prodotti
-		$prods = $this->_catalogModel->getProdsBySubCat([$subCatId]);
-		
+
+        //Sottocategorie
+        $subCats = $this->_catalogModel->getSubCats();
+
+        //Prodotti
+        $prods = $this->_catalogModel->getProdsBySubCat([$subCatId]);
+
         return view('products')
                         ->with('categories', $cats)
                         ->with('subCategories', $subCats)
-						->with('products', $prods);
+                        ->with('products', $prods);
     }
-	
+
     public function showProductsList() {
-		//Prodotti
-		$prods = $this->_catalogModel->getAllProds(false);
+        //Prodotti
+        $prods = $this->_catalogModel->getAllProds(false);
         return view('selectproduct')->with('products', $prods);
     }
 
@@ -85,7 +85,7 @@ class PublicController extends Controller {
         $subCats = $this->_catalogModel->getCatsByParId([$topCatId]);
 
         // Prodotti della categoria selezionata, in sconto o meno
-       $prods = $this->_catalogModel->getProdsByCat([$catId]);
+        $prods = $this->_catalogModel->getProdsByCat([$catId]);
 
         return view('catalog')
                         ->with('topCategories', $topCats)

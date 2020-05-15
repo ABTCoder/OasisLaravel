@@ -19,7 +19,7 @@
                 </div>
             </div>
         </li>
-        <li class="{{ Route::is('staffdashboard*') ? 'active' : '' }}" id="staff"><a href="{{ route('staffdashboard') }}"> AREA STAFF</a></li>
+        <li class="{{ Route::is('staff*') ? 'active' : '' }}" id="staff"><a href="{{ route('staff') }}"> AREA STAFF</a></li>
         <li class="{{ Route::is('admindashboard*') ? 'active' : '' }}" id="admin"><a href="{{ route('admindashboard') }}"> AREA ADMIN</a></li>
     </ul>
 </nav>

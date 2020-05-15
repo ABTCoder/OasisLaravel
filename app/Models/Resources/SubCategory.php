@@ -8,10 +8,12 @@ class SubCategory extends Model {
 
     protected $table = 'sottocategoria';
     protected $primaryKey = 'id';
+    protected $guarded = ['id'];
     public $timestamps = false;
-	
-	// Realazione One-To-One con SubCategory
+
+    // Realazione One-To-One con SubCategory
     public function superCat() {
         return $this->hasOne(Category::class, 'nome', 'categoria');
     }
+
 }

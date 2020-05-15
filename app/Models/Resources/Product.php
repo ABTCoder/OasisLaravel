@@ -8,6 +8,12 @@ class Product extends Model {
 
     protected $table = 'prodotto';
     protected $primaryKey = 'codice';
+    protected $guarded = ['codice'];
+    /* consente di specificare quale degli attributi del nostro model di prodotto, non può essere 
+      assegnato per assegnazione tramite valore proveniente da una tabella html, cioè per aggiungere una tupla dalla tabella dei prodotti
+      possiamo direttamente utilizzare dati che provengono da una form, salvo per quegli elementi della tupla di prodotti
+      che definisco all'interno dell'array $guarded , cioè evito che questi campi vengano assegnati in maniera malevola
+      dall'acquisizione dei dati della form */
     public $timestamps = false;
 
     public function getPrice($withDiscount = false) {
