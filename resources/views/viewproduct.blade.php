@@ -18,12 +18,12 @@
                     <h1 id="prod_name"> {{ $product->nome }} </h1>
                     <span id="prod_brand"> Marca: </span>
                     <span id="brand"> {{ $product->marca }} </span>
+                    <div id="prod_code">
+                        <span> Codice Articolo: </span>
+                        <span id="code"> {{ $product->codice }} </span>
+                    </div>
                 </div>
                 <div id="price"> @include('helpers/priceProducts') </div>
-            </div>
-            <div id="prod_code">
-                <span> Codice Articolo: </span>
-                <span id="code"> {{ $product->codice }} </span>
             </div>
             <hr>
             <div id="description">
