@@ -16,9 +16,15 @@ Route::view('/', 'home')
 
 Route::get('/products', 'ProductController@showProductsAll')
         ->name('products');
+		
+Route::get('/products/selCat/{catId}', 'ProductController@showProductsCat')
+        ->name('products2');
 
 Route::get('/products/selSubCat/{subCatId}', 'ProductController@showProductsSubCat')
-        ->name('products2');
+        ->name('products3');
+		
+Route::get('/products/viewproduct/{productCode}', 'ProductController@showProductCode')
+        ->name('viewproduct');
 
 Route::view('/howtobuy', 'howtobuy')
         ->name('howtobuy');
@@ -41,8 +47,7 @@ Route::view('/staff', 'staffdashboard')
 Route::get('/staff/selectproduct', 'StaffController@showProductsList')
         ->name('selectproduct');
 
-Route::get('/products/viewproduct/{productCode}', 'ProductController@showProductCode')
-        ->name('viewproduct');
+
 
 Route::get('/staff/addproduct', 'StaffController@addProduct') //visualizza la form vuota 
         ->name('addproduct');
