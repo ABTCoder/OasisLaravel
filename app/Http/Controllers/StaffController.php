@@ -21,7 +21,7 @@ class StaffController extends Controller {
     }
 
     public function addProduct() {
-        $prodCats = $this->_catalogModel->getSubCats();
+        $prodCats = $this->_catalogModel->getSubCats()->pluck('nome', 'id');
         return view('addproduct')
                         ->with('subCategories', $prodCats);
     }
