@@ -47,14 +47,14 @@ Route::view('/staff', 'staffdashboard')
 Route::get('/staff/selectproduct', 'StaffController@showProductsList')
         ->name('selectproduct');
 
-
-
 Route::get('/staff/addproduct', 'StaffController@addProduct') //visualizza la form vuota 
         ->name('addproduct');
 
 Route::post('/staff/addproduct', 'StaffController@storeProduct') //al sumbit della form attiva il processo di validazione, che,
         //se va a buon fine, gestirà memorizzando nella tabella prodotti del db il prodotto inserito.
         ->name('addproduct.store');
+		
+Route::get('/staff/completemsg', 'StaffController@completeMsg');
 
 Route::view('/admindashboard', 'admindashboard')
         ->name('admindashboard');
