@@ -35,7 +35,7 @@
 	@php
 		if($i == $current) $a_id = 'selected_page';
 	@endphp
-	<a class="{{ $a_id }}"(href="{{ $paginator->url($i + 1) }}">{{ $i + 1 }} </a>
+	<a class="{{ $a_id }}" href="{{ $paginator->url($i + 1) }}">{{ $i + 1 }} </a>
 	@endfor
 	@endif
 	
