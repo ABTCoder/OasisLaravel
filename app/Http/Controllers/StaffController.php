@@ -33,8 +33,8 @@ class StaffController extends Controller {
 				$msg = 'Prodotto aggiunto correttamente';
 				break;
 		}
-		//return view('completemsg')
-						//->with('message', $msg);
+		return view('completemsg')
+						->with('message', $msg);
 	}
 
     
