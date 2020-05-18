@@ -13,6 +13,7 @@
 
     <div class="side_container">
         @isset($message)
+		{{$message}}
         @endisset
     </div>
 </div>

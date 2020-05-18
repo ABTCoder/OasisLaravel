@@ -54,7 +54,7 @@ Route::post('/staff/addproduct', 'StaffController@storeProduct') //al sumbit del
         //se va a buon fine, gestirà memorizzando nella tabella prodotti del db il prodotto inserito.
         ->name('addproduct.store');
 		
-Route::get('/staff/completemsg', 'StaffController@completeMsg');
+Route::get('/staff/completemsg/{id}', 'StaffController@completeMsg');
 
 Route::view('/admindashboard', 'admindashboard')
         ->name('admindashboard');
