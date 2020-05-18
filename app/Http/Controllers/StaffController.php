@@ -26,6 +26,17 @@ class StaffController extends Controller {
         return view('addproduct')
                         ->with('subCategories', $prodCats);
     }
+	
+	public function completeMsg($id) {
+		$msg = 'message';
+		switch($id) {
+			case 0:
+				$msg = 'Prodotto aggiunto correttamente';
+				break;
+		}
+		//return view('completemsg')
+						//->with('message', $msg);
+	}
 
     //il client non invia al server solo il nome dell'immagine, ma un oggetto complesso che contiene sia il nome che i byte dell'immagine
     public function storeProduct(NewProductRequest $request) { //NewProductRequest è la classe associata al processo di validazione della form!
@@ -48,7 +59,7 @@ class StaffController extends Controller {
             $image->move($destinationPath, $imageName);
         }
 
-        return redirect()->action('StaffController@index');
+        return redirect()->action('StaffController@completeMsg', 0);
     }
 
 }
