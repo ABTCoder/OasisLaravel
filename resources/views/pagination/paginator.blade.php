@@ -18,6 +18,7 @@
 	
 	@if ($paginator->total() > 2)
 	@php
+		$a_id = 'page';
 		$current = $paginator->currentPage();
 		$total = ceil($paginator->total() / 9);
 		$remaining = $total-$current;
@@ -31,7 +32,10 @@
 		if($max - $start <= 1) $start -= 4;
 	@endphp
 	@for($i = $start; $i < $max; $i++)
-	<a href="{{ $paginator->url($i + 1) }}">{{ $i + 1 }} </a>
+	@php
+		if($i == $current) $a_id = 'selected_page';
+	@endphp
+	<a class="{{ $a_id }}"(href="{{ $paginator->url($i + 1) }}">{{ $i + 1 }} </a>
 	@endfor
 	@endif
 	

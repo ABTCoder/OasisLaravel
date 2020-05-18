@@ -118,6 +118,11 @@
     padding: 5px;
     color: #202020;
     cursor: pointer;
+	text-decoration: none;
+}
+#selected_page {
+	color: white;
+	background-color: red;
 }
 .page_nav a:hover{
     text-decoration: underline;
