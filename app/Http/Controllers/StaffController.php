@@ -12,7 +12,6 @@ class StaffController extends Controller {
 
     public function __construct() {
         $this->_catalogModel = new Catalog; //metodo che viene attivato ogni volta che un'azione dell'admin viene richiesta
-        //Admin è la classe che definisce il model associato al controller admin
     }
 
     public function showProductsList() {
@@ -38,10 +37,9 @@ class StaffController extends Controller {
 						//->with('message', $msg);
 	}
 
-    //il client non invia al server solo il nome dell'immagine, ma un oggetto complesso che contiene sia il nome che i byte dell'immagine
-    public function storeProduct(NewProductRequest $request) { //NewProductRequest è la classe associata al processo di validazione della form!
-        //è presente nella cartella Request di Http
-        //processa il contenuto della form e dopo aver generato un nuovo oggetto  eloqeunt che mappa la tupla, andrà a crearne una nel db
+    
+    public function storeProduct(NewProductRequest $request) { 
+        
         if ($request->hasFile('immagine')) {
             $image = $request->file('immagine');
             $imageName = $image->getClientOriginalName(); //estrae solo il nome dell'immagine
