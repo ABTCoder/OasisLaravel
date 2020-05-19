@@ -108,21 +108,20 @@
 .page_nav{
     display: inline-block;
     margin-top: 2%;
-    padding: 3px 0;
     text-align: center;
     font-size: 18pt;
     background-color: #919191;
 }
 .page_nav a{
     margin: 0;
-    padding: 5px;
-    color: #202020;
+    padding: 0px 5px;
+    color: white;
     cursor: pointer;
 	text-decoration: none;
 }
 #selected_page {
 	color: white;
-	background-color: red;
+	background-color: #009eff;
 }
 .page_nav a:hover{
     text-decoration: underline;
@@ -132,6 +131,19 @@
     color: white;
     margin: 0;
     text-decoration: none !important;
+}
+
+#pagination{
+	background-color: #656565;
+	font-weight: 600;
+	color: white;
+	font-size: 14pt;
+	padding: 10px;
+}
+
+#page_item_counter{
+	color: #cdfff6;
+	margin-bottom: 5px;
 }
 
 .row {

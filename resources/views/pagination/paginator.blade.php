@@ -1,6 +1,6 @@
 @if ($paginator->lastPage() != 1)
 <div id="pagination">
-    {{ $paginator->firstItem() }} - {{ $paginator->lastItem() }} di {{ $paginator->total() }} ---
+  <div id="page_item_counter"> {{ $paginator->firstItem() }} - {{ $paginator->lastItem() }} di {{ $paginator->total() }}</div>
 
     <!-- Link alla prima pagina -->
     @if (!$paginator->onFirstPage())
