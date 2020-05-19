@@ -29,13 +29,14 @@
 		if($start != 0 ) $start -= 1;
 		$max += $floor * 5;
 		$max = ($remaining < 9) ? $total: $max;
-		if($max - $start <= 1) $start -= 4;
+		if(($max - $start) <= 2) $start -= 4;
 	@endphp
 	@for($i = $start; $i < $max; $i++)
 	@php
-		if($i == $current) $a_id = 'selected_page';
+		if(($i+1) == $current) $a_id = 'selected_page';
+		else $a_id='page';
 	@endphp
-	<a class="{{ $a_id }}" href="{{ $paginator->url($i + 1) }}">{{ $i + 1 }} </a>
+	<a id="{{ $a_id }}" href="{{ $paginator->url($i + 1) }}">{{ $i + 1 }} </a>
 	@endfor
 	@endif
 	
