@@ -10,17 +10,22 @@
 
 @section('content')
 <div class="admin_main" id="main">
-            <div class="admin_sidenav">
-                <div class="adminnav_items">
-                    <a href="#addcat"><img src="{{ asset('images/ui_images/add_white.png') }}">Aggiungi staff</a><br>  
-                    <a><img src="{{ asset('images/ui_images/delete_white.png') }}">Elimina staff</a><br>
-                    <a><img src="{{ asset('images/ui_images/delete_white.png') }}">Elimina utente</a><br>
-                </div>
-            </div>
-            <div class="side_container">
-                <div class="sc_content">
-					<h1 id="sc_title">Aggiungi staff</h1>
-                    <div class="account_box" id="admin_dash_box">
+    <div class="admin_sidenav">
+        <div class="adminnav_items">
+            <a href="#addcat"><img src="{{ asset('images/ui_images/add_white.png') }}">Aggiungi staff</a><br>  
+            <a><img src="{{ asset('images/ui_images/delete_white.png') }}">Elimina staff</a><br>
+            <a><img src="{{ asset('images/ui_images/delete_white.png') }}">Elimina utente</a><br>
+        </div>
+    </div>
+    <div class="side_container">
+        <div class="static">
+            <h3>Area Admin</h3>
+            <p>Benvenuto {{ Auth::user()->nome }} {{ Auth::user()->cognome }}</p>
+            <p>Seleziona la funzione da attivare</p>
+        </div>
+        <div class="sc_content">
+            <h1 id="sc_title">Aggiungi staff</h1>
+            <div class="account_box" id="admin_dash_box">
                 <form>
                     <input type="text" placeholder="Nome">
                     <br>
@@ -36,7 +41,7 @@
                     <br> 
                 </form>
             </div>
-                </div>
-            </div>
         </div>
+    </div>
+</div>
 @endsection
