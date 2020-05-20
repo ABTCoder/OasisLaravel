@@ -6,6 +6,7 @@
 <div class="discount">-{{ $product->sconto }}% Sconto</div>
 <div class="discounted_price">{{ number_format($product->getPrice(true), 2, ',', '.') }}€</div>
 @endif
-@endcan
+
 @else
 <div class="og_price"> {{ number_format($product->getPrice(), 2, ',', '.') }}€ </div>
+@endcan
