@@ -37,6 +37,9 @@
             <input type="text" placeholder="Ricerca">
             <input type="submit" value="GO">
         </form>
+		@isset($catString)
+		<div class="products_cat"> Prodotti visualizzati per: {{ $catString }} </div>
+		@endisset
         <div class="products_box">
             <div class="row">
                 @foreach ($products as $product)

@@ -101,10 +101,19 @@
     width: 100%;
     background: #656565;
     text-align: center;
-    display:grid;
+	display: grid;
     inline-box-align: inherit;
 	padding-bottom: 25px;
 }
+.products_cat{
+	margin-top: 1%;
+	width: 100%;
+	color: #CDFFF6;
+	font-weight: 600;
+	font-size: 22pt;
+	text-align: left;
+}
+
 .page_nav{
     display: inline-block;
     margin-top: 2%;

@@ -29,7 +29,7 @@ class ProductController extends Controller {
                         ->with('products', $prods);
     }
 	
-	public function showProductsCat($catId) {
+	public function showProductsCat($catName) {
 		//Categorie
         $cats = $this->_catalogModel->getCats();
 
@@ -37,12 +37,15 @@ class ProductController extends Controller {
         $subCats = $this->_catalogModel->getSubCats();
 
         //Prodotti
-        $prods = $this->_catalogModel->getProdsByCat([$catId]);
+        $prods = $this->_catalogModel->getProdsByCat([$catName]);
+		
+		$catString = $cats->where('nome', $catName)->first()->nome;
 
         return view('products')
                         ->with('categories', $cats)
                         ->with('subCategories', $subCats)
-                        ->with('products', $prods);
+                        ->with('products', $prods)
+						->with('catString',$catString);
 	}
 
     public function showProductsSubCat($subCatId) {
@@ -55,11 +58,16 @@ class ProductController extends Controller {
 
         //Prodotti
         $prods = $this->_catalogModel->getProdsBySubCat([$subCatId]);
+		
+		$selected = $subCats->where('id', $subCatId)->first();
+		
+		$catString = $selected->nome . ' in ' . $selected->categoria ;
 
         return view('products')
                         ->with('categories', $cats)
                         ->with('subCategories', $subCats)
-                        ->with('products', $prods);
+                        ->with('products', $prods)
+						->with('catString',$catString);
     }
     
     public function showProduct($productCode){
