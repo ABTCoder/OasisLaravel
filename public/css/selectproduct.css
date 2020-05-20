@@ -13,7 +13,8 @@
 }
 .list_box hr{
     margin: 0;
-    border: 2px solid white;
+    border: 2px solid;
+    color: #202020;
     border-radius: 5px;
 }
 #title{
@@ -66,4 +67,5 @@
 #price{
     font-size: 30pt;
     flex: 0 1 0;
+    margin-right: 15px; 
 }
