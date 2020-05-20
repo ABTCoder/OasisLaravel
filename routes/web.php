@@ -36,9 +36,9 @@ Route::view('/about', 'about')
         ->name('about');
 
 // Rotte per l'accesso
-Route::get('/login', 'Auth\LoginController@showLoginForm')
+Route::get('login', 'Auth\LoginController@showLoginForm')
         ->name('login');
-Route::post('/login', 'Auth\LoginController@login');
+Route::post('login', 'Auth\LoginController@login');
 
 // Rotte per la registrazione
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')

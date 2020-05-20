@@ -1,88 +1,42 @@
 @extends('layouts.public')
 
-@section('title', 'Registrazione')
+@section('title', 'Registrati')
+
+@section('asset')
+<link rel="stylesheet" type="text/css" href="{{ asset('css/account.css') }}" >
+@endsection
 
 @section('content')
-<div class="static">
-    <h3>Registrazione</h3>
-    <p>Utilizza questa form per registrarti al sito</p>
-
-    <div class="container-contact">
-        <div class="wrap-contact1">
-            {{ Form::open(array('route' => 'register', 'class' => 'contact-form')) }}
-
-            <div  class="wrap-input">
-                {{ Form::label('name', 'Nome', ['class' => 'label-input']) }}
-                {{ Form::text('name', '', ['class' => 'input', 'id' => 'name']) }}
-                @if ($errors->first('name'))
-                <ul class="errors">
-                    @foreach ($errors->get('name') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-            </div>
-
-            <div  class="wrap-input">
-                {{ Form::label('surname', 'Cognome', ['class' => 'label-input']) }}
-                {{ Form::text('surname', '', ['class' => 'input', 'id' => 'surname']) }}
-                @if ($errors->first('surname'))
-                <ul class="errors">
-                    @foreach ($errors->get('surname') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-            </div>
-            
-             <div  class="wrap-input">
-                {{ Form::label('email', 'Email', ['class' => 'label-input']) }}
-                {{ Form::text('email', '', ['class' => 'input','id' => 'email']) }}
-                @if ($errors->first('email'))
-                <ul class="errors">
-                    @foreach ($errors->get('email') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-            </div>
-            
-             <div  class="wrap-input">
-                {{ Form::label('username', 'Nome Utente', ['class' => 'label-input']) }}
-                {{ Form::text('username', '', ['class' => 'input','id' => 'username']) }}
-                @if ($errors->first('username'))
-                <ul class="errors">
-                    @foreach ($errors->get('username') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-            </div>
-            
-             <div  class="wrap-input">
-                {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
-                {{ Form::password('password', ['class' => 'input', 'id' => 'password']) }}
-                @if ($errors->first('password'))
-                <ul class="errors">
-                    @foreach ($errors->get('password') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-            </div>
-
-            <div  class="wrap-input">
-                {{ Form::label('password-confirm', 'Conferma password', ['class' => 'label-input']) }}
-                {{ Form::password('password_confirmation', ['class' => 'input', 'id' => 'password-confirm']) }}
-            </div>
-            
-            <div class="container-form-btn">                
-                {{ Form::submit('Registra', ['class' => 'form-btn1']) }}
-            </div>
-            
-            {{ Form::close() }}
+<div class="account_box">
+    <h2> Registrati </h2>
+    <form>
+        <input type="text" placeholder="Nome">
+        <br>
+        <input type="text" placeholder="Cognome">
+        <br>
+        <input type="text" placeholder="Username">
+        <br>
+        <input type="text" placeholder="Email">
+        <br>
+        <input type="password" placeholder="Password">
+        <br>
+        <input type="text" placeholder="Indirizzo di residenza">
+        <br>
+        <div class="date_job">
+        <input  type="date" placeholder="Data di nascita">
+        <select id="select">
+            <option class="select_placeholder" value="" disabled selected hidden>Occupazione</option>
+            <option value="0">Studente</option>
+            <option value="1">Operaio</option>
+            <option value="2">Libero professionista</option>
+            <option value="3">Disoccupato</option>
+        </select>
         </div>
-    </div>
-
+        <br>
+        <input type="submit" value="Registrati">
+        <br> 
+    </form>
+    <b> Possiedi già un account? <a href="{{ route('login') }}"> ACCEDI </a> </b>
+    <div id="error_msg"> Password errata! </div>
 </div>
 @endsection
