@@ -35,11 +35,16 @@ Route::view('/privacypolicy', 'privacypolicy')
 Route::view('/about', 'about')
         ->name('about');
 
-Route::view('/login', 'login')
+// Rotte per l'accesso
+Route::get('/login', 'Auth\LoginController@showLoginForm')
         ->name('login');
+Route::post('/login', 'Auth\LoginController@login');
 
-Route::view('/signup', 'signup')
-        ->name('signup');
+// Rotte per la registrazione
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')
+        ->name('register');
+Route::post('register', 'Auth\RegisterController@register');
+
 
 Route::view('/staff', 'staffdashboard')
         ->name('staff');

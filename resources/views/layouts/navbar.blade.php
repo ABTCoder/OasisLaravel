@@ -18,7 +18,7 @@
                 </a>
                 <div class="dropdown-content">
                     <a href="{{ route('login') }}">ACCEDI</a>
-                    <a href="{{ route('signup') }}">REGISTRATI</a>
+                    <a href="{{ route('register') }}">REGISTRATI</a>
                 </div>
             </div>
         </li>
