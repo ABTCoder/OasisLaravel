@@ -11,7 +11,7 @@
 
     <!-- Link alla pagina precedente -->
     @if ($paginator->currentPage() != 1)
-    <a id="ctrl" href="{{ $paginator->previousPageUrl() }}"> &lt; </a> | 
+    <a id="ctrl" href="{{ $paginator->previousPageUrl() }}"> &lt; </a>
     @else
     <a id="ctrl"> &lt; </a>
     @endif
@@ -21,15 +21,19 @@
 		$a_id = 'page';
 		$current = $paginator->currentPage();
 		$total = ceil($paginator->total() / 9);
-		$remaining = $total-$current;
-		$max = 9;
-		$start = 0;
-		$floor = floor($current / 5);
-		$start = ($floor * 5);
-		if($start != 0 ) $start -= 1;
-		$max += $floor * 5;
-		$max = ($remaining < 9) ? $total: $max;
-		if(($max - $start) <= 2) $start -= 4;
+                $start = 0;
+                $max = 0;
+		$start = ($current - 5);
+		if($start < 0 ){
+                    $start = 0;
+                    $max = $start + 9;
+                }
+                else $max = $current + 4;
+		if($max > $total){
+                    $max = $total;
+                    $start = $total - 9;
+                    if($start < 0) $start = 0;
+                }
 	@endphp
 	@for($i = $start; $i < $max; $i++)
 	@php
