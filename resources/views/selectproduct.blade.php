@@ -19,6 +19,7 @@
         <div class="list_box">
             <h1 id="title"> Seleziona il prodotto </h1>
             @isset($products)
+            <hr>
             @foreach ($products as $product)
             <div class="productrow">
                 <div id="immagine">
@@ -29,7 +30,7 @@
                     <h3 id="code"> Codice prodotto:  {{ $product->codice }} </h3>
                     <h3 id="description"> {{ $product->desc_breve }} </h3>
                 </div>
-                <h3 id="price"> {{ $product->prezzo }}€ </h3>
+                <div id="price"> @include('helpers/priceProducts') </div>
             </div>
             <hr>
             @endforeach
