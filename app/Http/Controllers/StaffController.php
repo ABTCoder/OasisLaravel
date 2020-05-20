@@ -11,12 +11,7 @@ class StaffController extends Controller {
     protected $_catalogModel;
 
     public function __construct() {
-        $this->middleware('can:isStaff');
-        $this->_catalogModel = new Catalog;
-    }
-    
-    public function index() {
-        return view('admindashboard');
+        $this->_catalogModel = new Catalog; //metodo che viene attivato ogni volta che un'azione dell'admin viene richiesta
     }
 
     public function showProductsList() {
@@ -26,15 +21,25 @@ class StaffController extends Controller {
     }
 
     public function addProduct() {
-        $prodCats = $this->_catalogModel->getSubCats();
+        $prodCats = $this->_catalogModel->getSubCats()->pluck('nome', 'id');
         return view('addproduct')
                         ->with('subCategories', $prodCats);
     }
+	
+	public function completeMsg($id) {
+		$msg = 'message';
+		switch($id) {
+			case 0:
+				$msg = 'Prodotto aggiunto correttamente';
+				break;
+		}
+		return view('completemsg')
+						->with('message', $msg);
+	}
 
-    //il client non invia al server solo il nome dell'immagine, ma un oggetto complesso che contiene sia il nome che i byte dell'immagine
-    public function storeProduct(NewProductRequest $request) { //NewProductRequest è la classe associata al processo di validazione della form!
-        //è presente nella cartella Request di Http
-        //processa il contenuto della form e dopo aver generato un nuovo oggetto  eloqeunt che mappa la tupla, andrà a crearne una nel db
+    
+    public function storeProduct(NewProductRequest $request) { 
+        
         if ($request->hasFile('immagine')) {
             $image = $request->file('immagine');
             $imageName = $image->getClientOriginalName(); //estrae solo il nome dell'immagine
@@ -52,7 +57,7 @@ class StaffController extends Controller {
             $image->move($destinationPath, $imageName);
         }
 
-        return redirect()->action('StaffController@index');
+        return redirect()->action('StaffController@completeMsg', 0);
     }
 
 }

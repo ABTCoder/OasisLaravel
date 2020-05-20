@@ -1,6 +1,5 @@
 *{
     font-family: 'Lato', sans-serif;
-
 }
 
 body{
@@ -17,7 +16,7 @@ body{
     overflow: hidden;
 }
 /*logo*/
-#topnav img {
+.sitelogo {
     width: 45px;
     height: 45px;
     float: left;
@@ -35,7 +34,8 @@ body{
 #topnav a.homelink {
     float: left;
     padding: 0;
-    margin-right: 10%;
+    margin-right: 8%;
+	margin-left: 2%;
     color: #f2f2f2;
 }
 
@@ -50,23 +50,22 @@ body{
     float: left;
     color: #f2f2f2;
     text-align: center;
-    padding: 12px 0px;
     text-decoration: none;
     font-size: 17px;
-    font-weight: 500;
+    font-weight: 600;
 }
 #topnav #account{
     float: right;
     width: 140px;
     text-align: left;
-    margin-right:5%;
+    margin-right:6%;
     padding:0;
 }
 /* Change the color of links on hover */
 #topnav li:hover{
     background-color: #ddd;
     color: black;
-    font-weight: 500;
+    font-weight: 600;
 }
 /* Add a color to the active/current link */
 #topnav li.active{
@@ -76,10 +75,12 @@ body{
 #topnav li.active #profile img{
     filter: invert(100%);
 }
+
 #topnav #staff,#topnav #admin{
     float: right;
 }
 #topnav li a {
+	display: flex;
     padding: 12px 16px;
     color: inherit;
     text-decoration: none;
@@ -87,12 +88,22 @@ body{
 #profile img{
     width: 21px;
     height: 21px;
-    float:right;
-    margin-right: 10px;
+    margin-right: 5px;
     filter: invert(100%);
 }
-#profile{
-    padding-right: 0px !important;
+
+#topnav li.active .nav_item_icon{
+    filter: invert(100%) !important;
+}
+
+#topnav li:hover .nav_item_icon {
+    filter: initial;
+}
+.nav_item_icon{
+    width: 21px;
+    height: 21px;
+	margin-right: 3px;
+    filter: invert(100%);
 }
 
 .mission_content{
@@ -120,7 +131,6 @@ body{
 .dropdown {
     position: relative;
     display: inline-block;
-    padding: 12px 0;
     width: 100%
 }
 
@@ -129,7 +139,6 @@ body{
     position: fixed;
     background-color: #f9f9f9;
     text-align: left; 
-    margin-top: 12px;
     min-width: 140px;
     color: black;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);

@@ -17,7 +17,7 @@ Route::view('/', 'home')
 Route::get('/products', 'ProductController@showProductsAll')
         ->name('products');
 		
-Route::get('/products/selCat/{catId}', 'ProductController@showProductsCat')
+Route::get('/products/selCat/{catName}', 'ProductController@showProductsCat')
         ->name('products2');
 
 Route::get('/products/selSubCat/{subCatId}', 'ProductController@showProductsSubCat')
@@ -47,14 +47,14 @@ Route::view('/staff', 'staffdashboard')
 Route::get('/staff/selectproduct', 'StaffController@showProductsList')
         ->name('selectproduct');
 
-
-
 Route::get('/staff/addproduct', 'StaffController@addProduct') //visualizza la form vuota 
         ->name('addproduct');
 
 Route::post('/staff/addproduct', 'StaffController@storeProduct') //al sumbit della form attiva il processo di validazione, che,
         //se va a buon fine, gestirà memorizzando nella tabella prodotti del db il prodotto inserito.
         ->name('addproduct.store');
+		
+Route::get('/staff/completemsg/{id}', 'StaffController@completeMsg');
 
-Route::view('/admindashboard', 'admindashboard')
-        ->name('admindashboard');
+Route::view('/admin', 'admindashboard')
+        ->name('admin');

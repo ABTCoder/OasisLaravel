@@ -1,31 +1,20 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 30-apr-2020, 10.27.08
-    Author     : Matteo
-*/
-
 .adminnav_items{
     padding: 7% 3%;
     display: block;
-    line-height: 35px;
 }
 .adminnav_items img{
     display: inline-flex;
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
     filter: grayscale(100%) brightness(500%);
     transition: 0.25s;	
 }
 
 .adminnav_items a{
     display: inline-flex;
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 35px;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 25px;
     transition: 0.25s;
 }
 
