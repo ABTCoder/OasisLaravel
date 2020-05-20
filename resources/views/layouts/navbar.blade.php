@@ -24,7 +24,7 @@
         </li>
         <li class="{{ Route::is('staff*') ? 'active' : '' }}" id="staff"><a href="{{ route('staff') }}"> 
 			<img class="nav_item_icon"src="{{ asset('images/ui_images//navicons/nav_staff.png') }}">AREA STAFF</a></li>
-        <li class="{{ Route::is('admindashboard*') ? 'active' : '' }}" id="admin"><a href="{{ route('admindashboard') }}"> 
+        <li class="{{ Route::is('admin*') ? 'active' : '' }}" id="admin"><a href="{{ route('admin') }}"> 
 			<img class="nav_item_icon"src="{{ asset('images/ui_images//navicons/nav_admin.png') }}">AREA ADMIN</a></li>
     </ul>
 </nav>

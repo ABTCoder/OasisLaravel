@@ -56,5 +56,5 @@ Route::post('/staff/addproduct', 'StaffController@storeProduct') //al sumbit del
 		
 Route::get('/staff/completemsg/{id}', 'StaffController@completeMsg');
 
-Route::view('/admindashboard', 'admindashboard')
-        ->name('admindashboard');
+Route::view('/admin', 'admindashboard')
+        ->name('admin');
