@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder {
             ['nome' => 'Desktop', 'categoria' => 'Computer'],
             ['nome' => 'TV', 'categoria' => 'Display'],
             ['nome' => 'Monitor', 'categoria' => 'Display'],
-        ]); */
+        ]); 
         DB::table('prodotto')->insert([
             ['prezzo' => 470.00,
                 'nome' => 'Nikon D3500',
@@ -411,6 +411,20 @@ class DatabaseSeeder extends Seeder {
                 'sottocategoria' => 10
             ]
         ]);
-    }
+		*/
+    
+		DB::table('utente')->insert([
+            ['nome' => 'Amal', 'cognome' => 'Thaliath', 'email' => 'amal@email.it', 'username' => 'Humanzee',
+                'password' => Hash::make('password'), 'role' => 'user'],
+            ['nome' => 'Giovanni', 'cognome' => 'Gregorini', 'email' => 'giovanni@email.it', 'username' => 'Grego_98',
+                'password' => Hash::make('password'), 'role' => 'user'],
+			['nome' => 'Federico', 'cognome' => 'Panackal', 'email' => 'federico@email.it', 'username' => 'Federico',
+                'password' => Hash::make('password'), 'role' => 'user'],
+			['nome' => 'Matteo', 'cognome' => 'Toma', 'email' => 'matteo@email.it', 'username' => 'matteotoma_98',
+                'password' => Hash::make('password'), 'role' => 'user'],
+            ['nome' => 'Admin', 'cognome' => 'The Boss', 'email' => 'Admin@rossi.it', 'username' => 'adminadmin',
+                'password' => Hash::make('adminadmin'), 'role' => 'admin']
+        ]);
+	}
 
 }
