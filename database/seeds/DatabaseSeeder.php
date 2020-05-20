@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder {
 
     public function run() {
 
-        /*DB::table('categoria')->insert([
+        DB::table('categoria')->insert([
             ['nome' => 'Computer'],
             ['nome' => 'Display'],
             ['nome' => 'Dispositivi Mobile'],
@@ -245,7 +245,7 @@ class DatabaseSeeder extends Seeder {
                 'desc_esaustiva' => 'Il camcorder supporta la registrazione multiformato in 4K a 24p, UHD a 60p/50p, FHD a 60p/50p e la modalità Super Slow-Motion HD. Due slot per schede di memoria SD*1 consentono la registrazione relay/simultanea/di riserva, per un\'affidabilità superiore, mentre la possibilità di registrare a doppio codec UHD/FHD assicura un flusso di lavoro più efficiente.I comandi dell\'AG-UX180, come ad esempio le tre ghiere manuali e il pulsante dell\'utente, nonché le interfacce, quali gli ingressi 3G-SDI/HDMI e XLR, sono stati progettati per soddisfare le esigenze della videoregistrazione professionale. Con lo stesso livello di agilità e mobilità di un camcorder palmare HD tradizionale, l\'AG-UX180 supporta efficacemente la produzione di video in 4K a un\'elevata qualità dell\'immagine.Il grandangolo più ampio del settore (24 mm)*2 e l\'obiettivo con zoom ottico 20x di nuova concezione. Il primo*3 zoom ottico 20x al mondo in un camcorder con sensore da 1\"*4: l\'obiettivo con zoom ottico da 20x copre la gamma da 24 mm, all\'estremità del grandangolo, fino a 480 mm, all\'estremità telescopica (equivalente a pellicola da 35 mm in 4K a 24p).Sistema di obiettivi 4-Drive: gestisce simultaneamente e in modo indipendente 4 gruppi ottici (gruppo 2, diaframma, gruppo 3, gruppo 4) Le dimensioni dell\'obiettivo e l\'intervallo di azionamento di ciascuno dei 4 gruppi si possono ridurre con efficienza per ottimizzare la qualità dell\'immagine e la potenza dello zoom, garantendo allo stesso tempo un corpo compatto.Il grandangolo più ampio del settore, con 24 mm*5: l\'obiettivo integrato vanta il grandangolo più ampio del settore (24 mm) nell\'impostazione grandangolare. Questa caratteristica consente di effettuare riprese panoramiche con la minima distorsione, senza dover ricorrere a obiettivi di conversione, e inoltre di registrare/produrre video su veicoli o in interni, ad esempio. Zoom intelligente per ingrandimenti massimi di 30x a risoluzione super-elevata: nelle modalità di ripresa FHD, la funzione i.Zoom aumenta la capacità dello zoom fino a circa 30x, pur mantenendo una risoluzione elevata. Quando raggiunge il limite di 20x dello zoom ottico, il camcorder passa direttamente a i.Zoom.Zoom digitale (2x, 5x o 10x): l\'AG-UX180 offre uno zoom digitale da 2x, 5x e 10x. Se si utilizza lo zoom ottico 20x in combinazione con i.Zoom, si ottiene un ingrandimento da superteleobiettivo fino a 300x, senza perdite di intensità luminosa. Obiettivo LEICA DICOMAR*6: questo obiettivo ha superato i rigorosi standard qualitativi di Leica Camera AG. Un processo di rivestimento multiplo riduce al minimo gli effetti ghost e flare, creando immagini di estrema nitidezza.',
                 'sconto' => 0,
                 'marca' => 'Panasonic',
-                'immagine' => '24.jpg',
+                'immagine' => '24.jpeg',
                 'sottocategoria' => 2
             ],
             ['prezzo' => 1559.99,
@@ -411,7 +411,6 @@ class DatabaseSeeder extends Seeder {
                 'sottocategoria' => 10
             ]
         ]);
-		*/
     
 		DB::table('utente')->insert([
             ['nome' => 'Amal', 'cognome' => 'Thaliath', 'email' => 'amal@email.it', 'username' => 'Humanzee',
