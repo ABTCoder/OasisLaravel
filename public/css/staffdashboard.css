@@ -51,19 +51,24 @@
     margin-bottom: 2%;
 	padding: 0% 2% 2% 2%;
 }
-/*Contentuto di side_container (usato per mettere un padding a tutto)*/
 
 .out_prodname{
     display: grid;
-    grid-template-columns: 17% 83%;
+    grid-template-columns: 11% 89%;
     grid-column-gap: 10px;
     width: 100%;
+}
+
+#prodname_hint{
+	margin-top: 6px;
 }
 
 #sc_title{
     text-align: left;
     color: #008CFF;
-    font-size: 50px;
+    font-size: 25pt;
+	margin: 30px 0 0 0;
+	font-weight: 800;
 }
 #sc_addpic{
     display: inline-block;
@@ -73,10 +78,14 @@
 	padding: 20px;
 }
 
+.errormsg{
+	color: lightcoral;
+}
+
 .sc_hint{
-    color: white;
-    font-size: 20pt;
-    margin: 0;
+    color: #CDE6F5;
+    font-size: 15pt;
+    margin: 10px 0 2px 0;
 	text-align: left;
 }
 
@@ -86,24 +95,60 @@
     font-size: 20px;
     outline: none;
     color: black;
-    border-radius: 10px;
+    border-radius: 6px;
     width: 100%;
-    padding: 0.5em;
+    padding: 0.3em;
     box-sizing : border-box;
     min-width: 0;
 }
+
+.imagecontainer{
+	text-align: center;
+	align-self: center;
+	height: 100%;
+}
+
+#imagelabel{
+	float: left;
+	font-weight: 600;
+	color: #CDE6F5;
+	color: #CDE6F5;
+    font-size: 15pt;
+    margin: 10px 0 0 0;
+	text-align: left;
+}
+
+#image{
+	color: white;
+}
+
+#desc_esaustiva{
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 110px;
+	height: 110px;
+	max-height: 300px;
+}
+#desc_breve{
+	min-width: 100%;
+	max-width: 100%;
+	height: 58px;
+	min-height: 58px;
+	max-height: 116px;
+}
 .alpha{
-    margin-top: 10px;
+	margin-top: 10px;
     display: flex;
 	width: 100%;
+		
 }
 .bravo{
     display: flex;
     padding: 0;
 	flex-direction: column;
 	flex: 1;
-	margin-top: 30px;
-	
+	width: 70%;
+	margin-left: 30px;
 }
 
 .charlie{
@@ -115,12 +160,15 @@
 	width: 100%;
 }
 
+#charlie_subcat{
+	margin-left: 1%;
+}
+
 .select_placeholder {
     color:ghostwhite
 }
 
 .publish{
-	
 	border: 0;
     background: #009eff;
     display: block;
@@ -147,9 +195,10 @@
     border: 0;
     text-align: center;
     width: 100%;
-    padding: 13px;
+	height: 36px;
+    padding: 0.3em;
     outline: none;
     color: black;
-    border-radius: 10px;
+    border-radius: 6px;
     cursor: pointer;
 }
