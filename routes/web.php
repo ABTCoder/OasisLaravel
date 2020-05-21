@@ -58,9 +58,14 @@ Route::get('/staff/selectproduct', 'StaffController@showProductsList')
 Route::get('/staff/addproduct', 'StaffController@addProduct') //visualizza la form vuota 
         ->name('addproduct');
 
-Route::post('/staff/addproduct', 'StaffController@storeProduct') //al sumbit della form attiva il processo di validazione, che,
-        //se va a buon fine, gestirà memorizzando nella tabella prodotti del db il prodotto inserito.
+Route::post('/staff/addproduct', 'StaffController@storeProduct')
         ->name('addproduct.store');
+
+Route::get('/staff/editproduct/{productCode}', 'StaffController@editProduct') //visualizza la form vuota 
+        ->name('editproduct');
+		
+Route::post('/staff/editproduct/{productCode}', 'StaffController@saveProduct') //visualizza la form vuota 
+        ->name('editproduct.save');		
 		
 Route::get('/staff/completemsg/{id}', 'StaffController@completeMsg');
 

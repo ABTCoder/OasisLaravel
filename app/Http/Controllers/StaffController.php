@@ -30,12 +30,22 @@ class StaffController extends Controller {
         return view('addproduct')
                         ->with('subCategories', $prodCats);
     }
+	public function editProduct($productCode) {
+        $prodCats = $this->_catalogModel->getSubCats()->pluck('nome', 'id');
+		$product = $this->_catalogModel->getProductByCode([$productCode]);
+        return view('addproduct')
+                        ->with('subCategories', $prodCats)
+						->with('product', $product);
+    }
 	
 	public function completeMsg($id) {
 		$msg = 'message';
 		switch($id) {
 			case 0:
 				$msg = 'Prodotto aggiunto correttamente';
+				break;
+			default:
+				$msg = 'Error';
 				break;
 		}
 		return view('completemsg')
@@ -63,6 +73,27 @@ class StaffController extends Controller {
         }
 
         return redirect()->action('StaffController@completeMsg', 0);
+    }
+	
+	public function saveProduct(NewProductRequest $request, $productCode) { 
+        
+		$product = $this->_catalogModel->getProductByCode([$request->codice]);
+		$product->fill($request->validated());
+		
+        if ($request->hasFile('immagine')) {
+            $image = $request->file('immagine');
+            $imageName = $image->getClientOriginalName(); //estrae solo il nome dell'immagine
+			$product->immagine = $imageName;
+        } 
+
+        $product->save();
+
+        if (!is_null($imageName)) {
+            $destinationPath = public_path() . '/images/products_images';
+            $image->move($destinationPath, $imageName);
+        }
+
+        return redirect()->action('StaffController@completeMsg', 1);
     }
 
 }
