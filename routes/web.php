@@ -40,13 +40,16 @@ Route::get('login', 'Auth\LoginController@showLoginForm')
         ->name('login');
 Route::post('login', 'Auth\LoginController@login');
 
+Route::post('logout', 'Auth\LoginController@logout')
+        ->name('logout');
+
 // Rotte per la registrazione
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')
         ->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
 
-Route::view('/staff', 'staffdashboard')
+Route::get('/staff', 'StaffController@index')
         ->name('staff');
 
 Route::get('/staff/selectproduct', 'StaffController@showProductsList')

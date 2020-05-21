@@ -11,7 +11,12 @@ class StaffController extends Controller {
     protected $_catalogModel;
 
     public function __construct() {
+        $this->middleware('can:isStaff');
         $this->_catalogModel = new Catalog; //metodo che viene attivato ogni volta che un'azione dell'admin viene richiesta
+    }
+    
+    public function index() {
+        return view('staffdashboard');
     }
 
     public function showProductsList() {

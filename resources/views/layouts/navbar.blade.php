@@ -19,6 +19,11 @@
                 <div class="dropdown-content">
                     <a href="{{ route('login') }}">ACCEDI</a>
                     <a href="{{ route('register') }}">REGISTRATI</a>
+                    <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ESCI</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+
                 </div>
             </div>
         </li>
