@@ -77,6 +77,7 @@ class StaffController extends Controller {
 	
 	public function saveProduct(NewProductRequest $request, $productCode) { 
         
+		/*
 		$product = $this->_catalogModel->getProductByCode([$request->codice]);
 		$product->fill($request->validated());
 		
@@ -92,6 +93,7 @@ class StaffController extends Controller {
             $destinationPath = public_path() . '/images/products_images';
             $image->move($destinationPath, $imageName);
         }
+		*/
 
         return redirect()->action('StaffController@completeMsg', 1);
     }

@@ -17,7 +17,6 @@
 		@else
 		{{ Form::open(array('route' => 'addproduct.store', 'id' => 'addproduct', 'files' => true)) }}
 		@endisset
-        <form enctype="multipart/form-data" method="post" action="{{ route('addproduct.store')  }}">
             <h1 id="sc_title">Aggiungi prodotto</h1><br>
             @csrf    
             <div class="out_prodname">
