@@ -17,19 +17,27 @@
                     ACCOUNT
                 </a>
                 <div class="dropdown-content">
+					@guest
                     <a href="{{ route('login') }}">ACCEDI</a>
                     <a href="{{ route('register') }}">REGISTRATI</a>
+					@endguest
+					@auth
                     <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ESCI</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                     </form>
-
+					@endauth
                 </div>
             </div>
         </li>
-        <li class="{{ Route::is('staff*') ? 'active' : '' }}" id="staff"><a href="{{ route('staff') }}"> 
-			<img class="nav_item_icon"src="{{ asset('images/ui_images//navicons/nav_staff.png') }}">AREA STAFF</a></li>
-        <li class="{{ Route::is('admin*') ? 'active' : '' }}" id="admin"><a href="{{ route('admin') }}"> 
+		@can('isStaff')
+        <li class="{{ Request::is('staff*') ? 'active' : '' }}" id="staff"><a href="{{ route('staff') }}"> 
+			<img class="nav_item_icon"src="{{ asset('images/ui_images//navicons/nav_staff.png') }}">AREA STAFF</a>
+		</li>
+		@endcan
+		@can('isAdmin')
+        <li class="{{ Request::is('admin*') ? 'active' : '' }}" id="admin"><a href="{{ route('admin') }}"> 
 			<img class="nav_item_icon"src="{{ asset('images/ui_images//navicons/nav_admin.png') }}">AREA ADMIN</a></li>
+		@endcan
     </ul>
 </nav>
