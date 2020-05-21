@@ -21,7 +21,8 @@
             @isset($products)
             <hr>
             @foreach ($products as $product)
-            <div class="productrow">
+			<a style="text-decoration:none" href="{{ Route('editproduct', [$product->codice]) }}">
+            <div class="productrow" >
                 <div id="immagine">
                     @include('helpers/imgProducts', ['imgFile' => $product->immagine])
                 </div>
@@ -31,7 +32,8 @@
                     <h3 id="description"> {{ $product->desc_breve }} </h3>
                 </div>
                 <div id="price"> @include('helpers/priceProducts') </div>
-            </div>
+			</div>
+            </a>
             <hr>
             @endforeach
             @endisset
