@@ -64,7 +64,7 @@ Route::post('/staff/addproduct', 'StaffController@storeProduct')
 Route::get('/staff/editproduct/{productCode}', 'StaffController@editProduct') //visualizza la form vuota 
         ->name('editproduct');
 		
-Route::post('/staff/editproduct/{productCode}', 'StaffController@saveProduct') //visualizza la form vuota 
+Route::put('/staff/editproduct/{productCode}', 'StaffController@saveProduct') //visualizza la form vuota 
         ->name('editproduct.save');		
 		
 Route::get('/staff/completemsg/{id}', 'StaffController@completeMsg');

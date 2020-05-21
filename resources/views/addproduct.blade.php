@@ -12,7 +12,8 @@
     @include ('layouts.staffsidenav')
     <div class="side_container">
 		@isset($product)
-		{{ Form::model($product, array('route' => array('editproduct.save', $product->codice))) }}
+		{{ Form::model($product, array('route' => array('editproduct.save', $product->codice), 'files' => true)) }}
+		@method('PUT')
 		<!-- FINE AGGIORNA PRODOTTO -->
 		@else
 		{{ Form::open(array('route' => 'addproduct.store', 'id' => 'addproduct', 'files' => true)) }}

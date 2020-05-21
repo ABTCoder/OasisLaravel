@@ -44,6 +44,9 @@ class StaffController extends Controller {
 			case 0:
 				$msg = 'Prodotto aggiunto correttamente';
 				break;
+			case 1:
+				$msg = 'Prodotto aggiornato correttamente';
+				break;
 			default:
 				$msg = 'Error';
 				break;
@@ -55,45 +58,37 @@ class StaffController extends Controller {
     
     public function storeProduct(NewProductRequest $request) { 
         
+		$product = new Product;
+        $product->fill($request->validated());
+		
         if ($request->hasFile('immagine')) {
             $image = $request->file('immagine');
             $imageName = $image->getClientOriginalName(); //estrae solo il nome dell'immagine
-        } else {
-            $imageName = NULL;
-        }
-
-        $product = new Product;
-        $product->fill($request->validated());
-        $product->immagine = $imageName;
-        $product->save();
-
-        if (!is_null($imageName)) {
-            $destinationPath = public_path() . '/images/products_images';
+			$product->immagine = $imageName;
+			$destinationPath = public_path() . '/images/products_images';
             $image->move($destinationPath, $imageName);
         }
+
+        $product->save();
 
         return redirect()->action('StaffController@completeMsg', 0);
     }
 	
 	public function saveProduct(NewProductRequest $request, $productCode) { 
         
-		/*
-		$product = $this->_catalogModel->getProductByCode([$request->codice]);
+		
+		$product = $this->_catalogModel->getProductByCode([$productCode]);
 		$product->fill($request->validated());
 		
         if ($request->hasFile('immagine')) {
             $image = $request->file('immagine');
             $imageName = $image->getClientOriginalName(); //estrae solo il nome dell'immagine
 			$product->immagine = $imageName;
+			$destinationPath = public_path() . '/images/products_images';
+            $image->move($destinationPath, $imageName);
         } 
 
         $product->save();
-
-        if (!is_null($imageName)) {
-            $destinationPath = public_path() . '/images/products_images';
-            $image->move($destinationPath, $imageName);
-        }
-		*/
 
         return redirect()->action('StaffController@completeMsg', 1);
     }
