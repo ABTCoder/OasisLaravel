@@ -11,9 +11,12 @@
 <div class="staff_main">
     @include ('layouts.staffsidenav')
 
-    <div class="side_container">
-        <h1> AREA STAFF </h1>
-        <h2> SELEZIONA UN'OPZIONE DALLA BARRA DI NAVIGAZIONE</h2>
+    <div class="side_container" id="staffmainview">
+        <img id="staffpic" src="{{ asset('images/ui_images/oasis_home_background.jpg') }}">
+		<div class="centeredstaff">
+			<div id="txt_staff1">OASIS STAFF</div>
+			<div id="txt_staff2">Seleziona una voce dalla barra di navigazione laterale</div>		
+		</div>
     </div>
 </div>
 @endsection
