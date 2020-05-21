@@ -102,7 +102,7 @@
 }
 
 #error_msg {
-    font-size: 27px;
+	font-weight: bold;
     color: #ff837a;
 }
 #admin_dash_box.account_box {
