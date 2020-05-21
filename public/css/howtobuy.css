@@ -8,12 +8,37 @@ and open the template in the editor.
     Author     : Matteo
 */
 
-.howtobuy p{ 
-    margin:auto;
-    color: white;
+.howtobuy{
     text-align: center;
-    font-size: 40px;
-    
+    margin-bottom: 2%;
+}
+.howtobuy div{
+    width: 50%;
+    background-color: #656565;
+    padding: 15px 30px;
+    margin: auto;
+    color: white;
+    text-align: justify;
+    font-size: 18pt;
+    font-weight: 300;
+}
+.howtobuy div a{
+    color: #00b6ff;
+    text-decoration: none;
+}
+.howtobuy div a:hover{
+    text-decoration: underline;
+}
+.howtobuy h1{
+    color: #00b6ff;
+    text-align: center;
+    font-size: 30pt;
+}
+.howtobuy hr{
+    margin: 0;
+    border: 2px solid;
+    border-radius: 5px;
+    color: #00b6ff;
 }
 
 
