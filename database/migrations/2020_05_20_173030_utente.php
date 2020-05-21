@@ -22,7 +22,7 @@ class Utente extends Migration {
             $table->string('password', 255);
 			$table->timestamp('email_verified_at')->nullable();
             $table->string('occupazione', 30)->nullable();
-            $table->string('residenza', 25)->nullable();
+            $table->string('residenza', 50)->nullable();
             $table->date('data_nasc')->nullable();
             $table->string('privilegio',7)->default('cliente');
             $table->rememberToken();

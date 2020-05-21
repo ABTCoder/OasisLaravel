@@ -47,14 +47,12 @@ use RegistersUsers;
      */
     protected function validator(array $data) {
         return Validator::make($data, [
-                    'nome' => ['required', 'string', 'max:255'],
-                    'cognome' => ['required', 'string', 'max:255'],
-                    'email' => ['required', 'string', 'email', 'max:255', 'unique:utente'],
-                    'username' => ['required', 'string', 'min:8', 'unique:utente'],
+                    'nome' => ['required', 'string', 'max:20'],
+                    'cognome' => ['required', 'string', 'max:20'],
+                    'email' => ['required', 'string', 'email', 'max:50', 'unique:utente'],
+                    'username' => ['required', 'string', 'min:5', 'unique:utente'],
                     'password' => ['required', 'string', 'min:8', 'confirmed'],
-                    'occupazione' => ['required', 'string', 'max:30', 'confirmed'],
-                    'residenza' => ['required', 'string', 'max:25', 'confirmed'],
-                    'data_nasc' => ['required', 'date', 'confirmed'],
+					'residenza' => ['max:50'],
         ]);
     }
 

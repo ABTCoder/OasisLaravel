@@ -9,34 +9,61 @@
 @section('content')
 <div class="account_box">
     <h2> Registrati </h2>
-    <form>
-        <input type="text" placeholder="Nome">
+	{{ Form::open(array('route' => 'register')) }}
+		{{ Form::text('nome', '', ['placeholder' => 'Nome', 'id' => 'nome']) }}
+		@if ($errors->first('nome'))
+			@foreach ($errors->get('nome') as $message)
+			<div id="error_msg">{{ $message }}</div>
+			@endforeach
+		@endif
         <br>
-        <input type="text" placeholder="Cognome">
+		{{ Form::text('cognome', '', ['placeholder' => 'Cognome', 'id' => 'cognome']) }}
+		@if ($errors->first('cognome'))
+			@foreach ($errors->get('cognome') as $message)
+			<div id="error_msg">{{ $message }}</div>
+			@endforeach
+		@endif
         <br>
-        <input type="text" placeholder="Username">
+		{{ Form::text('username', '', ['placeholder' => 'Username', 'id' => 'username']) }}
+		@if ($errors->first('username'))
+			@foreach ($errors->get('username') as $message)
+			<div id="error_msg">{{ $message }}</div>
+			@endforeach
+		@endif
         <br>
-        <input type="text" placeholder="Email">
+		{{ Form::text('email', '', ['placeholder' => 'Email', 'id' => 'email']) }}
+		@if ($errors->first('email'))
+			@foreach ($errors->get('email') as $message)
+			<div id="error_msg">{{ $message }}</div>
+			@endforeach
+		@endif
         <br>
-        <input type="password" placeholder="Password">
+		{{ Form::password('password', ['placeholder' => 'Password', 'id' => 'password']) }}
+		@if ($errors->first('password'))
+			@foreach ($errors->get('password') as $message)
+			<div id="error_msg">{{ $message }}</div>
+			@endforeach
+		@endif
+		<br>
+		{{ Form::password('password_confirmation', ['placeholder' => 'Conferma Password', 'id' => 'password-confirm']) }}
         <br>
-        <input type="text" placeholder="Indirizzo di residenza">
+		{{ Form::text('residenza', null, ['placeholder' => 'Indirizzo di residenza', 'id' => 'residenza']) }}
+		@if ($errors->first('residenza'))
+			@foreach ($errors->get('residenza') as $message)
+			<div id="error_msg">{{ $message }}</div>
+			@endforeach
+		@endif
         <br>
         <div class="date_job">
-        <input  type="date" placeholder="Data di nascita">
-        <select id="select">
-            <option class="select_placeholder" value="" disabled selected hidden>Occupazione</option>
-            <option value="0">Studente</option>
-            <option value="1">Operaio</option>
-            <option value="2">Libero professionista</option>
-            <option value="3">Disoccupato</option>
-        </select>
+		{{ Form::date('data_nasc', null, ['placeholder' => 'Data di nascita', 'id' => 'data_nasc']) }}
+		{{ Form::select('occupazione', ['Studente' => 'Studente', 'Operaio' => 'Operaio', 'Libero professionista' => 'Libero professionista', 
+										'Pubblica sicurezza' => 'Pubblica Sicurezza', 'Medico' => 'Medico', 'Impiegato' => 'Impiegato',
+										'Insegnante' => 'Insegnante'], null, ['placeholder' => 'Professione','id' => 'occupazione']) }}
         </div>
         <br>
-        <input type="submit" value="Registrati">
-        <br> 
-    </form>
+		{{ Form::submit('Registrati') }}
+        <br>
+	{{ Form::close() }}
     <b> Possiedi già un account? <a href="{{ route('login') }}"> ACCEDI </a> </b>
-    <div id="error_msg"> Password errata! </div>
 </div>
 @endsection
