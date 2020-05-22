@@ -1,8 +1,8 @@
 $(document).ready(function() {
 	// When the user scrolls the page, execute myFunction
-	window.onscroll = function() {myFunction();};
+	window.onscroll = function() {myFunction()};
     // When the window is resized, execute changeHeight
-    window.onresize = function() {changeHeight();};
+	window.onresize = function() {changeHeight()};
 
 	// Get the navbar
 	var navbar = $("#topnav");
@@ -28,7 +28,7 @@ $(document).ready(function() {
         myFunction();
     }
 		
-		
+	
 	//CATEGORIE PRODOTTI
 	/*
 	var cat = document.getElementsByClassName("cat");
