@@ -14,11 +14,12 @@
 		@isset($product)
 		{{ Form::model($product, array('route' => array('editproduct.save', $product->codice), 'files' => true)) }}
 		@method('PUT')
+                <h1 id="sc_title">Modifica prodotto</h1><br>
 		<!-- FINE AGGIORNA PRODOTTO -->
 		@else
 		{{ Form::open(array('route' => 'addproduct.store', 'id' => 'addproduct', 'files' => true)) }}
+                <h1 id="sc_title">Aggiungi prodotto</h1><br>
 		@endisset
-            <h1 id="sc_title">Aggiungi prodotto</h1><br>
             @csrf    
             <div class="out_prodname">
                 <h3 class="sc_hint" id="prodname_hint">Nome Prodotto</h3>
