@@ -47,5 +47,19 @@ $(document).ready(function() {
 		$(this).toggleClass("rotate").next().slideToggle(200);
 	});
 	
+	//SELEZIONE PRODOTTI STAFF
+	var productRows = $(".productrow");
+	var selectedProd = null;
+	productRows.on("click", function() {
+		productRows.not(this).removeClass("selected_row");
+		$(this).toggleClass("selected_row");
+		if($(this).hasClass("selected_row")) selectedProd = $(this).attr("id");
+		else selectedProd = null;
+	});
+	
+	$("#edit").on("click", function() {
+		if(selectedProd == null ) alert ("Non hai selezionato nessun prodotto!");
+		else  document.location.href = "editproduct/" + selectedProd ;
+	});
 	
 });

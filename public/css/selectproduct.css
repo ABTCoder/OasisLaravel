@@ -30,6 +30,9 @@
 .productrow:hover{
     background-color: #009eff;
 }
+.selected_row {
+	background-color: #009eff;
+}
 
 #immagine{
     background-color: white;

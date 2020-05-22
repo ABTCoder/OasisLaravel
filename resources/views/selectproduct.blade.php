@@ -21,8 +21,8 @@
             @isset($products)
             <hr>
             @foreach ($products as $product)
-			<a style="text-decoration:none" href="{{ Route('editproduct', [$product->codice]) }}">
-            <div class="productrow" >
+			<!-- <a style="text-decoration:none" href="{{ Route('editproduct', [$product->codice]) }}"> -->
+            <div id="{{$product->codice}}" class="productrow" >
                 <div id="immagine">
                     @include('helpers/imgProducts', ['imgFile' => $product->immagine])
                 </div>
@@ -33,11 +33,12 @@
                 </div>
                 <div id="price"> @include('helpers/priceProducts') </div>
 			</div>
-            </a>
+            <!-- </a> -->
             <hr>
             @endforeach
             @endisset
         </div>
+		<button id="edit"> Modifica </button> 
     </div>
 </div>
 @endsection
