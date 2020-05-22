@@ -1,35 +1,36 @@
-window.onload = function() {
+$(document).ready(function() {
 	// When the user scrolls the page, execute myFunction
 	window.onscroll = function() {myFunction();};
     // When the window is resized, execute changeHeight
     window.onresize = function() {changeHeight();};
 
 	// Get the navbar
-	var navbar = document.getElementById("topnav");
-	var main_content = document.getElementById("main");
+	var navbar = $("#topnav");
+	var main_content = $("#main");
 
 	// Get the offset position of the navbar
-	var sticky = navbar.offsetTop;
+	var sticky = navbar.offset().top;
     // Get the height of the navbar
-    var height = navbar.offsetHeight;
+    var height = navbar.outerHeight();
 
 	// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
 	function myFunction() {
 		if (window.pageYOffset >= sticky) {
-			if (main_content!==null) main_content.style.padding=height+"px 0 0 0";
-			navbar.classList.add("sticky");
+			if (main_content!==null) main_content.css("padding", height+"px 0 0 0");
+			navbar.addClass("sticky");
 		} else {
-			navbar.classList.remove("sticky");
+			navbar.removeClass("sticky");
 		}
 	}
     // Update the height of the navbar and the padding of the main box
     function changeHeight(){
-        height = navbar.offsetHeight;
+        height = navbar.outerHeight();
         myFunction();
     }
 		
 		
-	//CATEGORIE PRODOTTI	
+	//CATEGORIE PRODOTTI
+	/*
 	var cat = document.getElementsByClassName("cat");
        
         var i;
@@ -40,4 +41,11 @@ window.onload = function() {
                 this.parentElement.children[2].classList.toggle("show");
             });
         }
-};
+		*/
+		
+	$("div.cat > img").on("click", function() {
+		$(this).toggleClass("rotate").next().slideToggle(200);
+	});
+	
+	
+});
