@@ -38,7 +38,11 @@
             @endforeach
             @endisset
         </div>
-		<button id="edit"> Modifica </button> 
+		@if(Route::is('editproduct'))
+		<button id="edit"> Modifica </button>
+		@else
+		<button id="delete" data-token="{{ csrf_token() }}" > Elimina </button>
+		@endif
     </div>
 </div>
 @endsection

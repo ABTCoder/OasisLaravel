@@ -57,9 +57,24 @@ $(document).ready(function() {
 		else selectedProd = null;
 	});
 	
-	$("#edit").on("click", function() {
+	$("#edit, #delete").on("click", function() {
 		if(selectedProd == null ) alert ("Non hai selezionato nessun prodotto!");
-		else  document.location.href = "editproduct/" + selectedProd ;
+		else {
+			if($(this).attr("id") == "edit") document.location.href = "editproduct/" + selectedProd ;
+			else { //attr(id) == delete
+				if(confirm("Sei sicuro di voler eliminare questo prodotto?")) {
+					var token = $(this).data("token");					
+					$.ajax({
+						type: "DELETE",
+						url: './deleteproduct',
+						data: {'productCode': selectedProd, '_token' : token, '_method' : 'DELETE'},
+						success: function () { //Il return dal controller non funziona con Ajax
+							document.location.href = "completemsg/2";
+						}
+					});
+				}
+			}
+		}
 	});
 	
 });

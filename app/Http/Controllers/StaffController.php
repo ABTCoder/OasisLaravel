@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Catalog;
 use App\Models\Resources\Product;
 use App\Http\Requests\NewProductRequest;
+use Illuminate\Http\Request;
 
 class StaffController extends Controller {
 
@@ -47,6 +48,9 @@ class StaffController extends Controller {
 			case 1:
 				$msg = 'Prodotto aggiornato correttamente';
 				break;
+			case 2:
+				$msg = 'Prodotto eliminato correttamente';
+				break;
 			default:
 				$msg = 'Error';
 				break;
@@ -71,7 +75,7 @@ class StaffController extends Controller {
 
         $product->save();
 
-        return redirect()->action('StaffController@completeMsg', 0);
+        return redirect()->route('completemsg', 0);
     }
 	
 	public function saveProduct(NewProductRequest $request, $productCode) { 
@@ -90,7 +94,13 @@ class StaffController extends Controller {
 
         $product->save();
 
-        return redirect()->action('StaffController@completeMsg', 1);
+        return redirect()->route('completemsg', 1);
     }
+	
+	public function deleteProduct(Request $request) {
 
+		$product = $this->_catalogModel->getProductByCode([$request->productCode]);
+		$product->delete();
+		
+    }
 }

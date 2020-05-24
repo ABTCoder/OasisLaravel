@@ -48,12 +48,9 @@ Route::get('register', 'Auth\RegisterController@showRegistrationForm')
         ->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
-
+//Rotte Staff
 Route::get('/staff', 'StaffController@index')
         ->name('staff');
-
-Route::get('/staff/selectproduct', 'StaffController@showProductsList')
-        ->name('selectproduct');
 
 Route::get('/staff/addproduct', 'StaffController@addProduct') //visualizza la form vuota 
         ->name('addproduct');
@@ -61,13 +58,23 @@ Route::get('/staff/addproduct', 'StaffController@addProduct') //visualizza la fo
 Route::post('/staff/addproduct', 'StaffController@storeProduct')
         ->name('addproduct.store');
 
-Route::get('/staff/editproduct/{productCode}', 'StaffController@editProduct') //visualizza la form vuota 
+Route::get('/staff/editproduct', 'StaffController@showProductsList')
         ->name('editproduct');
 		
-Route::put('/staff/editproduct/{productCode}', 'StaffController@saveProduct') //visualizza la form vuota 
-        ->name('editproduct.save');		
+Route::get('/staff/editproduct/{productCode}', 'StaffController@editProduct') //visualizza la form vuota 
+        ->name('editproduct.edit');
 		
-Route::get('/staff/completemsg/{id}', 'StaffController@completeMsg');
+Route::put('/staff/editproduct/{productCode}', 'StaffController@saveProduct') //visualizza la form vuota 
+        ->name('editproduct.save');	
+
+Route::get('/staff/deleteproduct', 'StaffController@showProductsList')
+		->name('deleteproduct');
+
+Route::delete('/staff/deleteproduct', 'StaffController@deleteProduct')
+		->name('deleteproduct.delete');
+		
+Route::get('/staff/completemsg/{id}', 'StaffController@completeMsg')
+		->name('completemsg');
 
 Route::get('/admin', 'AdminController@index')
         ->name('admin');
