@@ -1,5 +1,5 @@
-@can('show-discount')
-@if ( $product->sconto == 0 ) 
+@can('isUser')
+@if ( $product->sconto == null) 
 <div class="og_price"> {{ number_format($product->getPrice(), 2, ',', '.') }}€ </div>
 @else
 <div class="og_price_crossed">{{ number_format($product->getPrice(), 2, ',', '.') }}€</div>

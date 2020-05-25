@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', 'Registrati')
+@section('title', 'Modifica')
 
 @section('asset')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/account.css') }}" >
@@ -8,8 +8,8 @@
 
 @section('content')
 <div class="account_box">
-    <h2> Registrati </h2>
-	{{ Form::open(array('route' => 'register')) }}
+    <h2> Modifica </h2>
+	{{ Form::open(array('route' => 'editaccount.save')) }}
 		{{ Form::text('nome', '', ['placeholder' => 'Nome', 'id' => 'nome']) }}
 		@if ($errors->first('nome'))
 			@foreach ($errors->get('nome') as $message)
