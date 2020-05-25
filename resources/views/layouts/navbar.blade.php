@@ -6,7 +6,7 @@
     <ul>
         <li class="{{ Route::is('home*') ? 'active' : '' }}"><a href="{{ route('home') }}"> 
 			<img class="nav_item_icon"src="{{ asset('images/ui_images//navicons/nav_home.png') }}">HOME</a></li>
-        <li class="{{ Route::is('products*') ? 'active' : '' }}"><a href="{{ route('products') }}">
+        <li class="{{ Request::is('products*') ? 'active' : '' }}"><a href="{{ route('products') }}">
 			<img class="nav_item_icon"src="{{ asset('images/ui_images//navicons/nav_products.png') }}">PRODOTTI</a></li>
         <li class="{{ Route::is('howtobuy*') ? 'active' : '' }}"><a href="{{ route('howtobuy') }}">
 			<img class="nav_item_icon"src="{{ asset('images/ui_images//navicons/nav_buyinfo.png') }}">COME ACQUISTARE</a></li>
