@@ -51,7 +51,7 @@ Route::post('register', 'Auth\RegisterController@register');
 //Rotte per la modifica
 Route::get('/editaccount', 'Auth\EditController@editAccount')
         ->name('editaccount');
-Route::post('/editaccount', 'Auth\EditController@saveAccount')
+Route::patch('/editaccount', 'Auth\EditController@saveAccount')
         ->name('editaccount.save');
 
 //Rotte Staff

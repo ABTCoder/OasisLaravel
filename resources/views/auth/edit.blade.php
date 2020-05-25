@@ -9,7 +9,9 @@
 @section('content')
 <div class="account_box">
     <h2> Modifica </h2>
-	{{ Form::open(array('route' => 'editaccount.save')) }}
+	{{ Form::model($user, array('route' => array('editaccount.save'))) }}
+		@csrf
+		@method('PATCH')
 		{{ Form::text('nome', null, ['placeholder' => 'Nome', 'id' => 'nome']) }}
 		@if ($errors->first('nome'))
 			@foreach ($errors->get('nome') as $message)
@@ -20,6 +22,13 @@
 		{{ Form::text('cognome', null, ['placeholder' => 'Cognome', 'id' => 'cognome']) }}
 		@if ($errors->first('cognome'))
 			@foreach ($errors->get('cognome') as $message)
+			<div id="error_msg">{{ $message }}</div>
+			@endforeach
+		@endif
+        <br>
+		{{ Form::text('residenza', null, ['placeholder' => 'Indirizzo di residenza', 'id' => 'residenza']) }}
+		@if ($errors->first('residenza'))
+			@foreach ($errors->get('residenza') as $message)
 			<div id="error_msg">{{ $message }}</div>
 			@endforeach
 		@endif
