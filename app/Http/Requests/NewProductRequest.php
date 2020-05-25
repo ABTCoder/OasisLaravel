@@ -31,7 +31,7 @@ class NewProductRequest extends FormRequest
             'desc_esaustiva' => 'required|max:3000',
             'immagine' => 'image|max:2048',
             'prezzo' => 'required|numeric|min:0',
-            'sconto' => 'required|integer|min:0|max:99'
+            'sconto' => 'integer|min:1|max:99|nullable'
         ];
     }
 }

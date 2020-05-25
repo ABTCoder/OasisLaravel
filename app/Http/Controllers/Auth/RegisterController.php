@@ -52,7 +52,9 @@ use RegistersUsers;
                     'email' => ['required', 'string', 'email', 'max:50', 'unique:utente'],
                     'username' => ['required', 'string', 'min:5', 'unique:utente'],
                     'password' => ['required', 'string', 'min:8', 'confirmed'],
-					'residenza' => ['max:50'],
+					'residenza' => ['required', 'string', 'max:50'],
+					'data_nasc' => ['required'],
+					'occupazione' => ['required'],
         ]);
     }
 

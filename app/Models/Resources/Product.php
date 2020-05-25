@@ -18,7 +18,7 @@ class Product extends Model {
 
     public function getPrice($withDiscount = false) {
         $price = $this->prezzo;
-        if ($withDiscount == true && $this->sconto > 0) {
+        if ($withDiscount == true && $this->sconto != null) {
             $discount = ($price * $this->sconto) / 100;
             $price = round($price - $discount, 2);
         }

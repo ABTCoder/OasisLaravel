@@ -60,6 +60,17 @@
 										'Pubblica sicurezza' => 'Pubblica Sicurezza', 'Medico' => 'Medico', 'Impiegato' => 'Impiegato',
 										'Insegnante' => 'Insegnante'], null, ['placeholder' => 'Professione','id' => 'occupazione']) }}
         </div>
+		@if ($errors->first('data_nasc'))
+			@foreach ($errors->get('data_nasc') as $message)
+			<div id="error_msg">{{ $message }}</div>
+			@endforeach
+		@endif
+		<br>
+		@if ($errors->first('occupazione'))
+			@foreach ($errors->get('occupazione') as $message)
+			<div id="error_msg">{{ $message }}</div>
+			@endforeach
+		@endif
         <br>
 		{{ Form::submit('Registrati') }}
         <br>
