@@ -48,6 +48,12 @@ Route::get('register', 'Auth\RegisterController@showRegistrationForm')
         ->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
+//Rotte per la modifica
+Route::get('/editaccount', 'Auth\EditController@editAccount')
+        ->name('editaccount');
+Route::post('/editaccount', 'Auth\EditController@saveAccount')
+        ->name('editaccount.save');
+
 //Rotte Staff
 Route::get('/staff', 'StaffController@index')
         ->name('staff');
@@ -118,5 +124,15 @@ Route::delete('/staff/deleteproduct', 'StaffController@deleteProduct')
 Route::get('/staff/completemsg/{id}', 'StaffController@completeMsg')
 		->name('completemsg');
 
+//Rotte per l'admin
 Route::get('/admin', 'AdminController@index')
         ->name('admin');
+
+Route::view('/admin/addstaff', 'addstaff')
+		->name('addstaff');
+
+Route::view('/admin/deletestaff', 'deletestaff')
+		->name('deletestaff');
+
+Route::view('/admin/deleteuser', 'deleteuser')
+		->name('deleteuser');

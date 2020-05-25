@@ -57,7 +57,9 @@
 #sc_title{
     text-align: left;
     color: #008CFF;
-    font-size: 50px;
+    font-size: 25pt;
+	margin: 30px 0 0 0;
+	font-weight: 800;
 }
 #sc_addpic{
     width: 40%;
@@ -112,4 +114,97 @@
     text-align: left;
 }
 
+#adminpic{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
 
+#adminmainview{
+	padding: 0;
+	position: relative;
+}
+.centeredadmin {
+	color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+	width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+#txt_admin1{
+		font-weight: 800;
+	font-size: 100pt;
+}
+#txt_admin2{
+		font-weight: 800;
+	font-size: 20pt;
+}
+
+.addstaff_box input[type="text"], .addstaff_box input[type="password"]{
+	 border: 0;
+    background: #ffffff;
+    display: block;
+    margin: auto;
+    text-align: center;
+    padding: 1%;
+    width: 30%;
+    outline: none;
+    color: black;
+    border-radius: 6px;
+    transition: 0.25s;
+}
+
+.admin_submit{
+    border: 0;
+    background: #009eff;
+    text-align: center;
+    padding: 0.5%;
+    width: 10%;
+    outline: none;
+    color: white;
+	font-size: 13pt;
+	font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.addstaff_box{
+	margin-top: 10px;
+}
+
+#txt_delstaff{
+	font-size: 15pt;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 4px;
+	color: white;
+}
+
+#userslist{
+	    border: 0;
+    text-align: center;
+    width: 50%;
+	height: 36px;
+    padding: 0.3em;
+    outline: none;
+    color: black;
+    border-radius: 6px;
+    cursor: pointer;
+	margin-bottom: 5px;
+}
+#deletebtn{
+    border: 0;
+    background: #009eff;
+    text-align: center;
+    padding: 0.5%;
+    width: 10%;
+	height: 37px;
+    outline: none;
+    color: white;
+	font-size: 13pt;
+	font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+	}
