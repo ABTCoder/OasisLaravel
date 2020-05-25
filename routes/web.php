@@ -88,7 +88,7 @@ Route::post('/staff/addsubcategory', 'StaffController@storeSubcategory')
 Route::get('/staff/editsubcategory', 'StaffController@showSubcategoriesList')
         ->name('editsubcategory');
 
-Route::get('/staff/editsubcategory/{subcategoryCode}', 'StaffController@editSubategory') //visualizza la form vuota 
+Route::get('/staff/editsubcategory/{subcategoryCode}', 'StaffController@editSubcategory') //visualizza la form vuota 
         ->name('editcategory.edit');
 		
 Route::put('/staff/editsubcategory/{categoryCode}', 'StaffController@saveSubcategory') //visualizza la form vuota 
