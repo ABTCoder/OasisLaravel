@@ -215,18 +215,25 @@
 }
 .centeredstaff {
 	color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
 	width: 100%;
-  transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }
 
 #txt_staff1{
-		font-weight: 800;
+	font-weight: 800;
 	font-size: 100pt;
 }
 #txt_staff2{
-		font-weight: 800;
+	font-weight: 800;
 	font-size: 20pt;
 }
+#complete_msg{
+	font-weight: 800;
+	font-size: 45pt;
+	margin-top:5%;
+	color: white;
+}
+	
