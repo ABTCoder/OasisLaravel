@@ -3,7 +3,6 @@
 @section('title', 'Area Staff')
 
 @section('asset')
-<link rel="stylesheet" type="text/css" href="{{ asset('css/products.css') }}" >
 <link rel="stylesheet" type="text/css" href="{{ asset('css/staffdashboard.css') }}" >
 <link rel="stylesheet" type="text/css" href="{{ asset('css/selectproduct.css') }}" >
 @endsection
@@ -39,9 +38,9 @@
             @endisset
         </div>
 		@if(Route::is('editproduct'))
-		<button id="edit"> Modifica </button>
+		<button class ="publish" id="edit"> Modifica </button>
 		@else
-		<button id="delete" data-token="{{ csrf_token() }}" > Elimina </button>
+		<button class ="publish" id="delete" data-token="{{ csrf_token() }}" > Elimina </button>
 		@endif
     </div>
 </div>

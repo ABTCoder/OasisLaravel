@@ -3,8 +3,36 @@
     width: 73%;
     margin-bottom: 2%;
 }
+.search_bar{
+    width: 100%;
+    background: #919191;
+    text-align: left;
+}
+.search_bar input[type="text"]{
+
+    border: 0;
+    background: #919191;
+    width: 80%;
+    padding: 1% 5%;
+    outline: none;
+    color: white;
+    font-size: 250%;
+}
+.search_bar input[type="submit"]{
+    float: right;
+    border: 0;
+    background: #009eff;
+    text-align: center;
+    width: 10%;
+    padding: 1% 0;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    font-size: 250%;
+}
 .list_box{
     margin-top: 1%;
+	margin-bottom: 1%;
     height: max-content;
     background: #656565;
     height: 600px;
