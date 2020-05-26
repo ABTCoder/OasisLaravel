@@ -16,7 +16,7 @@ class Sottocategoria extends Migration {
             $table->string('nome', 30);
             $table->bigIncrements('id');
             $table->string('categoria',30)->index();
-            $table->foreign('categoria')->references('nome')->on('categoria')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('categoria')->references('id')->on('categoria')->onUpdate('cascade')->onDelete('restrict');
             
         });
     }
