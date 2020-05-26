@@ -67,10 +67,10 @@ Route::post('/staff/addcategory', 'StaffController@storeCategory')
 Route::get('/staff/editcategory', 'StaffController@showCategoriesList')
         ->name('editcategory');
 
-Route::get('/staff/editcategory/{categoryName}', 'StaffController@editCategory') //visualizza la form vuota 
+Route::get('/staff/editcategory/{categoryCode}', 'StaffController@editCategory') //visualizza la form vuota 
         ->name('editcategory.edit');
 		
-Route::put('/staff/editcategory/{categoryName}', 'StaffController@saveCategory') //visualizza la form vuota 
+Route::put('/staff/editcategory/{categoryCode}', 'StaffController@saveCategory') //visualizza la form vuota 
         ->name('editcategory.save');	
 
 Route::get('/staff/deletecategory', 'StaffController@showCategoriesList')
