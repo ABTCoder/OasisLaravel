@@ -28,7 +28,7 @@ class Catalog {
 	}
 	
 	// Estrae i prodotti della categoria (tutti o solo quelli in sconto), eventualmente ordinati
-    public function getProdsByCat($catName, $paged = 9, $order = null, $discounted = true) {
+    public function getProdsByCat($catName, $paged = 9, $order = null, $discounted = false) {
 
         $prods = Product::whereHas('prodCat', function ($query) use ($catName) {
                         $query->whereIn('categoria', $catName);
@@ -45,9 +45,23 @@ class Catalog {
     
 
     // Estrae i prodotti della sottocategoria (tutti o solo quelli in sconto), eventualmente ordinati
-    public function getProdsBySubCat($catId, $paged = 9, $order = null, $discounted = true) {
+    public function getProdsBySubCat($catId, $paged = 9, $order = null, $discounted = false) {
 
         $prods = Product::whereIn('sottocategoria', $catId);
+            
+        if ($discounted) {
+            $prods = $prods->where('sconto', '>=', 0);
+        }
+        if (!is_null($order)) {
+            $prods = $prods->orderBy('sconto', $order);
+        }
+		return $prods->paginate($paged);
+    }
+	
+	 // Estrae i prodotti della sottocategoria (tutti o solo quelli in sconto), eventualmente ordinati
+    public function getProdsByTerm($term, $paged = 9, $order = null, $discounted = false) {
+
+        $prods = Product::where('nome', 'like', "%$term[0]%");
             
         if ($discounted) {
             $prods = $prods->where('sconto', '>=', 0);

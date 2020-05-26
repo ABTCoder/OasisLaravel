@@ -33,10 +33,10 @@
 
 	@isset($products)
     <div class="products_content">
-        <form class="search_bar">
-            <input type="text" placeholder="Ricerca">
-            <input type="submit" value="GO">
-        </form>
+		{{ Form::open(array('route' => 'products4', 'class' => 'search_bar', 'method' => 'GET')) }}
+			{{ Form::text('term', null, ['placeholder' => 'Ricerca']) }}
+			{{ Form::submit('GO') }}
+		{{ Form::close() }}
 		@isset($catString)
 		<div class="products_cat"> Prodotti visualizzati per: {{ $catString }} </div>
 		@endisset

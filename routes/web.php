@@ -14,6 +14,17 @@
 Route::view('/', 'home')
         ->name('home');
 
+Route::view('/howtobuy', 'howtobuy')
+        ->name('howtobuy');
+
+Route::view('/privacypolicy', 'privacypolicy')
+        ->name('privacypolicy');
+
+Route::view('/about', 'about')
+        ->name('about');
+
+
+//Rotte prodotti
 Route::get('/products', 'ProductController@showProductsAll')
         ->name('products');
 		
@@ -23,17 +34,12 @@ Route::get('/products/selCat/{catName}', 'ProductController@showProductsCat')
 Route::get('/products/selSubCat/{subCatId}', 'ProductController@showProductsSubCat')
         ->name('products3');
 		
+Route::get('/products/search/', 'ProductController@showProductsSearch')
+        ->name('products4');
+		
 Route::get('/products/viewproduct/{productCode}', 'ProductController@showProduct')
         ->name('viewproduct');
 
-Route::view('/howtobuy', 'howtobuy')
-        ->name('howtobuy');
-
-Route::view('/privacypolicy', 'privacypolicy')
-        ->name('privacypolicy');
-
-Route::view('/about', 'about')
-        ->name('about');
 
 // Rotte per l'accesso
 Route::get('login', 'Auth\LoginController@showLoginForm')
