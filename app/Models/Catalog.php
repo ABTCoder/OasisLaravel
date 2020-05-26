@@ -61,5 +61,13 @@ class Catalog {
     public function getProductByCode($code){
         return Product::whereIn('codice',$code)->firstOrFail();
     }
+    
+    public function getCategoryByID($id){
+        return Category::whereIn('id',$id)->firstOrFail();
+    }
+    
+    public function getSubcategoryByID($id){
+        return SubCategory::whereIn('id',$id)->firstOrFail();
+    }
 
 }
