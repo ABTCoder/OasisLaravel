@@ -128,6 +128,12 @@ Route::get('/staff/completemsg/{id}', 'StaffController@completeMsg')
 Route::get('/admin', 'AdminController@index')
         ->name('admin');
 
+Route::get('/admin/completemsg/{id}', 'AdminController@completeMsg')
+		->name('admincompletemsg');
+
+Route::post('/admin/addstaff', 'AdminController@storeStaff')
+		->name('addstaff.store');
+
 Route::view('/admin/addstaff', 'addstaff')
 		->name('addstaff');
 

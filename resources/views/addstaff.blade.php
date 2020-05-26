@@ -51,7 +51,7 @@
                     @endif
 				</div>
                     <br>
-					{{ Form::password('password', null, ['class' => 'input', 'id' => 'password', 'placeholder' => 'Password']) }}
+					{{ Form::password('password', ['class' => 'input', 'placeholder' => 'Password', 'id' => 'password']) }}
 					<div class="errormsg"> 
 					@if ($errors->first('password'))
                     @foreach ($errors->get('password') as $message)
@@ -60,6 +60,8 @@
                     @endif
 				</div>
                     <br>
+				{{ Form::password('password_confirmation', ['class' => 'input', 'placeholder' => 'Conferma Password', 'id' => 'password-confirm']) }}
+				<br>
 					{{ Form::submit('Inserisci', ['class' => 'admin_submit']) }}
 				{{ Form::close() }}
             </div>
