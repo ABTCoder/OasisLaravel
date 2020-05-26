@@ -15,7 +15,12 @@
             <h1 id="sc_title">Elimina utente</h1>
             <div class="addstaff_box" id="admin_dash_box">
                 <form>
-                    <input type="submit" value="Elimina">
+					<div id="txt_delstaff">Seleziona un utente da eliminare</div>
+					<select id="userslist">
+  						<option value="user1">Gianni</option>
+ 						<option value="user2">Paolo</option>
+					</select>
+                    <input type="submit" value="Elimina" id="deletebtn">
                     <br> 
                 </form>
             </div>

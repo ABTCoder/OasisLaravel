@@ -208,3 +208,9 @@
     border-radius: 6px;
     cursor: pointer;
 	}
+#complete_msg{
+	font-weight: 800;
+	font-size: 45pt;
+	margin: 5% 0;
+	color: white;
+}
