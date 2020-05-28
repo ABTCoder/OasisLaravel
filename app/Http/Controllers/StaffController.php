@@ -64,7 +64,7 @@ class StaffController extends Controller {
 			case 5:
 				$msg = 'Categoria eliminata correttamente';
 				break;
-                        case 6:
+            case 6:
 				$msg = 'Sottocategoria aggiunta correttamente';
 				break;
 			case 7:
@@ -122,6 +122,8 @@ class StaffController extends Controller {
 	public function deleteProduct(Request $request) {
 
 		$product = $this->_catalogModel->getProductByCode([$request->productCode]);
+		$destinationPath = public_path() . '/images/products_images/' . $product->immagine;
+		unlink($destinationPath);
 		$product->delete();
 		
     }
@@ -138,9 +140,9 @@ class StaffController extends Controller {
         return view('addcategory');
     }
     
-    public function editCategory($categoryName) {
+    public function editCategory($catId) {
 
-	$category = $this->_catalogModel->getCategoryByID([$categoryID]);
+	$category = $this->_catalogModel->getCategoryByID([$catId]);
         return view('addcategory')
 			->with('category', $category);
     }
@@ -154,9 +156,9 @@ class StaffController extends Controller {
         return redirect()->route('completemsg', 3);
     }
     
-    public function saveCategory(NewCategoryRequest $request, $categoryID) { 
+    public function saveCategory(NewCategoryRequest $request, $catId) { 
        	
-	$category = $this->_catalogModel->getCategoryByID([$categoryID]);
+	$category = $this->_catalogModel->getCategoryByID([$catId]);
 	$category->fill($request->validated());
  
         $category->save();
@@ -176,7 +178,10 @@ class StaffController extends Controller {
     public function showSubcategoriesList() {
         
         $subcats = $this->_catalogModel->getSubCats();
-        return view('selectsubcategory')->with('subcategories', $subcats);
+		$cats = $this->_catalogModel->getCats();
+        return view('selectsubcategory')
+						->with('categories', $cats)
+						->with('subcategories', $subcats);
     }
     
     public function addSubcategory() {
