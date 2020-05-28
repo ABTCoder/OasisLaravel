@@ -41,7 +41,7 @@
 }
 .list_box hr{
     margin: 0;
-    border: 2px solid;
+    border: 1px solid;
     color: #202020;
 }
 #title{
@@ -56,10 +56,10 @@
     cursor: pointer;
 }
 .productrow:hover{
-    background-color: #009eff;
+    background-color: #47B9FF;
 }
 .selected_row {
-	background-color: #009eff;
+	background-color: #007ECC;
 }
 
 #immagine{
