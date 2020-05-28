@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
+use Illuminate\Validation\Rule;
 
 class EditController extends Controller {
        
@@ -29,6 +29,9 @@ class EditController extends Controller {
 		$user = Auth::user();
 		
 		$validated = $request->validate([
+			'newpassword' => ['sometimes', 'string', 'min:8', 'confirmed'],
+			'oldpassword' => ['bail' , 'required_with : newpassword'],
+			'email' => ['required', 'string', 'email', 'max:50', Rule::unique('utente', 'email')->ignore($user->id)],
             'nome' => ['required', 'string', 'max:20'],
             'cognome' => ['required', 'string', 'max:20'],
             'residenza' => ['required', 'string', 'max:50'],
@@ -36,15 +39,21 @@ class EditController extends Controller {
 			'occupazione' => ['required'],
         ]);
 		
-		$user->fill($validated);
 		
-		/*
-		$user->nome = $validated->nome;
-        $user->cognome = $validated->cognome;
-		$user->residenza = $validated->residenza;
-		$user->data_nasc = $validated->data_nasc;
-		$user->occupazione = $validated->occupazione;
-		*/
+		if($request['oldpassword'] != null) {
+			if(Hash::check($request['oldpassword'], $user->password)) {
+				$user->password = Hash::make($validated['newpassword']);
+			}
+			
+		}
+		
+		$user->nome = $validated['nome'];
+		$user->cognome = $validated['cognome'];
+		$user->residenza = $validated['residenza'];
+		$user->email = $validated['email'];
+		$user->data_nasc = $validated['data_nasc'];
+		$user->occupazione = $validated['occupazione'];
+		
         $user->save();
 
 		return redirect()->route('home');

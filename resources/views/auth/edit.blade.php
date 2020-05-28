@@ -18,22 +18,22 @@
 			<div id="error_msg">{{ $message }}</div>
 			@endforeach
 		@endif
-                <br>
-        {{ Form::password('password', ['placeholder' => 'Vecchia password', 'id' => 'password']) }}
-		@if ($errors->first('password'))
-			@foreach ($errors->get('password') as $message)
+        <br>
+        {{ Form::password('oldpassword', ['placeholder' => 'Vecchia password', 'id' => 'oldpassword']) }}
+		@if ($errors->first('oldpassword'))
+			@foreach ($errors->get('oldpassword') as $message)
 			<div id="error_msg">{{ $message }}</div>
 			@endforeach
 		@endif
-                <br>
-       {{ Form::password('password', ['placeholder' => 'Nuova password', 'id' => 'password']) }}
-		@if ($errors->first('password'))
-			@foreach ($errors->get('password') as $message)
+        <br>
+        {{ Form::password('newpassword', ['placeholder' => 'Nuova password', 'id' => 'newpassword']) }}
+		@if ($errors->first('newpassword'))
+			@foreach ($errors->get('newpassword') as $message)
 			<div id="error_msg">{{ $message }}</div>
 			@endforeach
 		@endif
 		<br>
-		{{ Form::password('password_confirmation', ['placeholder' => 'Conferma Password', 'id' => 'password-confirm']) }}
+		{{ Form::password('newpassword_confirmation', ['placeholder' => 'Conferma Password', 'id' => 'password-confirm']) }}
         <br>
 		{{ Form::text('nome', null, ['placeholder' => 'Nome', 'id' => 'nome']) }}
 		@if ($errors->first('nome'))
