@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Catalog;
 use App\Models\Resources\Product;
+use App\Models\Resources\Category;
+use App\Models\Resources\SubCategory;
 use App\Http\Requests\NewProductRequest;
+use App\Http\Requests\NewCategoryRequest;
+use App\Http\Requests\NewSubcategoryRequest;
 use Illuminate\Http\Request;
 
 class StaffController extends Controller {
@@ -51,6 +55,24 @@ class StaffController extends Controller {
 			case 2:
 				$msg = 'Prodotto eliminato correttamente';
 				break;
+                        case 3:
+				$msg = 'Categoria aggiunta correttamente';
+				break;
+			case 4:
+				$msg = 'Categoria aggiornata correttamente';
+				break;
+			case 5:
+				$msg = 'Categoria eliminata correttamente';
+				break;
+                        case 6:
+				$msg = 'Sottocategoria aggiunta correttamente';
+				break;
+			case 7:
+				$msg = 'Sottocategoria aggiornata correttamente';
+				break;
+			case 8:
+				$msg = 'Sottocategoria eliminata correttamente';
+				break;
 			default:
 				$msg = 'Error';
 				break;
@@ -59,7 +81,7 @@ class StaffController extends Controller {
 						->with('message', $msg);
 	}
 
-    
+
     public function storeProduct(NewProductRequest $request) { 
         
 		$product = new Product;
@@ -101,6 +123,100 @@ class StaffController extends Controller {
 
 		$product = $this->_catalogModel->getProductByCode([$request->productCode]);
 		$product->delete();
+		
+    }
+    
+    //Categorie
+    
+    public function showCategoriesList() {
+        
+        $cats = $this->_catalogModel->getCats();
+        return view('selectcategory')->with('categories', $cats);
+    }
+    
+    public function addCategory() {
+        return view('addcategory');
+    }
+    
+    public function editCategory($categoryName) {
+
+	$category = $this->_catalogModel->getCategoryByID([$categoryID]);
+        return view('addcategory')
+			->with('category', $category);
+    }
+    
+    public function storeCategory(NewCategoryRequest $request) { 
+        
+	$category = new Category;
+        $category->fill($request->validated());
+        $category->save();
+
+        return redirect()->route('completemsg', 3);
+    }
+    
+    public function saveCategory(NewCategoryRequest $request, $categoryID) { 
+       	
+	$category = $this->_catalogModel->getCategoryByID([$categoryID]);
+	$category->fill($request->validated());
+ 
+        $category->save();
+
+        return redirect()->route('completemsg', 4);
+    }
+    
+    public function deleteCategory(Request $request) {
+
+	$category = $this->_catalogModel->getCategoryByID([$request->categoryID]);
+	$category->delete();
+		
+    }
+    
+    //Sottocategorie
+    
+    public function showSubcategoriesList() {
+        
+        $subcats = $this->_catalogModel->getSubCats();
+        return view('selectsubcategory')->with('subcategories', $subcats);
+    }
+    
+    public function addSubcategory() {
+        $cats = $this->_catalogModel->getCats()->pluck('nome','id');
+        return view('addsubcategory')
+                        ->with('categories', $cats);
+    }
+    
+    public function editSubcategory($subcategoryID) {
+        $cats = $this->_catalogModel->getCats()->pluck('nome','id');
+		$subcategory = $this->_catalogModel->getSubcategoryByID([$subcategoryID]);
+        return view('addsubcategory')
+                        ->with('categories', $cats)
+						->with('subcategory', $subcategory);
+    }
+    
+    public function storeSubcategory(NewSubcategoryRequest $request) { 
+        
+	$subcategory = new SubCategory;
+        $subcategory->fill($request->validated());
+
+        $subcategory->save();
+
+        return redirect()->route('completemsg', 6);
+    }
+	
+	public function saveSubcategory(NewSubcategoryRequest $request, $subcategoryID) { 
+        
+	$subcategory = $this->_catalogModel->getSubcategoryByID([$subcategoryID]);
+	$subcategory->fill($request->validated());
+
+        $subcategory->save();
+
+        return redirect()->route('completemsg', 7);
+    }
+	
+	public function deleteSubcategory(Request $request) {
+
+		$subcategory = $this->_catalogModel->getSubcategoryByID([$request->subcategoryID]);
+		$subcategory->delete();
 		
     }
 }
