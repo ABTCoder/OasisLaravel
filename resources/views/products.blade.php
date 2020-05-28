@@ -12,12 +12,12 @@
         @isset($categories)
         @foreach ($categories as $category)
         <div class="cat">
-            <a href="{{ route('products2', [$category->nome]) }}" class="cat_name"> {{ $category->nome }}</a>
+            <a href="{{ route('products2', [$category->id]) }}" class="cat_name"> {{ $category->nome }}</a>
             <img src="{{ asset('images/ui_images/arrow.png') }}">
             @isset($subCategories)
             <div class="sub">
                 @foreach($subCategories as $subCategory)
-                @if ($subCategory->categoria == $category->nome) 
+                @if ($subCategory->categoria == $category->id) 
                 <a href="{{ route('products3', [$subCategory->id]) }}" class="subcat_name"> {{ $subCategory->nome }} </a>
                 <br>
                 @endif 

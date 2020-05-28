@@ -28,10 +28,10 @@ class Catalog {
 	}
 	
 	// Estrae i prodotti della categoria (tutti o solo quelli in sconto), eventualmente ordinati
-    public function getProdsByCat($catName, $paged = 9, $order = null, $discounted = false) {
+    public function getProdsByCat($catId, $paged = 9, $order = null, $discounted = false) {
 
-        $prods = Product::whereHas('prodCat', function ($query) use ($catName) {
-                        $query->whereIn('categoria', $catName);
+        $prods = Product::whereHas('prodCat', function ($query) use ($catId) {
+                        $query->whereIn('categoria', $catId);
 		});
             
         if ($discounted) {

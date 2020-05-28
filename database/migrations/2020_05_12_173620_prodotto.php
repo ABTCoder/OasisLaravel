@@ -18,7 +18,7 @@ class Prodotto extends Migration {
             $table->string('desc_breve', 100);
             $table->string('desc_esaustiva', 3000);
             $table->float('prezzo')->unsigned();
-            $table->integer('sconto')->nullable()->unsigned();
+            $table->integer('sconto')->unsigned()->nullable();
             $table->text('immagine')->nullable();
             $table->string('nome', 50);
             $table->string('marca', 30);

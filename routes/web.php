@@ -28,7 +28,7 @@ Route::view('/about', 'about')
 Route::get('/products', 'ProductController@showProductsAll')
         ->name('products');
 		
-Route::get('/products/selCat/{catName}', 'ProductController@showProductsCat')
+Route::get('/products/selCat/{catId}', 'ProductController@showProductsCat')
         ->name('products2');
 
 Route::get('/products/selSubCat/{subCatId}', 'ProductController@showProductsSubCat')
