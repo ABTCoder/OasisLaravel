@@ -10,7 +10,11 @@
 			<img class="nav_item_icon"src="{{ asset('images/ui_images//navicons/nav_products.png') }}">PRODOTTI</a></li>
         <li class="{{ Route::is('howtobuy*') ? 'active' : '' }}"><a href="{{ route('howtobuy') }}">
 			<img class="nav_item_icon"src="{{ asset('images/ui_images//navicons/nav_buyinfo.png') }}">COME ACQUISTARE</a></li>
-        <li class="{{ Route::is(['login*', 'signup*']) ? 'active' : '' }}" id="account">
+		<li class="{{ Route::is('relation*') ? 'active' : '' }}"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+             <img class="nav_item_icon"src="{{ asset('images/ui_images//navicons/nav_relation.png') }}">RELAZIONE</a></li>
+       
+		
+		<li class="{{ Route::is(['login*', 'signup*']) ? 'active' : '' }}" id="account">
             <div class="dropdown">
                 <a id="profile">
 					<img src="{{ asset('images/ui_images/profile.png') }}">
