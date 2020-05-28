@@ -12,6 +12,29 @@
 	{{ Form::model($user, array('route' => array('editaccount.save'))) }}
 		@csrf
 		@method('PATCH')
+        {{ Form::text('email', null, ['placeholder' => 'Email', 'id' => 'email']) }}
+		@if ($errors->first('email'))
+			@foreach ($errors->get('email') as $message)
+			<div id="error_msg">{{ $message }}</div>
+			@endforeach
+		@endif
+                <br>
+        {{ Form::password('password', ['placeholder' => 'Vecchia password', 'id' => 'password']) }}
+		@if ($errors->first('password'))
+			@foreach ($errors->get('password') as $message)
+			<div id="error_msg">{{ $message }}</div>
+			@endforeach
+		@endif
+                <br>
+       {{ Form::password('password', ['placeholder' => 'Nuova password', 'id' => 'password']) }}
+		@if ($errors->first('password'))
+			@foreach ($errors->get('password') as $message)
+			<div id="error_msg">{{ $message }}</div>
+			@endforeach
+		@endif
+		<br>
+		{{ Form::password('password_confirmation', ['placeholder' => 'Conferma Password', 'id' => 'password-confirm']) }}
+        <br>
 		{{ Form::text('nome', null, ['placeholder' => 'Nome', 'id' => 'nome']) }}
 		@if ($errors->first('nome'))
 			@foreach ($errors->get('nome') as $message)
