@@ -14,13 +14,15 @@
         <div class="list_box">
             <h1 id="title"> Seleziona la sottocategoria </h1>
             @isset($subcategories)
+            @isset($categories)
             <hr>
             @foreach ($subcategories as $subcategory)
             <div id="{{$subcategory->id}}" class="productrow" >
-                <h1 id="name"> {{ $subcategory->nome }} in {{ $subcategory->categoria }}</h1>
+                <h1 id="name"> {{ $subcategory->nome }} in {{ $categories->where('id', $subcategory->categoria)->first()->nome }}</h1>
             </div>    
             <hr>
             @endforeach
+            @endisset
             @endisset
         </div>
             @if(Route::is('editsubcategory'))
