@@ -13,7 +13,7 @@ class SubCategory extends Model {
 
     // Realazione One-To-One con SubCategory
     public function superCat() {
-        return $this->hasOne(Category::class, 'nome', 'categoria');
+        return $this->hasOne(Category::class, 'id', 'categoria');
     }
 
 }

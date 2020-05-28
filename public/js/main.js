@@ -47,7 +47,7 @@ $(document).ready(function() {
 		$(this).toggleClass("rotate").next().slideToggle(200);
 	});
 	
-	//SELEZIONE PRODOTTI STAFF
+	//SELEZIONE PRODOTTI STAFF (usato anche per categorie e sottocategorie)
 	var productRows = $(".productrow");
 	var selectedProd = null;
 	productRows.on("click", function() {
@@ -58,7 +58,7 @@ $(document).ready(function() {
 	});
 	
 	$("#edit, #delete").on("click", function() {
-		if(selectedProd == null ) alert ("Non hai selezionato nessun prodotto!");
+		if(selectedProd == null ) alert ("Non hai effettuato la selezione!");
 		else {
 			if($(this).attr("id") == "edit") document.location.href = "editproduct/" + selectedProd ;
 			else { //attr(id) == delete
@@ -70,6 +70,46 @@ $(document).ready(function() {
 						data: {'productCode': selectedProd, '_token' : token, '_method' : 'DELETE'},
 						success: function () { //Il return dal controller non funziona con Ajax
 							document.location.href = "completemsg/2";
+						}
+					});
+				}
+			}
+		}
+	});
+        
+        $("#editcat, #deletecat").on("click", function() {
+		if(selectedProd == null ) alert ("Non hai effettuato la selezione!");
+		else {
+			if($(this).attr("id") == "editcat") document.location.href = "editcategory/" + selectedProd ;
+			else { //attr(id) == delete
+				if(confirm("Sei sicuro di voler eliminare questa categoria?")) {
+					var token = $(this).data("token");					
+					$.ajax({
+						type: "DELETE",
+						url: './deletecategory',
+						data: {'categoryID': selectedProd, '_token' : token, '_method' : 'DELETE'},
+						success: function () { //Il return dal controller non funziona con Ajax
+							document.location.href = "completemsg/5";
+						}
+					});
+				}
+			}
+		}
+	});
+        
+        $("#editsub, #deletesub").on("click", function() {
+		if(selectedProd == null ) alert ("Non hai effettuato la selezione!");
+		else {
+			if($(this).attr("id") == "editsub") document.location.href = "editsubcategory/" + selectedProd ;
+			else { //attr(id) == delete
+				if(confirm("Sei sicuro di voler eliminare quests sottocategoria?")) {
+					var token = $(this).data("token");					
+					$.ajax({
+						type: "DELETE",
+						url: './deletesubcategory',
+						data: {'subcategoryID': selectedProd, '_token' : token, '_method' : 'DELETE'},
+						success: function () { //Il return dal controller non funziona con Ajax
+							document.location.href = "completemsg/8";
 						}
 					});
 				}
