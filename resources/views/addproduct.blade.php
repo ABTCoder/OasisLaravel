@@ -40,7 +40,11 @@ var url = '/' + "{{ Route::currentRouteName() }} ";
 					{{ Form::label('immagine', 'Immagine', ['class' => 'label-input', 'id' => 'imagelabel']) }}
 					<br>
 					<div class="nestedpreview">
-					<img id="preview" src="#">
+					@isset($product)
+					@include('helpers/imgProducts', ['imgFile' => $product->immagine])
+					@else
+					<img id="p_img" src="{{ asset('images/products_images/smartphone.png') }}">
+					@endisset
 						</div>
 					<br>
 					{{ Form::file('immagine', ['class' => 'sc_image', 'id' => 'image']) }}
