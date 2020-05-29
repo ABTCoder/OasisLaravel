@@ -72,6 +72,13 @@ class Catalog {
 		return $prods->paginate($paged);
     }
     
+    public function getProdsByTerm2($term) {
+
+        $prods = Product::where('nome', 'like', "%$term[0]%");
+
+		return $prods->paginate(false);
+    }
+    
     public function getProductByCode($code){
         return Product::whereIn('codice',$code)->firstOrFail();
     }
