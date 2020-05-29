@@ -29,22 +29,25 @@ $(document).ready(function() {
     }
 		
 	
-	//CATEGORIE PRODOTTI
-	/*
-	var cat = document.getElementsByClassName("cat");
-       
-        var i;
-	// Show or hide the subcat when a cat is clicked
-        for(i = 0; i < cat.length; i++) {
-            cat[i].children[1].addEventListener("click",function() {
-                this.parentElement.classList.toggle("rotate");
-                this.parentElement.children[2].classList.toggle("show");
-            });
-        }
-		*/
-		
+	//MENU CATEGORIE PRODOTTI
 	$("div.cat > img").on("click", function() {
 		$(this).toggleClass("rotate").next().slideToggle(200);
+	});
+	
+	
+	//PREVIEW FOTO NEL FORM PRODOTTI
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+		var reader = new FileReader();
+		reader.onload = function(e) {
+			$('#preview').attr('src', e.target.result);
+		}
+		reader.readAsDataURL(input.files[0]); // convert to base64 string
+		}
+	}
+
+	$("#image").change(function() {
+		readURL(this);
 	});
 	
 	//SELEZIONE PRODOTTI STAFF (usato anche per categorie e sottocategorie)
