@@ -121,12 +121,25 @@ class StaffController extends Controller {
 	
 	public function deleteProduct(Request $request) {
 
-		$product = $this->_catalogModel->getProductByCode([$request->productCode]);
+		$product = $this->_catalogModel->getProductByCode([$request->id]);
 		$destinationPath = public_path() . '/images/products_images/' . $product->immagine;
 		unlink($destinationPath);
 		$product->delete();
 		
     }
+    
+    public function showProductsSearch(Request $request) {
+
+	$validated = $request->validate([
+            'term' => ['required', 'max:30'],
+        ]);
+        $prods = $this->_catalogModel->getProdsByTerm2([$validated['term']]);
+	
+
+        return view('selectproduct')
+                        ->with('products', $prods);
+    }
+
     
     //Categorie
     
@@ -168,7 +181,7 @@ class StaffController extends Controller {
     
     public function deleteCategory(Request $request) {
 
-	$category = $this->_catalogModel->getCategoryByID([$request->categoryID]);
+	$category = $this->_catalogModel->getCategoryByID([$request->id]);
 	$category->delete();
 		
     }
@@ -220,7 +233,7 @@ class StaffController extends Controller {
 	
 	public function deleteSubcategory(Request $request) {
 
-		$subcategory = $this->_catalogModel->getSubcategoryByID([$request->subcategoryID]);
+		$subcategory = $this->_catalogModel->getSubcategoryByID([$request->id]);
 		$subcategory->delete();
 		
     }

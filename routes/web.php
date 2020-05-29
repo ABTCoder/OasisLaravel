@@ -114,6 +114,9 @@ Route::post('/staff/addproduct', 'StaffController@storeProduct')
 
 Route::get('/staff/editproduct', 'StaffController@showProductsList')
         ->name('editproduct');
+
+Route::get('/staff/editproduct/search', 'StaffController@showProductsSearch')
+        ->name('editproduct2');
 		
 Route::get('/staff/editproduct/{productCode}', 'StaffController@editProduct') //visualizza la form vuota 
         ->name('editproduct.edit');
@@ -123,6 +126,9 @@ Route::put('/staff/editproduct/{productCode}', 'StaffController@saveProduct') //
 
 Route::get('/staff/deleteproduct', 'StaffController@showProductsList')
 		->name('deleteproduct');
+
+Route::get('/staff/deleteproduct/search', 'StaffController@showProductsSearch')
+        ->name('deleteproduct2');
 
 Route::delete('/staff/deleteproduct', 'StaffController@deleteProduct')
 		->name('deleteproduct.delete');
