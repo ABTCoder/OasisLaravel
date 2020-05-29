@@ -29,8 +29,8 @@ class EditController extends Controller {
 		$user = Auth::user();
 		
 		$validated = $request->validate([
-			'newpassword' => ['sometimes', 'string', 'min:8', 'confirmed'],
-			'oldpassword' => ['bail' , 'required_with : newpassword'],
+			'newpassword' => ['exclude_if:oldpassword,null', 'string', 'min:8', 'confirmed'],
+			'oldpassword' => 'required_with:newpassword',
 			'email' => ['required', 'string', 'email', 'max:50', Rule::unique('utente', 'email')->ignore($user->id)],
             'nome' => ['required', 'string', 'max:20'],
             'cognome' => ['required', 'string', 'max:20'],

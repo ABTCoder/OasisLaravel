@@ -12,12 +12,12 @@
     @include ('layouts.staffsidenav')
     <div class="side_container">
 		@isset($product)
-		{{ Form::model($product, array('route' => array('editproduct.save', $product->codice), 'files' => true)) }}
+		{{ Form::model($product, array('route' => array('editproduct.save', $product->codice),'id' => 'productform', 'files' => true)) }}
 		@method('PUT')
                 <h1 id="sc_title">Modifica prodotto</h1><br>
 		<!-- FINE AGGIORNA PRODOTTO -->
 		@else
-		{{ Form::open(array('route' => 'addproduct.store', 'id' => 'addproduct', 'files' => true)) }}
+		{{ Form::open(array('route' => 'addproduct.store', 'id' => 'productform', 'files' => true)) }}
                 <h1 id="sc_title">Aggiungi prodotto</h1><br>
 		@endisset
             @csrf    
@@ -37,6 +37,7 @@
 					{{ Form::label('immagine', 'Immagine', ['class' => 'label-input', 'id' => 'imagelabel']) }}
 					<br>
 					{{ Form::file('immagine', ['class' => 'sc_image', 'id' => 'image']) }}
+					<img id="preview" src="#">
                     <div class="errormsg">   
 					@if ($errors->first('image'))
                     <ul class="errors">
