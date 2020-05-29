@@ -40,7 +40,7 @@ $(document).ready(function() {
 		if (input.files && input.files[0]) {
 		var reader = new FileReader();
 		reader.onload = function(e) {
-			$('#preview').attr('src', e.target.result);
+			$('#p_img').attr('src', e.target.result);
 		}
 		reader.readAsDataURL(input.files[0]); // convert to base64 string
 		}
@@ -52,45 +52,26 @@ $(document).ready(function() {
 	
 	//SELEZIONE PRODOTTI STAFF (usato anche per categorie e sottocategorie)
 	var productRows = $(".productrow");
-	var selectedProd = null;
+	var selectedItem = null;
 	productRows.on("click", function() {
 		productRows.not(this).removeClass("selected_row");
 		$(this).toggleClass("selected_row");
-		if($(this).hasClass("selected_row")) selectedProd = $(this).attr("id");
-		else selectedProd = null;
+		if($(this).hasClass("selected_row")) selectedItem = $(this).attr("id");
+		else selectedItem = null;
 	});
 	
-	$("#edit, #delete").on("click", function() {
-		if(selectedProd == null ) alert ("Non hai effettuato la selezione!");
-		else {
-			if($(this).attr("id") == "edit") document.location.href = "editproduct/" + selectedProd ;
-			else { //attr(id) == delete
-				if(confirm("Sei sicuro di voler eliminare questo prodotto?")) {
-					var token = $(this).data("token");					
-					$.ajax({
-						type: "DELETE",
-						url: './deleteproduct',
-						data: {'productCode': selectedProd, '_token' : token, '_method' : 'DELETE'},
-						success: function () { //Il return dal controller non funziona con Ajax
-							document.location.href = "completemsg/2";
-						}
-					});
-				}
-			}
-		}
-	});
         
-        $("#editcat, #deletecat").on("click", function() {
-		if(selectedProd == null ) alert ("Non hai effettuato la selezione!");
+    $("#edit, #delete").on("click", function() {
+		if(selectedItem == null ) alert ("Non hai effettuato la selezione!");
 		else {
-			if($(this).attr("id") == "editcat") document.location.href = "editcategory/" + selectedProd ;
+			if($(this).attr("id") == "edit") document.location.href = url + "/" + selectedItem ;
 			else { //attr(id) == delete
 				if(confirm("Sei sicuro di voler eliminare questa categoria?")) {
 					var token = $(this).data("token");					
 					$.ajax({
 						type: "DELETE",
-						url: './deletecategory',
-						data: {'categoryID': selectedProd, '_token' : token, '_method' : 'DELETE'},
+						url: url,
+						data: {'id': selectedItem, '_token' : token, '_method' : 'DELETE'},
 						success: function () { //Il return dal controller non funziona con Ajax
 							document.location.href = "completemsg/5";
 						}
@@ -100,24 +81,5 @@ $(document).ready(function() {
 		}
 	});
         
-        $("#editsub, #deletesub").on("click", function() {
-		if(selectedProd == null ) alert ("Non hai effettuato la selezione!");
-		else {
-			if($(this).attr("id") == "editsub") document.location.href = "editsubcategory/" + selectedProd ;
-			else { //attr(id) == delete
-				if(confirm("Sei sicuro di voler eliminare quests sottocategoria?")) {
-					var token = $(this).data("token");					
-					$.ajax({
-						type: "DELETE",
-						url: './deletesubcategory',
-						data: {'subcategoryID': selectedProd, '_token' : token, '_method' : 'DELETE'},
-						success: function () { //Il return dal controller non funziona con Ajax
-							document.location.href = "completemsg/8";
-						}
-					});
-				}
-			}
-		}
-	});
 	
 });
