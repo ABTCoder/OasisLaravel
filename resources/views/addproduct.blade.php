@@ -3,6 +3,9 @@
 @section('title', 'Area Staff')
 
 @section('asset')
+<script>
+var url = '/' + "{{ Route::currentRouteName() }} ";
+</script>
 <link rel="stylesheet" type="text/css" href="{{ asset('css/products.css') }}" >
 <link rel="stylesheet" type="text/css" href="{{ asset('css/staffdashboard.css') }}" >
 @endsection
@@ -36,8 +39,11 @@
                 <div class="imagecontainer">
 					{{ Form::label('immagine', 'Immagine', ['class' => 'label-input', 'id' => 'imagelabel']) }}
 					<br>
-					{{ Form::file('immagine', ['class' => 'sc_image', 'id' => 'image']) }}
+					<div class="nestedpreview">
 					<img id="preview" src="#">
+						</div>
+					<br>
+					{{ Form::file('immagine', ['class' => 'sc_image', 'id' => 'image']) }}
                     <div class="errormsg">   
 					@if ($errors->first('image'))
                     <ul class="errors">
@@ -68,7 +74,7 @@
                         @endif 
 					</div>
 
-                    <h3 class="sc_hint">Sconto membri (%) </h3>
+                    <h3 class="sc_hint">Sconto (%) </h3>
 					{{ Form::text('sconto', null, ['class' => 'sc_textinput', 'id' => 'sconto']) }}
                     <div class="errormsg"> 
 						@if ($errors->first('sconto'))
