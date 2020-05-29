@@ -5,6 +5,10 @@
 @section('asset')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/staffdashboard.css') }}" >
 <link rel="stylesheet" type="text/css" href="{{ asset('css/selectproduct.css') }}" >
+<script>
+	var url = "{{ Route::currentRouteName() }}";
+	var msgUrl = "completemsg/8";
+</script>
 @endsection
 
 @section('content')
@@ -26,9 +30,9 @@
             @endisset
         </div>
             @if(Route::is('editsubcategory'))
-            <button class ="publish" id="editsub"> Modifica </button>
+            <button class ="publish" id="edit"> Modifica </button>
             @else
-            <button class ="publish" id="deletesub" data-token="{{ csrf_token() }}" > Elimina </button>
+            <button class ="publish" id="delete" data-token="{{ csrf_token() }}" > Elimina </button>
             @endif
     </div>
 </div>
