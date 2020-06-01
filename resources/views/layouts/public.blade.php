@@ -21,7 +21,7 @@
         <footer class="main_footer">
             <a href="{{ route('about') }}"> Chi siamo </a>
             <br>
-            <a href="{{ route('privacypolicy') }}"> Privacy e policy </a>
+            <a href="{{ route('privacypolicy') }}"> Privacy Policy </a>
             <div class="linksocial">
                 <img src="{{ asset('images/ui_images/social-icons.png') }}" usemap="#social-icons-map">
                 <map name="social-icons-map">
