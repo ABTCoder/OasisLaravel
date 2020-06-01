@@ -34,92 +34,6 @@ $(document).ready(function () {
     }
 
 
-	$('#slide').vmcSlide({
-  
-  /* image data to load
-     e.g.
-     data: [
-      {
-        src: '1.jpg',
-        text: 'Caption 1',
-        href: '#',
-        target: '_blank'
-      },
-      ...
-     ]
-   */
-
-	// width
-	width: 300,
-
-	// height
-	height: 300,
-
-	// image width
-	// 0 = auto
-	imgWidth: 300,
-
-	// image height
-	// 0 = auto
-	imgHeight: 300,
-
-	// min width
-	minWidth: 300,
-
-	// min height
-	minHeight: 300,
-
-	// <a href="https://www.jqueryscript.net/tags.php?/grid/">grid</a> options
-	gridTdX: 10,
-	gridTdY: 5,
-	gridOdX: 30,
-	gridOdY: 10,
-
-	// shows navigation
-	sideButton: false,
-
-	// shows pagination
-	navButton: true,
-
-	// shows caption text
-	showText: false,
-
-	// the caption contains html
-	isHtml: false,
-
-	// autoplay
-	autoPlay: true,
-
-	// ascending or descending
-	ascending: true,
-
-	// check out more effects in the vmc.slide.effects.js
-	effects: ['blindsX', 'page', 'slideY','rollingX'],
-
-	// removes effects in IE6
-	ie6Tidy: false,
-
-	// random effects
-	random: true,
-
-	// duration
-	duration: 4000,
-
-	// animation speed
-	speed: 800,
-
-	// pause on hover
-	hoverStop: true,
-
-	// flip callback
-	flip: function (fromIndex, toIndex) {
-	},
-
-	// created callback
-	created: function () {
-	},
-
-	});
 
     //MENU CATEGORIE PRODOTTI
     $("div.cat > img").on("click", function () {
@@ -169,7 +83,7 @@ $(document).ready(function () {
                         url: url,
                         data: {'id': selectedItem, '_token': token, '_method': 'DELETE'},
                         success: function () { //Il return dal controller non funziona con Ajax
-                            document.location.href = "completemsg/5";
+                            document.location.href = msgUrl;
                         }
                     });
                 }
@@ -181,7 +95,7 @@ $(document).ready(function () {
         var formElementId = $(this).attr('id');
         doElemValidation(formElementId, actionUrl, formId);
     });
-    $(".publish").on('click', function (event) //NON FUNZIONA!
+    $("#addproduct").on('click', function (event) //NON FUNZIONA!
     {
         event.preventDefault();
         doFormValidation(actionUrl, formId);
