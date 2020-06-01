@@ -114,14 +114,16 @@ class StaffController extends Controller {
 
         $product->save();
 
-        return redirect()->route('completemsg', 1);
+        return response()->json(['redirect' => route('completemsg', 1)]);
     }
 
     public function deleteProduct(Request $request) {
 
         $product = $this->_catalogModel->getProductByCode([$request->id]);
-        $destinationPath = public_path() . '/images/products_images/' . $product->immagine;
-        unlink($destinationPath);
+		if($product->immagine !=null) {
+			$destinationPath = public_path() . '/images/products_images/' . $product->immagine;
+			unlink($destinationPath);
+		}
         $product->delete();
     }
 

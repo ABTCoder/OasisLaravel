@@ -11,9 +11,9 @@
     if(url == 'editproduct2')
         url = '/~grp_07/laraProject/public/staff/editproduct';
     if(url == 'deleteproduct2')
-        url = '/~grp_07/laraProject/public/staff/deleteproduct';
+		url = '/~grp_07/laraProject/public/staff/deleteproduct';
     
-    var msgUrl = "completemsg/2";
+    var msgUrl = "/~grp_07/laraProject/public/staff/completemsg/2";
     
 </script>
 
@@ -23,16 +23,16 @@
 <div class="staff_main">
     @include ('layouts.staffsidenav')
     <div class="searchandbox">
-        @if(Route::is('editproduct'||'editproduct2'))
+        @if(Route::is('editproduct') || Route::is('editproduct2'))
         {{ Form::open(array('route' => 'editproduct2', 'class' => 'search_bar', 'method' => 'GET')) }}
             {{ Form::text('term', null, ['placeholder' => 'Ricerca']) }}
             {{ Form::submit('Cerca') }}
-	{{ Form::close() }}
+		{{ Form::close() }}
         @else
         {{ Form::open(array('route' => 'deleteproduct2', 'class' => 'search_bar', 'method' => 'GET')) }}
             {{ Form::text('term', null, ['placeholder' => 'Ricerca']) }}
             {{ Form::submit('Cerca') }}
-	{{ Form::close() }}
+		{{ Form::close() }}
         @endif
         <div class="list_box">
             <h1 id="title"> Seleziona il prodotto </h1>
@@ -56,7 +56,7 @@
             @endforeach
             @endisset
         </div>
-		@if(Route::is('editproduct'||'editproduct2'))
+		@if(Route::is('editproduct') || Route::is('editproduct2'))
 		<button class ="publish" id="edit"> Modifica </button>
 		@else
 		<button class ="publish" id="delete" data-token="{{ csrf_token() }}" > Elimina </button>

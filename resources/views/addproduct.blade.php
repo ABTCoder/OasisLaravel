@@ -5,7 +5,10 @@
 @section('asset')
 <script>
     var url = '/' + "{{ Route::currentRouteName() }} ";
-    var actionUrl = "{{ route('addproduct.store') }}";
+	var actionUrl = "{{ route('addproduct.store') }}";
+	@isset($product)
+	actionUrl = "{{ route('editproduct.save', $product->codice) }}";
+	@endisset
     var formId = 'productform';
 </script>
 <link rel="stylesheet" type="text/css" href="{{ asset('css/products.css') }}" >
@@ -83,9 +86,9 @@
         </div>
         <div class="button_container">
             @isset($product)
-            {{ Form::submit('Salva', ['class' => 'publish']) }}
+            {{ Form::submit('Salva', ['class' => 'publish', 'id' => 'addproduct']) }}
             @else
-            {{ Form::submit('Aggiungi', ['class' => 'publish']) }}
+            {{ Form::submit('Aggiungi', ['class' => 'publish', 'id' => 'addproduct']) }}
             @endisset
 
             {{ Form::close() }}
