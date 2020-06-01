@@ -34,6 +34,94 @@ $(document).ready(function () {
     }
 
 
+	$('#slider').vmcSlider({
+  
+  /* image data to load
+     e.g.
+     data: [
+      {
+        src: '1.jpg',
+        text: 'Caption 1',
+        href: '#',
+        target: '_blank'
+      },
+      ...
+     ]
+  */
+	data: [],
+
+	// width
+	width: 'auto',
+
+	// height
+	height: 'auto',
+
+	// image width
+	// 0 = auto
+	imgWidth: 0,
+
+	// image height
+	// 0 = auto
+	imgHeight: 0,
+
+	// min width
+	minWidth: 0,
+
+	// min height
+	minHeight: 0,
+
+	// <a href="https://www.jqueryscript.net/tags.php?/grid/">grid</a> options
+	gridTdX: 10,
+	gridTdY: 5,
+	gridOdX: 30,
+	gridOdY: 10,
+
+	// shows navigation
+	sideButton: true,
+
+	// shows pagination
+	navButton: true,
+
+	// shows caption text
+	showText: 'auto',
+
+	// the caption contains html
+	isHtml: false,
+
+	// autoplay
+	autoPlay: true,
+
+	// ascending or descending
+	ascending: true,
+
+	// check out more effects in the vmc.slide.effects.js
+	effects: ['fade'],
+
+	// removes effects in IE6
+	ie6Tidy: false,
+
+	// random effects
+	random: true,
+
+	// duration
+	duration: 4000,
+
+	// animation speed
+	speed: 800,
+
+	// pause on hover
+	hoverStop: true,
+
+	// flip callback
+	flip: function (fromIndex, toIndex) {
+	},
+
+	// created callback
+	created: function () {
+	},
+
+});
+
     //MENU CATEGORIE PRODOTTI
     $("div.cat > img").on("click", function () {
         $(this).toggleClass("rotate").next().slideToggle(200);
@@ -181,5 +269,6 @@ $(document).ready(function () {
             processData: false
         });
     }
+
 
 });
