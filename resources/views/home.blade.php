@@ -19,12 +19,11 @@
             con la possibilità di cercare un determinato prodotto che si desidera acquistare.</h4>
 			
 		<div id="slide">
-			<ul>
-				<li data-text="Image Caption"><a href="javascript:;"><img src="demo1.jpg"/></a></li>	
+			<ul>	
 				<li><a href="javascript:;"><img src="{{ asset('images/ui_images/oasis_home.jpg') }}"/></a></li>
-				<li><a href="javascript:;"><img src="{{ asset('images/ui_images/oasis_home.jpg') }}"/></a></li>
-				<li><a href="javascript:;"><img src="{{ asset('images/ui_images/oasis_home.jpg') }}"/></a></li>
-				<li><a href="javascript:;"><img src="{{ asset('images/ui_images/oasis_home.jpg') }}"/></a></li>
+				<li><a href="javascript:;"><img src="{{ asset('images/products_images/2.jpg') }}"/></a></li>
+				<li><a href="javascript:;"><img src="{{ asset('images/products_images/5.jpg') }}"/></a></li>
+				<li><a href="javascript:;"><img src="{{ asset('images/products_images/6.jpg') }}"/></a></li>
 				<li><a href="javascript:;"><img src="{{ asset('images/ui_images/oasis_home.jpg') }}"/></a></li>
 			</ul>
 		</div>

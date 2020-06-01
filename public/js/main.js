@@ -34,7 +34,7 @@ $(document).ready(function () {
     }
 
 
-	$('#slider').vmcSlider({
+	$('#slide').vmcSlide({
   
   /* image data to load
      e.g.
@@ -47,28 +47,27 @@ $(document).ready(function () {
       },
       ...
      ]
-  */
-	data: [],
+   */
 
 	// width
-	width: 'auto',
+	width: 300,
 
 	// height
-	height: 'auto',
+	height: 300,
 
 	// image width
 	// 0 = auto
-	imgWidth: 0,
+	imgWidth: 300,
 
 	// image height
 	// 0 = auto
-	imgHeight: 0,
+	imgHeight: 300,
 
 	// min width
-	minWidth: 0,
+	minWidth: 300,
 
 	// min height
-	minHeight: 0,
+	minHeight: 300,
 
 	// <a href="https://www.jqueryscript.net/tags.php?/grid/">grid</a> options
 	gridTdX: 10,
@@ -77,13 +76,13 @@ $(document).ready(function () {
 	gridOdY: 10,
 
 	// shows navigation
-	sideButton: true,
+	sideButton: false,
 
 	// shows pagination
 	navButton: true,
 
 	// shows caption text
-	showText: 'auto',
+	showText: false,
 
 	// the caption contains html
 	isHtml: false,
@@ -95,7 +94,7 @@ $(document).ready(function () {
 	ascending: true,
 
 	// check out more effects in the vmc.slide.effects.js
-	effects: ['fade'],
+	effects: ['blindsX', 'page', 'slideY','rollingX'],
 
 	// removes effects in IE6
 	ie6Tidy: false,
@@ -120,7 +119,7 @@ $(document).ready(function () {
 	created: function () {
 	},
 
-});
+	});
 
     //MENU CATEGORIE PRODOTTI
     $("div.cat > img").on("click", function () {
