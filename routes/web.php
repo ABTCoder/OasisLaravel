@@ -143,6 +143,9 @@ Route::get('/admin', 'AdminController@index')
 Route::get('/admin/completemsg/{id}', 'AdminController@completeMsg')
 		->name('admincompletemsg');
 
+Route::view('/admin/editstaff', 'editstaff')
+		->name('editstaff');
+
 Route::post('/admin/addstaff', 'AdminController@storeStaff')
 		->name('addstaff.store');
 

@@ -12,18 +12,15 @@
     @include ('layouts.adminsidenav')
      <div class="side_container" id="adminmainview">
         <div class="sc_content">
+			{{ Form::open(array('route' => 'addstaff', 'id' => 'addstaff')) }}
             <h1 id="sc_title">Elimina staff</h1>
             <div class="addstaff_box" id="admin_dash_box">
-                <form>
 					<div id="txt_delstaff">Seleziona un membro dello staff da eliminare</div>
-					<select id="userslist">
-  						<option value="user1">Gianni</option>
- 						<option value="user2">Paolo</option>
-					</select>
-                    <input type="submit" value="Elimina" id="deletebtn">
+				{{ Form::select('staff', $subCategories, null, ['id' => 'userlist']) }}
+				{{ Form::submit('Elimina', ['id' => 'deletebtn']) }}
                     <br> 
-                </form>
             </div>
+			{{ Form::close() }}
         </div>
     </div>
 </div>
