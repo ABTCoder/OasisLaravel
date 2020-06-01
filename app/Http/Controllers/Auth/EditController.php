@@ -29,7 +29,7 @@ class EditController extends Controller {
 		$user = Auth::user();
 		
 		$validated = $request->validate([
-			'newpassword' => ['exclude_if:oldpassword,null', 'string', 'min:8', 'confirmed'],
+			'newpassword' => ['required_with:oldpassword','nullable', 'string', 'min:8', 'confirmed'],
 			'oldpassword' => 'required_with:newpassword',
 			'email' => ['required', 'string', 'email', 'max:50', Rule::unique('utente', 'email')->ignore($user->id)],
             'nome' => ['required', 'string', 'max:20'],
@@ -40,7 +40,7 @@ class EditController extends Controller {
         ]);
 		
 		
-		if($request['oldpassword'] != null) {
+		if($request['oldpassword'] != null && $validated['newpassword'] != null) {
 			if(Hash::check($request['oldpassword'], $user->password)) {
 				$user->password = Hash::make($validated['newpassword']);
 			}
