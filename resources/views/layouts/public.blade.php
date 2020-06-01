@@ -33,7 +33,5 @@
             <div class="copyright"> © 2020  Oasis </div>
             <div class="hide">Tutti i diritti sono riservati. Qualsiasi riproduzione, anche parziale, senza autorizzazione scritta è vietata.</div>
         </footer>
-		<script type="text/javascript" src="{{ asset('js/vmc.slide.js') }}" ></script>
-		<script type="text/javascript" src="{{ asset('js/vmc.slide.effects.js') }}" ></script>
     </body>
 </html>
