@@ -31,7 +31,7 @@ class NewProductRequest extends FormRequest {
             'marca' => 'required|max:30',
             'desc_breve' => 'required|max:100',
             'desc_esaustiva' => 'required|max:3000',
-            'immagine' => 'file|mimes:jpeg,png|max:2048',
+            'immagine' => 'file|mimes:jpeg,png,webp|max:2048',
             'prezzo' => 'required|numeric|min:0',
             'sconto' => 'integer|min:1|max:99|nullable'
         ];
@@ -44,10 +44,6 @@ class NewProductRequest extends FormRequest {
      */
     protected function failedValidation(Validator $validator) {
         throw new HttpResponseException(response($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY));
-   
     }
-       /* protected function failedValidation(Validator $validator) {
-     throw ValidationException::withMessages(['nome' => 'This value is incorrect']);
-    } */
 
 }
