@@ -184,4 +184,9 @@ $(document).ready(function () {
     }
 
 
+	//SELEZIONE STAFF ADMIN
+	$("#loadstaff").on('click', function () {
+		window.location.href = "/~grp_07/laraProject/public/admin/editstaff/" + $("#userlist option:selected").val();
+	});
+
 });
