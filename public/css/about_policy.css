@@ -54,7 +54,7 @@ text-align: left;
     font-size: 18px;
     padding: 4px 80px 2px 2px; 
     color: white;
-	font-weight: normal;
+    font-weight: normal;
     margin: auto;
 }
 
@@ -73,7 +73,8 @@ text-align: left;
     font-weight: 500;
 }
 .about-policy p {
-    margin: 0;   
+    margin: 0;
+    font-size: 20px;
 }
 .about-policy a[href^="mailto"] {
     text-decoration: none;
