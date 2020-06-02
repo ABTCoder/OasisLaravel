@@ -12,14 +12,16 @@
     @include ('layouts.adminsidenav')
      <div class="side_container" id="adminmainview">
         <div class="sc_content">
+			@isset($users)
             <h1 id="sc_title">Modifica staff</h1>
 					<div id="txt_delstaff">Seleziona il membro dello staff da modificare e premi carica</div>
-					{{ Form::select('staff', $users, null, ['id' => 'userlist']) }}
-					{{ Form::button('Carica', ['id' => 'loadstaff']) }}
+					{{ Form::select('staff', $users, null, ['id' => 'userlist', 'class' => 'userslist']) }}
+					{{ Form::button('Carica', ['id' => 'loadstaff', 'class' => 'deletebtn']) }}
                     <br> 
 
 			@isset($staff)
 			{{ Form::model($staff, array('route' => array('editstaff.save', $staff->id))) }}
+			@csrf
             <div class="addstaff_box" id="admin_dash_box">
 					{{ Form::text('nome', null, ['class' => 'input', 'id' => 'nome', 'placeholder' => 'Nome']) }}
 					<div class="errormsg"> 
@@ -63,6 +65,8 @@
 				{{ Form::close() }}
 				@endisset
             </div>
+			@else <h1 id="complete_msg"> Non ci sono utenti staff </h1>
+			@endisset
         </div>
     </div>
 </div>
