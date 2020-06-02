@@ -41,7 +41,9 @@ class AdminController extends Controller {
         return redirect()->route('admincompletemsg', 0);
     }
 
-    public function deleteStaff($id) {
+    public function deleteStaff(Request $request) {
+        $staff = User::all()->whereIn('id', $request['staff'])->first();
+        $staff->delete();
 
         return redirect()->route('admincompletemsg', 2);
     }
@@ -91,10 +93,11 @@ class AdminController extends Controller {
     public function showdeleteStaff() {
 
         $users = User::all()->whereIn('privilegio', 'staff')->pluck('username', 'id');
-        $staff = User::all()->whereIn('id', $id)->first();
-
+        if($users->isEmpty()) return view ('deletestaff');
+        else{
         return view('deletestaff')
                         ->with('users', $users);
+        }
     }
 
     public function completeMsg($id) {
@@ -104,10 +107,13 @@ class AdminController extends Controller {
                 $msg = 'Staff aggiunto correttamente';
                 break;
             case 1:
-                $msg = 'Prodotto aggiornato correttamente';
+                $msg = 'Staff aggiornato correttamente';
                 break;
             case 2:
-                $msg = 'Prodotto eliminato correttamente';
+                $msg = 'Staff eliminato correttamente';
+                break;
+            case 3:
+                $msg = 'Utente eliminato correttamente';
                 break;
             default:
                 $msg = 'Error';
