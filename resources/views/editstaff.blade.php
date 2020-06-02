@@ -12,16 +12,14 @@
     @include ('layouts.adminsidenav')
      <div class="side_container" id="adminmainview">
         <div class="sc_content">
-{{ Form::model($users, array('route' => array('editstaff.save', $users->codice), 'files' =>)) }}
             <h1 id="sc_title">Modifica staff</h1>
-			                
-		
 					<div id="txt_delstaff">Seleziona il membro dello staff da modificare e premi carica</div>
-				{{ Form::select('staff', $subCategories, null, ['id' => 'userlist']) }}
-				{{ Form::submit('Carica', ['id' => 'deletebtn']) }}
+					{{ Form::select('staff', $users, null, ['id' => 'userlist']) }}
+					{{ Form::button('Carica', ['id' => 'loadstaff']) }}
                     <br> 
 
-			
+			@isset($staff)
+			{{ Form::model($staff, array('route' => array('editstaff.save', $staff->id))) }}
             <div class="addstaff_box" id="admin_dash_box">
 					{{ Form::text('nome', null, ['class' => 'input', 'id' => 'nome', 'placeholder' => 'Nome']) }}
 					<div class="errormsg"> 
@@ -63,6 +61,7 @@
 				<br>
 					{{ Form::submit('Modifica', ['class' => 'admin_submit']) }}
 				{{ Form::close() }}
+				@endisset
             </div>
         </div>
     </div>
