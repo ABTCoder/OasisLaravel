@@ -12,17 +12,20 @@
     @include ('layouts.adminsidenav')
      <div class="side_container" id="adminmainview">
         <div class="sc_content">
-			{{ Form::open(array('route' => 'deleteuser', 'id' => 'deleteuser')) }}
-            <h1 id="sc_title">Elimina Utente</h1>
+	@isset($users)
+            {{ Form::open(array('route' => 'deleteuser', 'id' => 'deleteuser','method'=>'DELETE')) }}
+            <h1 id="sc_title">Elimina utente</h1>
             <div class="addstaff_box" id="admin_dash_box">
-					<div id="txt_delstaff">Seleziona un utente da eliminare</div>
-				{{ Form::select('staff', $subCategories, null, ['id' => 'userlist']) }}
-				{{ Form::submit('Elimina', ['id' => 'deletebtn']) }}
-                    <br> 
+                <div id="txt_delstaff">Seleziona un utente da eliminare</div>
+                {{ Form::select('cliente', $users, null, ['id' => 'userlist','class' => 'userslist']) }}
+                {{ Form::submit('Elimina', ['id' => 'deleteuser', 'class' => 'deletebtn']) }}
+                @csrf
+                <br> 
             </div>
-			{{ Form::close() }}
+            {{ Form::close() }}
+            @else <h1 id="complete_msg"> Non ci sono utenti</h1>
+            @endisset
         </div>
     </div>
-</div>
 </div>
 @endsection
