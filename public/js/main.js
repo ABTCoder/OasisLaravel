@@ -52,7 +52,7 @@ $(document).ready(function () {
         }
     }
 
-    $("#image").change(function () {
+    $("#immagine").change(function () {
         readURL(this);
     });
 
