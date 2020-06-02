@@ -44,6 +44,12 @@ class AdminController extends Controller {
     public function deleteStaff(Request $request) {
 
 
+        $product = $this->_catalogModel->getProductByCode([$request->id]);
+        if ($product->immagine != null) {
+            $destinationPath = public_path() . '/images/products_images/' . $product->immagine;
+            unlink($destinationPath);
+        }
+        $product->delete();
         $validated = $request->validate([
             'nome' => ['required', 'string', 'max:20'],
             'cognome' => ['required', 'string', 'max:20'],
@@ -51,17 +57,6 @@ class AdminController extends Controller {
             'email' => ['required', 'string', 'email', 'max:50', 'unique:utente'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
-
-
-        User::create([
-            'nome' => $validated['nome'],
-            'cognome' => $validated['cognome'],
-            'email' => $validated['email'],
-            'username' => $validated['username'],
-            'password' => Hash::make($validated['password']),
-            'privilegio' => "staff",
-        ]);
-
 
         return redirect()->route('admincompletemsg', 0);
     }
@@ -92,12 +87,14 @@ class AdminController extends Controller {
     }
 
     public function editStaff($id = null) {
-
         $users = User::all()->whereIn('privilegio', 'staff')->pluck('username', 'id');
+        $staff = User::find($id)->first();
 
-
-        return view('editstaff')
-                        ->with('users', $users);
+        return view('addstaff')
+                        ->with('users', $users)
+                        ->with('staff',$staff);
+        
+                
     }
 
     public function showStaff() {

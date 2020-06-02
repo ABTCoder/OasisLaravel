@@ -12,7 +12,7 @@
     @include ('layouts.adminsidenav')
      <div class="side_container" id="adminmainview">
         <div class="sc_content">
-			{{ Form::open(array('route' => 'addstaff', 'id' => 'addstaff')) }}
+			{{ Form::open(array('route' => 'deletestaff', 'id' => 'deletestaff')) }}
             <h1 id="sc_title">Elimina staff</h1>
             <div class="addstaff_box" id="admin_dash_box">
 					<div id="txt_delstaff">Seleziona un membro dello staff da eliminare</div>
