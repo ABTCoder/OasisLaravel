@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class AdminController extends Controller {
 
@@ -48,29 +49,29 @@ class AdminController extends Controller {
         return redirect()->route('admincompletemsg', 2);
     }
 
-    public function saveStaff(Request $request) {
+    public function saveStaff(Request $request, $id) {
 
 
-        $validated = $request->validate([
+        $user = User::all()->whereIn('id', $id)->first();
+		
+		$validated = $request->validate([
+			'password' => ['nullable', 'string', 'min:8', 'confirmed'],
+			'email' => ['required', 'string', 'email', 'max:50', Rule::unique('utente', 'email')->ignore($user->id)],
             'nome' => ['required', 'string', 'max:20'],
             'cognome' => ['required', 'string', 'max:20'],
-            'username' => ['required', 'string', 'min:5', 'unique:utente'],
-            'email' => ['required', 'string', 'email', 'max:50', 'unique:utente'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+		
+		if($validated['password'] != null) {
+			$user->password = Hash::make($validated['password']);
+		}
+		
+		$user->nome = $validated['nome'];
+		$user->cognome = $validated['cognome'];
+		$user->email = $validated['email'];
+		
+		$user->save();
 
-
-        User::create([
-            'nome' => $validated['nome'],
-            'cognome' => $validated['cognome'],
-            'email' => $validated['email'],
-            'username' => $validated['username'],
-            'password' => Hash::make($validated['password']),
-            'privilegio' => "staff",
-        ]);
-
-
-        return redirect()->route('admincompletemsg', 0);
+        return redirect()->route('admincompletemsg', 1);
     }
 
     public function editStaff($id) {
