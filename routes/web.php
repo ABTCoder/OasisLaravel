@@ -164,5 +164,8 @@ Route::get('/admin/deletestaff', 'AdminController@showdeleteStaff')
 Route::view('/admin/addstaff', 'addstaff')
         ->name('addstaff');
 
-Route::view('/admin/deleteuser', 'deleteuser')
+Route::delete('/admin/deleteuser', 'AdminController@deleteUser')
+        ->name('deleteuser.delete');
+
+Route::get('/admin/deleteuser', 'AdminController@showUsers')
         ->name('deleteuser');
