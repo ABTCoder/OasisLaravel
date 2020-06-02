@@ -27,16 +27,16 @@ Route::view('/about', 'about')
 //Rotte prodotti
 Route::get('/products', 'ProductController@showProductsAll')
         ->name('products');
-		
+
 Route::get('/products/selCat/{catId}', 'ProductController@showProductsCat')
         ->name('products2');
 
 Route::get('/products/selSubCat/{subCatId}', 'ProductController@showProductsSubCat')
         ->name('products3');
-		
+
 Route::get('/products/search/', 'ProductController@showProductsSearch')
         ->name('products4');
-		
+
 Route::get('/products/viewproduct/{productCode}', 'ProductController@showProduct')
         ->name('viewproduct');
 
@@ -75,15 +75,15 @@ Route::get('/staff/editcategory', 'StaffController@showCategoriesList')
 
 Route::get('/staff/editcategory/{categoryCode}', 'StaffController@editCategory') //visualizza la form vuota 
         ->name('editcategory.edit');
-		
+
 Route::put('/staff/editcategory/{categoryCode}', 'StaffController@saveCategory') //visualizza la form vuota 
-        ->name('editcategory.save');	
+        ->name('editcategory.save');
 
 Route::get('/staff/deletecategory', 'StaffController@showCategoriesList')
-		->name('deletecategory');
+        ->name('deletecategory');
 
 Route::delete('/staff/deletecategory', 'StaffController@deleteCategory')
-		->name('deletecategory.delete');
+        ->name('deletecategory.delete');
 
 Route::get('/staff/addsubcategory', 'StaffController@addSubcategory') //visualizza la form vuota 
         ->name('addsubcategory');
@@ -96,15 +96,15 @@ Route::get('/staff/editsubcategory', 'StaffController@showSubcategoriesList')
 
 Route::get('/staff/editsubcategory/{subcategoryCode}', 'StaffController@editSubcategory') //visualizza la form vuota 
         ->name('editcategory.edit');
-		
+
 Route::put('/staff/editsubcategory/{categoryCode}', 'StaffController@saveSubcategory') //visualizza la form vuota 
-        ->name('editsubcategory.save');	
+        ->name('editsubcategory.save');
 
 Route::get('/staff/deletesubcategory', 'StaffController@showSubcategoriesList')
-		->name('deletesubcategory');
+        ->name('deletesubcategory');
 
 Route::delete('/staff/deletesubcategory', 'StaffController@deleteSubcategory')
-		->name('deletesubcategory.delete');
+        ->name('deletesubcategory.delete');
 
 Route::get('/staff/addproduct', 'StaffController@addProduct') //visualizza la form vuota 
         ->name('addproduct');
@@ -117,43 +117,49 @@ Route::get('/staff/editproduct', 'StaffController@showProductsList')
 
 Route::get('/staff/editproduct/search', 'StaffController@showProductsSearch')
         ->name('editproduct2');
-		
+
 Route::get('/staff/editproduct/{productCode}', 'StaffController@editProduct') //visualizza la form vuota 
         ->name('editproduct.edit');
-		
+
 Route::put('/staff/editproduct/{productCode}', 'StaffController@saveProduct') //visualizza la form vuota 
-        ->name('editproduct.save');	
+        ->name('editproduct.save');
 
 Route::get('/staff/deleteproduct', 'StaffController@showProductsList')
-		->name('deleteproduct');
+        ->name('deleteproduct');
 
 Route::get('/staff/deleteproduct/search', 'StaffController@showProductsSearch')
         ->name('deleteproduct2');
 
 Route::delete('/staff/deleteproduct', 'StaffController@deleteProduct')
-		->name('deleteproduct.delete');
-		
+        ->name('deleteproduct.delete');
+
 Route::get('/staff/completemsg/{id}', 'StaffController@completeMsg')
-		->name('completemsg');
+        ->name('completemsg');
 
 //Rotte per l'admin
 Route::get('/admin', 'AdminController@index')
         ->name('admin');
 
 Route::get('/admin/completemsg/{id}', 'AdminController@completeMsg')
-		->name('admincompletemsg');
+        ->name('admincompletemsg');
 
-Route::view('/admin/editstaff', 'editstaff')
-		->name('editstaff');
+Route::get('/admin/editstaff/{id}', 'AmindController@editStaff')
+        ->name('editstaff');
 
 Route::post('/admin/addstaff', 'AdminController@storeStaff')
-		->name('addstaff.store');
+        ->name('addstaff.store');
+
+Route::post('/admin/addstaff', 'AdminController@saveStaff')
+        ->name('editstaff.save');
+
+Route::post('/admin/addstaff', 'AdminController@deleteStaff')
+        ->name('editstaff.delete');
 
 Route::view('/admin/addstaff', 'addstaff')
-		->name('addstaff');
+        ->name('addstaff');
 
 Route::view('/admin/deletestaff', 'deletestaff')
-		->name('deletestaff');
+        ->name('deletestaff');
 
 Route::view('/admin/deleteuser', 'deleteuser')
-		->name('deleteuser');
+        ->name('deleteuser');
