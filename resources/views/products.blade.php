@@ -35,7 +35,7 @@
     <div class="products_content">
 		{{ Form::open(array('route' => 'products4', 'class' => 'search_bar', 'method' => 'GET')) }}
 			{{ Form::text('term', null, ['placeholder' => 'Ricerca']) }}
-			{{ Form::submit('CERCA') }}
+			{{ Form::submit('Cerca') }}
 		{{ Form::close() }}
 		@isset($catString)
 		<div class="products_cat"> Prodotti visualizzati per: {{ $catString }} </div>

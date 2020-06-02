@@ -17,7 +17,7 @@ class StaffController extends Controller {
 
     public function __construct() {
         $this->middleware('can:isStaff');
-        $this->_catalogModel = new Catalog; //metodo che viene attivato ogni volta che un'azione dell'admin viene richiesta
+        $this->_catalogModel = new Catalog;
     }
 
     public function index() {
@@ -26,7 +26,7 @@ class StaffController extends Controller {
 
     public function showProductsList() {
         //Prodotti
-        $prods = $this->_catalogModel->getAllProds(false);
+        $prods = $this->_catalogModel->getAllProds('nome','asc',false);
         return view('selectproduct')->with('products', $prods);
     }
 
@@ -132,7 +132,7 @@ class StaffController extends Controller {
         $validated = $request->validate([
             'term' => ['required', 'max:30'],
         ]);
-        $prods = $this->_catalogModel->getProdsByTerm2([$validated['term']]);
+        $prods = $this->_catalogModel->getProdsByTerm([$validated['term'],false,false]);
 
 
         return view('selectproduct')
