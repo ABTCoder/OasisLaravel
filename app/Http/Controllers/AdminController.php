@@ -41,24 +41,9 @@ class AdminController extends Controller {
         return redirect()->route('admincompletemsg', 0);
     }
 
-    public function deleteStaff(Request $request) {
+    public function deleteStaff($id) {
 
-
-        $product = $this->_catalogModel->getProductByCode([$request->id]);
-        if ($product->immagine != null) {
-            $destinationPath = public_path() . '/images/products_images/' . $product->immagine;
-            unlink($destinationPath);
-        }
-        $product->delete();
-        $validated = $request->validate([
-            'nome' => ['required', 'string', 'max:20'],
-            'cognome' => ['required', 'string', 'max:20'],
-            'username' => ['required', 'string', 'min:5', 'unique:utente'],
-            'email' => ['required', 'string', 'email', 'max:50', 'unique:utente'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-
-        return redirect()->route('admincompletemsg', 0);
+        return redirect()->route('admincompletemsg', 2);
     }
 
     public function saveStaff(Request $request) {
@@ -86,23 +71,29 @@ class AdminController extends Controller {
         return redirect()->route('admincompletemsg', 0);
     }
 
-    public function editStaff($id = null) {
+    public function editStaff($id) {
         $users = User::all()->whereIn('privilegio', 'staff')->pluck('username', 'id');
-        $staff = User::find($id)->first();
+        $staff = User::all()->whereIn('id', $id)->first();
 
-        return view('addstaff')
+        return view('editstaff')
                         ->with('users', $users)
-                        ->with('staff',$staff);
-        
-                
+                        ->with('staff', $staff);
     }
 
     public function showStaff() {
 
         $users = User::all()->whereIn('privilegio', 'staff')->pluck('username', 'id');
 
-
         return view('editstaff')
+                        ->with('users', $users);
+    }
+
+    public function showdeleteStaff() {
+
+        $users = User::all()->whereIn('privilegio', 'staff')->pluck('username', 'id');
+        $staff = User::all()->whereIn('id', $id)->first();
+
+        return view('deletestaff')
                         ->with('users', $users);
     }
 

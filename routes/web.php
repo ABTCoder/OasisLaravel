@@ -158,6 +158,9 @@ Route::post('/admin/editstaff/{id}', 'AdminController@saveStaff')
 Route::delete('/admin/deletestaff', 'AdminController@deleteStaff')
         ->name('deletestaff.delete');
 
+Route::get('/admin/deletestaff', 'AdminController@showdeleteStaff')
+        ->name('deletestaff');
+
 Route::view('/admin/addstaff', 'addstaff')
         ->name('addstaff');
 
