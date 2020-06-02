@@ -90,30 +90,23 @@ class AdminController extends Controller {
 
         return redirect()->route('admincompletemsg', 0);
     }
-    
-    public function editStaff(Request $request) {
+
+    public function editStaff($id = null) {
+
+        $users = User::all()->whereIn('privilegio', 'staff')->pluck('username', 'id');
 
 
-        $validated = $request->validate([
-            'nome' => ['required', 'string', 'max:20'],
-            'cognome' => ['required', 'string', 'max:20'],
-            'username' => ['required', 'string', 'min:5', 'unique:utente'],
-            'email' => ['required', 'string', 'email', 'max:50', 'unique:utente'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        return view('editstaff')
+                        ->with('users', $users);
+    }
+
+    public function showStaff() {
+
+        $users = User::all()->whereIn('privilegio', 'staff')->pluck('username', 'id');
 
 
-        User::create([
-            'nome' => $validated['nome'],
-            'cognome' => $validated['cognome'],
-            'email' => $validated['email'],
-            'username' => $validated['username'],
-            'password' => Hash::make($validated['password']),
-            'privilegio' => "staff",
-        ]);
-
-
-        return redirect()->route('admincompletemsg', 0);
+        return view('editstaff')
+                        ->with('users', $users);
     }
 
     public function completeMsg($id) {

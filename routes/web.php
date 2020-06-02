@@ -143,17 +143,20 @@ Route::get('/admin', 'AdminController@index')
 Route::get('/admin/completemsg/{id}', 'AdminController@completeMsg')
         ->name('admincompletemsg');
 
-Route::get('/admin/editstaff/{id}', 'AmindController@editStaff')
+Route::get('/admin/editstaff', 'AdminController@showStaff')
+        ->name('showstaff');
+
+Route::get('/admin/editstaff/{id}', 'AdminController@editStaff')
         ->name('editstaff');
 
 Route::post('/admin/addstaff', 'AdminController@storeStaff')
         ->name('addstaff.store');
 
-Route::post('/admin/addstaff', 'AdminController@saveStaff')
+Route::post('/admin/editstaff/{id}', 'AdminController@saveStaff')
         ->name('editstaff.save');
 
-Route::post('/admin/addstaff', 'AdminController@deleteStaff')
-        ->name('editstaff.delete');
+Route::delete('/admin/deletestaff', 'AdminController@deleteStaff')
+        ->name('deletestaff.delete');
 
 Route::view('/admin/addstaff', 'addstaff')
         ->name('addstaff');
