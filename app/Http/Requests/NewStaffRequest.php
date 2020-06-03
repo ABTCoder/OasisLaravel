@@ -30,7 +30,7 @@ class NewStaffRequest extends FormRequest {
             'nome' => ['required', 'string', 'max:20'],
             'cognome' => ['required', 'string', 'max:20'],
             'username' => ['required', 'string', 'max:20'],
-            'email' => ['required', 'string', 'email', 'max:50', 'unique:staff'],
+            'email' => ['required', 'string', 'email', 'max:50', 'unique:utente'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ];
     }

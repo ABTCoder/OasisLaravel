@@ -23,7 +23,7 @@ class AdminController extends Controller {
     }
 
     public function storeStaff(NewStaffRequest $request) {
-        $validate = $request->validated();
+        $validated = $request->validated();
         User::create([
             'nome' => $validated['nome'],
             'cognome' => $validated['cognome'],
@@ -147,9 +147,4 @@ class AdminController extends Controller {
 
         return redirect()->route('admincompletemsg', 3);
     }
-
-    protected function failedValidation(Validator $validator) {
-        throw new HttpResponseException(response($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY));
-    }
-
 }

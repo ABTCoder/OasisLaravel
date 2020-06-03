@@ -32,7 +32,7 @@
                 {{ Form::text('username', null, ['class' => 'input', 'id' => 'username', 'placeholder' => 'Username']) }}
                 <div class="errormsg" id="error_msg"></div>
                 <br>
-                {{ Form::text('email', null, ['class' => 'input', 'id' => 'email', 'placeholder' => 'E-Mail']) }}
+                {{ Form::text('email', null, ['class' => 'input', 'id' => 'email', 'placeholder' => 'E-mail']) }}
                 <div class="errormsg" id="error_msg"></div>
                 <br>
                 {{ Form::password('password', ['class' => 'input', 'placeholder' => 'Password', 'id' => 'password']) }}
