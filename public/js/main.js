@@ -58,30 +58,29 @@ $(document).ready(function () {
 
     //SELEZIONE PRODOTTI STAFF (usato anche per categorie e sottocategorie)
     var productRows = $(".productrow");
-    var selectedItem = null;
-    productRows.on("click", function () {
-        productRows.not(this).removeClass("selected_row");
+	var selectedItems = [];
+	productRows.on("click", function () {
         $(this).toggleClass("selected_row");
         if ($(this).hasClass("selected_row"))
-            selectedItem = $(this).attr("id");
+            selectedItems.push($(this).attr("id"));
         else
-            selectedItem = null;
+            selectedItems.splice(selectedItems.indexOf($(this).attr("id")), 1);
     });
 
-
     $("#edit, #delete").on("click", function () {
-        if (selectedItem == null)
+        if (!selectedItems.length)
             alert("Non hai effettuato la selezione!");
         else {
+			var num = selectedItems.length;
             if ($(this).attr("id") == "edit")
                 document.location.href = url + "/" + selectedItem;
             else { //attr(id) == delete
-                if (confirm("Sei sicuro di voler procedere con l'eliminazione?")) {
+                if (confirm("Sei sicuro di voler procedere con l'eliminazione? " + num + " elementi")) {
                     var token = $(this).data("token");
                     $.ajax({
                         type: "DELETE",
                         url: url,
-                        data: {'id': selectedItem, '_token': token, '_method': 'DELETE'},
+                        data: {'id': selectedItems, '_token': token, '_method': 'DELETE'},
                         success: function () { //Il return dal controller non funziona con Ajax
                             document.location.href = msgUrl;
                         }
@@ -90,6 +89,7 @@ $(document).ready(function () {
             }
         }
     });
+	
     //VALIDAZIONE FORM IN JSON
     $(":input").on('blur', function (event) {
         var formElementId = $(this).attr('id');
