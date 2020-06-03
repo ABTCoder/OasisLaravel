@@ -37,9 +37,8 @@ class AdminController extends Controller {
     }
 
     public function deleteStaff(Request $request) {
-        $staff = User::all()->whereIn('id', $request['staff'])->first();
+        $staff = User::all()->whereIn('id', $request->id)->first();
         $staff->delete();
-        return redirect()->route('admincompletemsg', 2);
     }
 
     public function saveStaff(Request $request, $id) {
@@ -97,12 +96,11 @@ class AdminController extends Controller {
 
     public function showdeleteStaff() {
 
-        $users = User::all()->whereIn('privilegio', 'staff')->pluck('username', 'id');
-        if ($users->isEmpty())
-            return view('deletestaff');
-        else {
-            return view('deletestaff')
-                            ->with('users', $users);
+        $users = User::all()->whereIn('privilegio', 'staff');
+        if($users->isEmpty()) return view ('selectuser');
+        else{
+        return view('selectuser')
+                        ->with('users', $users);
         }
     }
 
@@ -131,20 +129,17 @@ class AdminController extends Controller {
 
     public function showUsers() {
 
-        $users = User::all()->whereIn('privilegio', 'cliente')->pluck('username', 'id');
-
-        if ($users->isEmpty())
-            return view('deleteuser');
-        else {
-            return view('deleteuser')
-                            ->with('users', $users);
+        $users = User::all()->whereIn('privilegio', 'cliente');
+        
+        if($users->isEmpty()) return view ('selectuser');
+        else{
+            return view('selectuser')
+                        ->with('users', $users);
         }
     }
 
     public function deleteUser(Request $request) {
-        $cliente = User::all()->whereIn('id', $request['cliente'])->first();
+        $cliente = User::all()->whereIn('id', $request->id)->first();
         $cliente->delete();
-
-        return redirect()->route('admincompletemsg', 3);
     }
 }
