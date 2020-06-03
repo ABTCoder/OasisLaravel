@@ -76,7 +76,7 @@ $(document).ready(function () {
             if ($(this).attr("id") == "edit")
                 document.location.href = url + "/" + selectedItem;
             else { //attr(id) == delete
-                if (confirm("Sei sicuro di voler procedere con l'eliminazione?")) { {
+                if (confirm("Sei sicuro di voler procedere con l'eliminazione?")) {
                     var token = $(this).data("token");
                     $.ajax({
                         type: "DELETE",
