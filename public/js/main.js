@@ -95,7 +95,7 @@ $(document).ready(function () {
         var formElementId = $(this).attr('id');
         doElemValidation(formElementId, actionUrl, formId);
     });
-    $("#addproduct").on('click', function (event) //NON FUNZIONA!
+    $("#addproduct,#adduser").on('click', function (event) //NON FUNZIONA!
     {
         event.preventDefault();
         doFormValidation(actionUrl, formId);
@@ -106,7 +106,7 @@ $(document).ready(function () {
             return;
         var out = '';
         for (var i = 0; i < elemErrors.length; i++) {
-            out += '<div class="errormsg">' + elemErrors[i] + '</div>';
+            out += '<div class="errormsg" id="error_msg">' + elemErrors[i] + '</div>';
         }
         return out;
     }
@@ -130,7 +130,7 @@ $(document).ready(function () {
                     if (data.status === 422) {
                         var errMsgs = JSON.parse(data.responseText);
                         $("#" + id).next('.errormsg').html(' ');
-                        $("#" + id).after(getErrorHtml(errMsgs[id]));
+                        $("#" + id).next('.errormsg').html(getErrorHtml(errMsgs[id]));
                     }
                 },
                 contentType: false,
@@ -139,6 +139,8 @@ $(document).ready(function () {
         }
 
         var elem = $("#" + formId + " :input[name=" + id + "]");
+        var password_conf_val = $("#" + formId + " :input[name='password_confirmation']").val();
+
         if (elem.attr('type') === 'file') {
             // elemento di input type=file valorizzato
             if (elem.val() !== '') {
@@ -152,6 +154,9 @@ $(document).ready(function () {
         }
         formElems = new FormData();
         formElems.append(id, inputVal);
+        if (id === 'password') {
+            formElems.append('password_confirmation', password_conf_val);
+        }
         addFormToken();
         sendAjaxReq();
 
@@ -171,7 +176,7 @@ $(document).ready(function () {
                     var errMsgs = JSON.parse(data.responseText);
                     $.each(errMsgs, function (id) {
                         $("#" + id).next('.errormsg').html(' ');
-                        $("#" + id).after(getErrorHtml(errMsgs[id]));
+                        $("#" + id).next('.errormsg').html(getErrorHtml(errMsgs[id]));
                     });
                 }
             },
@@ -184,9 +189,9 @@ $(document).ready(function () {
     }
 
 
-	//SELEZIONE STAFF ADMIN
-	$("#loadstaff").on('click', function () {
-		window.location.href = "/~grp_07/laraProject/public/admin/editstaff/" + $("#userlist option:selected").val();
-	});
+    //SELEZIONE STAFF ADMIN
+    $("#loadstaff").on('click', function () {
+        window.location.href = "/~grp_07/laraProject/public/admin/editstaff/" + $("#userlist option:selected").val();
+    });
 
 });
