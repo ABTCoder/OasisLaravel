@@ -7,14 +7,13 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/selectproduct.css') }}" >
 
 <script>
-    var url = "{{ Route::currentRouteName() }}";
-    if(url == 'editproduct2')
-        url = '/~grp_07/laraProject/public/staff/editproduct';
-    if(url == 'deleteproduct2')
-		url = '/~grp_07/laraProject/public/staff/deleteproduct';
-    
-    var msgUrl = "/~grp_07/laraProject/public/staff/completemsg/2";
-    
+    var routeName = "{{ Route::currentRouteName() }}";
+	var urledit = "{{ route('editproduct') }}";
+	var urldelete = "{{ route('deleteproduct.delete') }}";
+	var type = "";
+	if(routeName == 'editproduct' || routeName == 'editproduct2') type = "edit";
+    var msgUrl = "{{ route('completemsg', 2 ) }}";
+	
 </script>
 
 @endsection

@@ -6,8 +6,12 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/staffdashboard.css') }}" >
 <link rel="stylesheet" type="text/css" href="{{ asset('css/selectproduct.css') }}" >
 <script>
-	var url = "{{ Route::currentRouteName() }}";
-	var msgUrl = "completemsg/8";
+	var routeName = "{{ Route::currentRouteName() }}";
+	var urledit = "{{ route('editsubcategory') }}";
+	var urldelete = "{{ route('deletesubcategory.delete') }}";
+	var type = "";
+	if(routeName == 'editsubcategory') type = "edit";
+    var msgUrl = "{{ route('completemsg', 8 ) }}";
 </script>
 @endsection
 

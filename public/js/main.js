@@ -59,33 +59,42 @@ $(document).ready(function () {
     //SELEZIONE PRODOTTI STAFF (usato anche per categorie e sottocategorie)
     var productRows = $(".productrow");
 	var selectedItems = [];
+	var singleItem = null;
+	
 	productRows.on("click", function () {
+		if(type == 'edit') productRows.not(this).removeClass("selected_row");
         $(this).toggleClass("selected_row");
-        if ($(this).hasClass("selected_row"))
+        if ($(this).hasClass("selected_row")) {
             selectedItems.push($(this).attr("id"));
-        else
+			singleItem = $(this).attr("id")
+		}
+        else{
             selectedItems.splice(selectedItems.indexOf($(this).attr("id")), 1);
+			singleItem = null;
+		}
     });
 
-    $("#edit, #delete").on("click", function () {
+	$("#edit").on("click", function () {
+        if (singleItem == null)
+            alert("Non hai effettuato la selezione!");
+        else window.location.href = urledit + "/" + singleItem;
+	});
+	
+    $("#delete").on("click", function () {
         if (!selectedItems.length)
             alert("Non hai effettuato la selezione!");
         else {
 			var num = selectedItems.length;
-            if ($(this).attr("id") == "edit")
-                document.location.href = url + "/" + selectedItem;
-            else { //attr(id) == delete
-                if (confirm("Sei sicuro di voler procedere con l'eliminazione? " + num + " elementi")) {
-                    var token = $(this).data("token");
-                    $.ajax({
-                        type: "DELETE",
-                        url: url,
-                        data: {'id': selectedItems, '_token': token, '_method': 'DELETE'},
-                        success: function () { //Il return dal controller non funziona con Ajax
-                            document.location.href = msgUrl;
-                        }
-                    });
-                }
+            if (confirm("Sei sicuro di voler procedere con l'eliminazione? " + num + " elementi")) {
+				var token = $(this).data("token");
+                $.ajax({
+                    type: "DELETE",
+                    url: urldelete,
+                    data: {'id': selectedItems, '_token': token, '_method': 'DELETE'},
+                    success: function () { //Il return dal controller non funziona con Ajax
+                        window.location.href = msgUrl;
+                    }
+                });
             }
         }
     });
