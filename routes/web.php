@@ -57,7 +57,7 @@ Route::post('register', 'Auth\RegisterController@register');
 //Rotte per la modifica
 Route::get('/editaccount', 'Auth\EditController@editAccount')
         ->name('editaccount');
-Route::patch('/editaccount', 'Auth\EditController@saveAccount')
+Route::post('/editaccount', 'Auth\EditController@saveAccount')
         ->name('editaccount.save');
 
 //Rotte Staff
@@ -161,7 +161,7 @@ Route::delete('/admin/deletestaff', 'AdminController@deleteStaff')
 Route::get('/admin/deletestaff', 'AdminController@showdeleteStaff')
         ->name('deletestaff');
 
-Route::view('/admin/addstaff', 'addstaff')
+Route::get('/admin/addstaff', 'AdminController@showStaffForm')
         ->name('addstaff');
 
 Route::delete('/admin/deleteuser', 'AdminController@deleteUser')
