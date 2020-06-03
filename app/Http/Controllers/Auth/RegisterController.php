@@ -54,25 +54,6 @@ use RegistersUsers;
     }
 
     /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data) {
-        return Validator::make($data, [
-                    'nome' => ['required', 'string', 'max:20'],
-                    'cognome' => ['required', 'string', 'max:20'],
-                    'email' => ['required', 'string', 'email', 'max:50', 'unique:utente'],
-                    'username' => ['required', 'string', 'min:5', 'unique:utente'],
-                    'password' => ['required', 'string', 'min:8', 'confirmed'],
-                    'residenza' => ['required', 'string', 'max:50'],
-                    'data_nasc' => ['required'],
-                    'occupazione' => ['required'],
-        ]);
-    }
-
-    /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
@@ -91,8 +72,4 @@ use RegistersUsers;
         ]);
     }
     
-    protected function failedValidation(Validator $validator) {
-        throw new HttpResponseException(response($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY));
-    }
-
 }

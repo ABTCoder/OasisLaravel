@@ -76,7 +76,7 @@ $(document).ready(function () {
             if ($(this).attr("id") == "edit")
                 document.location.href = url + "/" + selectedItem;
             else { //attr(id) == delete
-                if (confirm("Sei sicuro di voler eliminare questa categoria?")) {
+                if (confirm("Sei sicuro di voler procedere con l'eliminazione?")) { {
                     var token = $(this).data("token");
                     $.ajax({
                         type: "DELETE",
@@ -93,6 +93,7 @@ $(document).ready(function () {
     //VALIDAZIONE FORM IN JSON
     $(":input").on('blur', function (event) {
         var formElementId = $(this).attr('id');
+		if( formElementId === 'password_confirmation') formElementId = "password";
         doElemValidation(formElementId, actionUrl, formId);
     });
     $("#addproduct,#adduser").on('click', function (event) //NON FUNZIONA!
@@ -122,7 +123,7 @@ $(document).ready(function () {
 
         function sendAjaxReq() {
             $.ajax({
-                type: 'POST',
+                type: method,
                 url: actionUrl,
                 data: formElems,
                 dataType: "json",
@@ -167,7 +168,7 @@ $(document).ready(function () {
 
         var form = new FormData(document.getElementById(formId));
         $.ajax({
-            type: 'POST',
+            type: method,
             url: actionUrl,
             data: form,
             dataType: "json",
