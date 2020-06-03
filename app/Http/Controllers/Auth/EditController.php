@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Http\Requests\EditUserRequest;
+use Illuminate\Http\Exceptions\HttpResponseException; //response json
+use Symfony\Component\HttpFoundation\Response;
 
 class EditController extends Controller {
        
@@ -24,27 +27,17 @@ class EditController extends Controller {
 						->with('user', $user);
     }
 	
-	public function saveAccount(Request $request) {
+	public function saveAccount(EditUserRequest $request) {
 		
 		$user = Auth::user();
 		
-		$validated = $request->validate([
-			'newpassword' => ['required_with:oldpassword','nullable', 'string', 'min:8', 'confirmed'],
-			'oldpassword' => 'required_with:newpassword',
-			'email' => ['required', 'string', 'email', 'max:50', Rule::unique('utente', 'email')->ignore($user->id)],
-            'nome' => ['required', 'string', 'max:20'],
-            'cognome' => ['required', 'string', 'max:20'],
-            'residenza' => ['required', 'string', 'max:50'],
-			'data_nasc' => ['required'],
-			'occupazione' => ['required'],
-        ]);
+		$validated = $request->validated();
 		
 		
-		if($request['oldpassword'] != null && $validated['newpassword'] != null) {
+		if($request['oldpassword'] != null && $validated['password'] != null) {
 			if(Hash::check($request['oldpassword'], $user->password)) {
-				$user->password = Hash::make($validated['newpassword']);
+				$user->password = Hash::make($validated['password']);
 			}
-			
 		}
 		
 		$user->nome = $validated['nome'];
@@ -56,7 +49,7 @@ class EditController extends Controller {
 		
         $user->save();
 
-		return redirect()->route('home');
+		return response()->json(['redirect' => route('home')]);
     }
 
 }

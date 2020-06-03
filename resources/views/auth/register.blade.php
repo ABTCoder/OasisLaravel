@@ -7,6 +7,7 @@
     var url = '/' + "{{ Route::currentRouteName() }} ";
     var actionUrl = "{{ route('register') }}";
     var formId = 'registerform';
+	var method = 'POST';
 </script>
 <link rel="stylesheet" type="text/css" href="{{ asset('css/account.css') }}" >
 @endsection
@@ -15,6 +16,7 @@
 <div class="account_box">
     <h2> Registrati </h2>
     {{ Form::open(array('route' => 'register','id'=>'registerform')) }}
+	@csrf
     {{ Form::text('nome', '', ['placeholder' => 'Nome', 'id' => 'nome']) }}
     <div  class="errormsg"></div>
     <br>

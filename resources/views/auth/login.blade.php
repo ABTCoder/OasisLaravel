@@ -10,6 +10,7 @@
 <div id="login" class="account_box">
     <h2> Accedi </h2>
 	{{ Form::open(array('route' => 'login')) }}
+		@csrf
 		{{ Form::text('username', '', ['class' => 'input','id' => 'username', 'placeholder' => 'Username']) }}
         <br>
 		{{ Form::password('password', ['class' => 'input', 'id' => 'password', 'placeholder' => 'Password']) }}
