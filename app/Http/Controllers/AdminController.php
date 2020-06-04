@@ -32,39 +32,42 @@ class AdminController extends Controller {
             'password' => Hash::make($validated['password']),
             'privilegio' => "staff",
         ]);
-   
+
         return response()->json(['redirect' => route('admincompletemsg', 0)]);
     }
 
     public function deleteStaff(Request $request) {
-       foreach($request->id as $idcanc){
-       $staff = User::all()->whereIn('id', $idcanc)->first();
-        $staff->delete();
+        foreach ($request->id as $idcanc) {
+            $staff = User::all()->whereIn('id', $idcanc)->first();
+            $staff->delete();
         }
     }
 
     public function saveStaff(Request $request, $id) {
 
         $user = User::all()->whereIn('id', $id)->first();
-
-        $validated = $request->validate([
-            'password' => ['nullable', 'string', 'min:8', 'confirmed'],
-            'email' => ['required', 'string', 'email', 'max:50', Rule::unique('utente', 'email')->ignore($user->id)],
-            'nome' => ['required', 'string', 'max:20'],
-            'cognome' => ['required', 'string', 'max:20'],
+        $validator = Validator::make($request->all(), [
+                    'password' => ['nullable', 'string', 'min:8', 'confirmed'],
+                    'email' => ['required', 'string', 'email', 'max:50', Rule::unique('utente', 'email')->ignore($user->id)],
+                    'nome' => ['required', 'string', 'max:20'],
+                    'cognome' => ['required', 'string', 'max:20'],
         ]);
 
-        if ($validated['password'] != null) {
-            $user->password = Hash::make($validated['password']);
+        if ($validator->fails()) {
+            throw new HttpResponseException(response($validator->errors(), Response::HTTP_UNPROCESSABLE_ENTITY));
+        } else {
+
+            if ($request['password'] != null) {
+                $user->password = Hash::make($request['password']);
+            }
+
+            $user->nome = $request['nome'];
+            $user->cognome = $request['cognome'];
+            $user->email = $request['email'];
+
+            $user->save();
+            return response()->json(['redirect' => route('admincompletemsg', 1)]);
         }
-
-        $user->nome = $validated['nome'];
-        $user->cognome = $validated['cognome'];
-        $user->email = $validated['email'];
-
-        $user->save();
-
-        return redirect()->route('admincompletemsg', 1);
     }
 
     public function editStaff($id) {
@@ -99,10 +102,11 @@ class AdminController extends Controller {
     public function showdeleteStaff() {
 
         $users = User::all()->whereIn('privilegio', 'staff');
-        if($users->isEmpty()) return view ('selectuser');
-        else{
-        return view('selectuser')
-                        ->with('users', $users);
+        if ($users->isEmpty())
+            return view('selectuser');
+        else {
+            return view('selectuser')
+                            ->with('users', $users);
         }
     }
 
@@ -132,11 +136,12 @@ class AdminController extends Controller {
     public function showUsers() {
 
         $users = User::all()->whereIn('privilegio', 'cliente');
-        
-        if($users->isEmpty()) return view ('selectuser');
-        else{
+
+        if ($users->isEmpty())
+            return view('selectuser');
+        else {
             return view('selectuser')
-                        ->with('users', $users);
+                            ->with('users', $users);
         }
     }
 
@@ -144,4 +149,5 @@ class AdminController extends Controller {
         $cliente = User::all()->whereIn('id', $request->id)->first();
         $cliente->delete();
     }
+
 }

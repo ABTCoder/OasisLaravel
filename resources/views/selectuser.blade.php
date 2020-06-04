@@ -9,10 +9,10 @@
 
 <script>
     var type = "";
-    var url = "{{ Route::currentRouteName() }}";
+    var routeName = "{{ Route::currentRouteName() }}";
     var msgUrl = "{{route('admincompletemsg', 2 )}}";
     var urldelete = "{{ route('deletestaff.delete') }}";
-    if (url === 'deleteuser') {
+    if (routeName === 'deleteuser') {
         urldelete = "{{ route('deleteuser.delete') }}";
         msgUrl = "{{ route('admincompletemsg', 3 ) }}";
     }

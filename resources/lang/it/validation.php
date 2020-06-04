@@ -130,6 +130,13 @@ return [
     'custom' => [
         'attribute-name' => [
             'rule-name' => "custom-message",
+             
+        
+        ],
+         'data_nasc' => [
+            'required' => "'data di nascita' è richiesta",
+             
+        
         ],
     ],
 
@@ -144,6 +151,13 @@ return [
     |
     */
 
-    'attributes' => [],
-
+    'attributes' => [
+        'data_nasc' =>'La data di nascita',
+    ],
+    'values' => [
+        
+        'data_nasc' => [
+            'today' => 'oggi'
+        ]
+    ]
 ];
