@@ -26,16 +26,16 @@ class EditUserRequest extends FormRequest {
      * @return array
      */
     public function rules() {
-		$user = Auth::user();
+        $user = Auth::user();
         return [
-            'password' => ['required_with:oldpassword','nullable', 'string', 'min:8', 'confirmed'],
-			'oldpassword' => 'required_with:password',
-			'email' => ['required', 'string', 'email', 'max:50', Rule::unique('utente', 'email')->ignore($user->id)],
+            'password' => ['required_with:oldpassword', 'nullable', 'string', 'min:8', 'confirmed'],
+            'oldpassword' => 'required_with:password',
+            'email' => ['required', 'string', 'email', 'max:50', Rule::unique('utente', 'email')->ignore($user->id)],
             'nome' => ['required', 'string', 'max:20'],
             'cognome' => ['required', 'string', 'max:20'],
             'residenza' => ['required', 'string', 'max:50'],
-			'data_nasc' => ['required'],
-			'occupazione' => ['required'],
+            'data_nasc' => ['required', 'before_or_equal:today'],
+            'occupazione' => ['required'],
         ];
     }
 

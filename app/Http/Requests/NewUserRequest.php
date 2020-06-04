@@ -25,6 +25,7 @@ class NewUserRequest extends FormRequest {
      * @return array
      */
     public function rules() {
+        
         return [
             'nome' => ['required', 'string', 'max:20'],
             'cognome' => ['required', 'string', 'max:20'],
@@ -32,7 +33,7 @@ class NewUserRequest extends FormRequest {
             'username' => ['required', 'string', 'min:5', 'unique:utente'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'residenza' => ['required', 'string', 'max:50'],
-            'data_nasc' => ['required'],
+            'data_nasc' => ['required','before_or_equal:today'],
             'occupazione' => ['required'],
         ];
     }
