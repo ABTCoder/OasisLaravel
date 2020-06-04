@@ -19,8 +19,12 @@
 <div class="staff_main">
     @include ('layouts.staffsidenav')
     <div class="searchandbox">
+		@if(Route::is('editsubcategory'))
+		<h1 id="title"> Seleziona la sottocategoria da modificare</h1>
+		@else
+		<h1 id="title"> Seleziona una o più sottocategorie da eliminare</h1>
+		@endif
         <div class="list_box">
-            <h1 id="title"> Seleziona la sottocategoria </h1>
             @isset($subcategories)
             @isset($categories)
             <hr>

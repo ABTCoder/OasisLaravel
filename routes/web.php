@@ -121,7 +121,7 @@ Route::get('/staff/editproduct/search', 'StaffController@showProductsSearch')
 Route::get('/staff/editproduct/{productCode}', 'StaffController@editProduct') //visualizza la form vuota 
         ->name('editproduct.edit');
 
-Route::put('/staff/editproduct/{productCode}', 'StaffController@saveProduct') //visualizza la form vuota 
+Route::post('/staff/editproduct/{productCode}', 'StaffController@saveProduct') //visualizza la form vuota 
         ->name('editproduct.save');
 
 Route::get('/staff/deleteproduct', 'StaffController@showProductsList')
