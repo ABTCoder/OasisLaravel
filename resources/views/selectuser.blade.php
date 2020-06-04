@@ -8,11 +8,15 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/selectproduct.css') }}" >
 
 <script>
+    var type = "";
     var url = "{{ Route::currentRouteName() }}";
-    var msgUrl = "/~grp_07/laraProject/public/admin/completemsg/2";
-    if(url === 'deleteuser') msgUrl = "/~grp_07/laraProject/public/admin/completemsg/3";
+    var msgUrl = "{{route('admincompletemsg', 2 )}}";
+    var urldelete = "{{ route('deletestaff.delete') }}";
+    if (url === 'deleteuser') {
+        urldelete = "{{ route('deleteuser.delete') }}";
+        msgUrl = "{{ route('admincompletemsg', 3 ) }}";
+    }
 </script>
-
 @endsection
 
 @section('content')
@@ -33,21 +37,19 @@
                 <br> 
             </div>
             @endif
-            
-            <div class="list_box">
             @isset($users)
-            <hr>
-            @foreach ($users as $user)
-            <div id="{{$user->id}}" class="productrow" >
-                    <h1 id="name"> {{ $user->username }} </h1>
-            </div>
-            <hr>
-            @endforeach
-        </div>
-            
-            <button class ="publish" id="delete" data-token="{{ csrf_token() }}" > Elimina </button>
+            <div class="list_box">
 
-            @else <h1 id="complete_msg"> Non ci sono record </h1>
+                <hr>
+                @foreach ($users as $user)
+                <div id="{{$user->id}}" class="productrow" >
+                    <h1 id="name"> ID: {{$user->id}} - {{ $user->username }} - {{ $user->nome}} {{ $user->cognome}}  </h1>
+                </div>
+                <hr>
+                @endforeach
+            </div>
+            <button class ="deletebtn" id="delete" data-token="{{ csrf_token() }}" > Elimina </button>
+            @else <h1 id="complete_msg"> Non ci sono utenti </h1>
             @endisset
         </div>
     </div>
