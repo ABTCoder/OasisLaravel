@@ -10,6 +10,7 @@ use App\Http\Requests\NewProductRequest;
 use App\Http\Requests\NewCategoryRequest;
 use App\Http\Requests\NewSubcategoryRequest;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class StaffController extends Controller {
 
@@ -54,7 +55,7 @@ class StaffController extends Controller {
                 $msg = 'Prodotto aggiornato correttamente';
                 break;
             case 2:
-                $msg = 'Prodotto eliminato correttamente';
+                $msg = 'Prodotto/i eliminati correttamente';
                 break;
             case 3:
                 $msg = 'Categoria aggiunta correttamente';
@@ -63,7 +64,7 @@ class StaffController extends Controller {
                 $msg = 'Categoria aggiornata correttamente';
                 break;
             case 5:
-                $msg = 'Categoria eliminata correttamente';
+                $msg = 'Categoria/e eliminate correttamente';
                 break;
             case 6:
                 $msg = 'Sottocategoria aggiunta correttamente';
@@ -72,7 +73,7 @@ class StaffController extends Controller {
                 $msg = 'Sottocategoria aggiornata correttamente';
                 break;
             case 8:
-                $msg = 'Sottocategoria eliminata correttamente';
+                $msg = 'Sottocategoria/e eliminate correttamente';
                 break;
             default:
                 $msg = 'Error';
@@ -118,13 +119,14 @@ class StaffController extends Controller {
     }
 
     public function deleteProduct(Request $request) {
-
-        $product = $this->_catalogModel->getProductByCode([$request->id]);
-		if($product->immagine !=null) {
-			$destinationPath = public_path() . '/images/products_images/' . $product->immagine;
-			unlink($destinationPath);
+		foreach($request->id as $id) {
+			$product = $this->_catalogModel->getProductByCode([$id]);
+			if($product->immagine !=null) {
+				$destinationPath = public_path() . '/images/products_images/' . $product->immagine;
+				unlink($destinationPath);
+			}
+			$product->delete();
 		}
-        $product->delete();
     }
 
     public function showProductsSearch(Request $request) {
@@ -178,9 +180,14 @@ class StaffController extends Controller {
     }
 
     public function deleteCategory(Request $request) {
-
-        $category = $this->_catalogModel->getCategoryByID([$request->id]);
-        $category->delete();
+		try{
+			foreach($request->id as $id) {
+				$category = $this->_catalogModel->getCategoryByID([$id]);
+				$category->delete();
+			}
+		} catch (QueryException $e) {
+			abort(409);
+		}
     }
 
     //Sottocategorie
@@ -229,9 +236,14 @@ class StaffController extends Controller {
     }
 
     public function deleteSubcategory(Request $request) {
-
-        $subcategory = $this->_catalogModel->getSubcategoryByID([$request->id]);
-        $subcategory->delete();
+		try{
+			foreach($request->id as $id) {
+				$subcategory = $this->_catalogModel->getSubcategoryByID([$id]);
+				$subcategory->delete();
+			}
+		} catch (QueryException $e) {
+			abort(409);
+		}
     }
 
 }
