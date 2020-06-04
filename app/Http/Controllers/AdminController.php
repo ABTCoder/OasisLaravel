@@ -37,8 +37,10 @@ class AdminController extends Controller {
     }
 
     public function deleteStaff(Request $request) {
-        $staff = User::all()->whereIn('id', $request->id)->first();
+       foreach($request->id as $idcanc){
+       $staff = User::all()->whereIn('id', $idcanc)->first();
         $staff->delete();
+        }
     }
 
     public function saveStaff(Request $request, $id) {
