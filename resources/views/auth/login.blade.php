@@ -12,23 +12,25 @@
 	{{ Form::open(array('route' => 'login')) }}
 		@csrf
 		{{ Form::text('username', '', ['class' => 'input','id' => 'username', 'placeholder' => 'Username']) }}
+		@if ($errors->first('username'))
+			@foreach ($errors->get('username') as $message)
+			<div id="error_msg" class="errormsg">{{ $message }}</div>
+			@endforeach
+		@endif
         <br>
 		{{ Form::password('password', ['class' => 'input', 'id' => 'password', 'placeholder' => 'Password']) }}
+			@if ($errors->first('password'))
+			@foreach ($errors->get('password') as $message)
+			<div id="error_msg" class="errormsg">{{ $message }}</div>
+			@endforeach
+		@endif
+	
         <br>
         <br>
 		{{ Form::submit('Accedi') }}
 		<br>
 		<b> Non possiedi ancora un account? <a href="{{ route('register') }}"> REGISTRATI </a> </b>
-		@if ($errors->first('username'))
-			@foreach ($errors->get('username') as $message)
-			<div id="error_msg">{{ $message }}</div>
-			@endforeach
-		@endif
-		@if ($errors->first('password'))
-			@foreach ($errors->get('password') as $message)
-			<div id="error_msg">{{ $message }}</div>
-			@endforeach
-		@endif
 	{{ Form::close() }}
+
 </div>
 @endsection

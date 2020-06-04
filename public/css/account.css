@@ -101,7 +101,7 @@
     cursor: pointer;
 }
 
-#error_msg {
+.errormsg {
 	font-weight: bold;
     color: #ff837a;
 }
