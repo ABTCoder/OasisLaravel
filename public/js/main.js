@@ -122,7 +122,7 @@ $(document).ready(function () {
             return;
         var out = '';
         for (var i = 0; i < elemErrors.length; i++) {
-            out += '<div class="errormsg" id="error_msg">' + elemErrors[i] + '</div>';
+            out += '<div>' + elemErrors[i] + '</div>';
         }
         return out;
     }
@@ -145,8 +145,8 @@ $(document).ready(function () {
                 error: function (data) {
                     if (data.status === 422) {
                         var errMsgs = JSON.parse(data.responseText);
-                        $("#" + id).next('.errormsg').html(' ');
-                        $("#" + id).next('.errormsg').html(getErrorHtml(errMsgs[id]));
+						$("#" + id).parent().find('#error_' + id).html(' ');
+                        $("#" + id).parent().find('#error_' + id).html(getErrorHtml(errMsgs[id]));
                     }
                 },
                 contentType: false,
@@ -191,8 +191,8 @@ $(document).ready(function () {
                 if (data.status === 422) {
                     var errMsgs = JSON.parse(data.responseText);
                     $.each(errMsgs, function (id) {
-                        $("#" + id).next('.errormsg').html(' ');
-                        $("#" + id).next('.errormsg').html(getErrorHtml(errMsgs[id]));
+						$("#" + id).parent().find('#error_' + id).html(' ');
+                        $("#" + id).parent().find('#error_' + id).html(getErrorHtml(errMsgs[id]));
                     });
                 }
             },

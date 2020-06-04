@@ -33,8 +33,13 @@
             {{ Form::submit('Cerca') }}
 		{{ Form::close() }}
         @endif
+		@if(Route::is('editproduct') || Route::is('editproduct2'))
+		<h1 id="title"> Seleziona il prodotto da modificare</h1>
+		@else
+		<h1 id="title"> Seleziona uno o più prodotti da eliminare</h1>
+		@endif
         <div class="list_box">
-            <h1 id="title"> Seleziona il prodotto </h1>
+            
             @isset($products)
             <hr>
             @foreach ($products as $product)

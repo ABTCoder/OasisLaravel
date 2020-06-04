@@ -19,8 +19,12 @@
 <div class="staff_main">
     @include ('layouts.staffsidenav')
     <div class="searchandbox">
+		@if(Route::is('editcategory'))
+		<h1 id="title"> Seleziona la categoria da modificare</h1>
+		@else
+		<h1 id="title"> Seleziona una o più categorie da eliminare</h1>
+		@endif
         <div class="list_box">
-            <h1 id="title"> Seleziona la categoria </h1>
             @isset($categories)
             <hr>
             @foreach ($categories as $category)
