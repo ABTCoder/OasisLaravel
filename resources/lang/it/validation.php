@@ -135,6 +135,15 @@ return [
         ],
          'data_nasc' => [
             'required' => "'data di nascita' è richiesta",
+            
+        ],
+        'desc_breve' => [
+            'required' => "'descrizione breve' è richiesta",
+             
+        
+        ],
+        'desc_esaustiva' => [
+            'required' => "'descrizione esaustiva' è richiesta",
              
         
         ],
@@ -152,7 +161,9 @@ return [
     */
 
     'attributes' => [
-        'data_nasc' =>'La data di nascita',
+        'data_nasc' =>'la data di nascita',
+        'desc_breve' =>'descrizione breve',
+        'desc_esaustiva'=>'descrizione esaustiva'
     ],
     'values' => [
         
