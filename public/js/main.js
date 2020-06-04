@@ -93,7 +93,13 @@ $(document).ready(function () {
                     data: {'id': selectedItems, '_token': token, '_method': 'DELETE'},
                     success: function () { //Il return dal controller non funziona con Ajax
                         window.location.href = msgUrl;
-                    }
+                    },
+					error: function (data) {
+						if (data.status === 409) {
+							alert('Alcuni degli elementi selezionati hanno prodotti o sottocategorie associate!');
+							location.reload();
+						}
+					}
                 });
             }
         }
