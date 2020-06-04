@@ -7,7 +7,7 @@
     color: white;
     padding: 1% 2%;
     margin-bottom: 2%;
-    text-align: center;
+    text-align: left;
 	width: 80%;
     background-color: #656565;
 }
@@ -18,6 +18,19 @@ text-align: left;
 .scopes_title{
 	font-weight: bolder;
 	color: #B5DADE;
+	font-size: 15pt;
+}
+
+.scopes_title_pp{
+	font-weight: bolder;
+	color: #B5DADE;
+	font-size: 15pt;
+	display: block;
+}
+
+.scopes_title_blue{
+	font-weight: bolder;
+	color: #00b6ff!important;
 	font-size: 15pt;
 }
 

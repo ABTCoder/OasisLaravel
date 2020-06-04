@@ -182,7 +182,7 @@
 	color: white;
 }
 
-#userslist{
+.userslist{
 	    border: 0;
     text-align: center;
     width: 50%;
@@ -194,7 +194,7 @@
     cursor: pointer;
 	margin-bottom: 5px;
 }
-#deletebtn{
+.deletebtn{
     border: 0;
     background: #009eff;
     text-align: center;
@@ -214,6 +214,7 @@
 	margin: 5% 0;
 	color: white;
 }
+
 .errormsg{
-	color:lightcoral;
+	color: lightcoral;
 }

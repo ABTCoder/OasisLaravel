@@ -20,10 +20,7 @@
 		</div>
     <div class="mission_content">
         <h1 class="mission_title">Il miglior catalogo di articoli di elettronica</h1>
-        <h4 class="mission">Questo sito offre un catalogo, con una vasta gamma di prodotti elettronici. <br>
-            Lo scopo di questo sito è quello di offrire agli utenti una visualizzazione rapida e ben organizzata <br>
-            dei prodotti in magazzino, 
-            con la possibilità di cercare un determinato prodotto che si desidera acquistare.</h4>
+        <h4 class="mission">Tra le marche leader di mercato, Oasis seleziona i prodotti migliori. Oasis ti garantisce l'offerta di prodotti di ultima generazione, le tecnologie più avanzate. Nel catalogo di vendita Oasis l'Innovazione è protagonista e soddisfa ogni esigenza di prezzo. Con Oasis sei sempre al passo con i tempi. In tempi brevi e secondo le tue esigenze, Oasis ti garantisce la consegna a domicilio della merce presente in magazzino. </h4>
 			
 		</div>
 </div>

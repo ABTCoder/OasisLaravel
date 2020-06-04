@@ -17,8 +17,8 @@
             <h1 id="sc_title">Elimina staff</h1>
             <div class="addstaff_box" id="admin_dash_box">
                 <div id="txt_delstaff">Seleziona un membro dello staff da eliminare</div>
-                {{ Form::select('staff', $users, null, ['id' => 'userlist']) }}
-                {{ Form::submit('Elimina', ['id' => 'deletestaff']) }}
+                {{ Form::select('staff', $users, null, ['id' => 'userlist', 'class' => 'userslist']) }}
+                {{ Form::submit('Elimina', ['id' => 'deletestaff', 'class' => 'deletebtn']) }}
                 @csrf
                 <br> 
             </div>
