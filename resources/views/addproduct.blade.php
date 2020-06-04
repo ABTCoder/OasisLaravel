@@ -10,7 +10,7 @@
 	actionUrl = "{{ route('editproduct.save', $product->codice) }}";
 	@endisset
     var formId = 'productform';
-	var method = 'POST'
+	var method = 'POST';
 </script>
 <link rel="stylesheet" type="text/css" href="{{ asset('css/products.css') }}" >
 <link rel="stylesheet" type="text/css" href="{{ asset('css/staffdashboard.css') }}" >
