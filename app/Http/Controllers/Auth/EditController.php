@@ -38,6 +38,7 @@ class EditController extends Controller {
 			if(Hash::check($request['oldpassword'], $user->password)) {
 				$user->password = Hash::make($validated['password']);
 			}
+			else throw new HttpResponseException(response('{"oldpassword":["Password errata!"]}', Response::HTTP_UNPROCESSABLE_ENTITY));
 		}
 		
 		$user->nome = $validated['nome'];
