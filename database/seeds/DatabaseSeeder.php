@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder {
             ['nome' => 'Desktop', 'categoria' => 1],
             ['nome' => 'TV', 'categoria' => 2],
             ['nome' => 'Monitor', 'categoria' => 2],
-        ]); 
+        ]);
         DB::table('prodotto')->insert([
             ['prezzo' => 470.00,
                 'nome' => 'Nikon D3500',
@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder {
                 'desc_breve' => 'Nikon D3500 Fotocamera Reflex Digitale con Obiettivo Nikkor AF-P 18-55, F/3.5-5.6G VR DX',
                 'desc_esaustiva' => 'Catturate la vera atmosfera dei momenti importanti con la fotocamera D3300 Potente, comoda da trasportare e di facilissimo utilizzo, questa D-SLR da 24.2 megapixel, piccola e leggera, è un ottimo modo per riprendere indimenticabili foto e filmati ad alta definizione.Il Modo guida fornisce assistenza passo-passo a coloro che si avvicinano per la prima volta alla fotografia D-SLR o a chi desidera ulteriori informazioni, utilizzando immagini di esempio e istruzioni chiare per mostrarvi come scattare foto e riprendere filmati fantastici.Per chi vuole condividere, l\'adattatore wireless per la comunicazione con dispositivi mobili di Nikon semplifica il caricamento di foto nei siti preferiti tramite uno smart device.Riprendete immagini chiare con qualsiasi tipo di luce. Il processore di elaborazione delle immagini di Nikon, rapido e potente, garantisce un funzionamento veloce e funzioni avanzate di riduzione disturbo, per ottenere immagini estremamente nitide con colori naturali in qualsiasi condizione di illuminazione.È possibile riprendere le azioni alla rapida cadenza di 5 fotogrammi al secondo e catturare movimenti ed espressioni fugaci esattamente al momento giusto.Obiettivo zoom in formato DX compatto e leggero per eccezionali scatti di vita quotidiana. Con una portata dello zoom da grandangolare a normale e una struttura compatta, è l\'obiettivo ideale per scattare tra la gente. È sempre pronto a mettere a fuoco una grande varietà di soggetti, da scatti urbani ai paesaggi fino a eventi sportivi e a filmati HD pieni d\'azione. Qualunque sia il soggetto, il sistema di riduzione vibrazioni di Nikon garantisce la nitidezza delle immagini anche in condizioni di scarsa illuminazione. Il design snello dell\'obiettivo assicura compattezza e comodità di trasporto.',
                 'sconto' => null,
-				'marca' => 'Nikon',
+                'marca' => 'Nikon',
                 'immagine' => '2.jpg',
                 'sottocategoria' => 1
             ],
@@ -276,7 +276,7 @@ class DatabaseSeeder extends Seeder {
                 'sottocategoria' => 2
             ],
             ['prezzo' => 1885.33,
-                'nome' => '1885.33 ',
+                'nome' => 'Sony nex-vg20eh ',
                 'desc_breve' => 'La Sony nex-vg20eh una videocamera ad alta definizione con un obiettivo intercambiabile',
                 'desc_esaustiva' => 'Riprese in qualità Full HD con massima flessibilità creativa grazie agli obiettivi intercambiabili. Per foto e video dettagliati con bassa profondità di campo come con una videocamera DSLR. Massima qualità del suono con canale 5.1. Qualità da cinema. Godetevi la qualità dei vostri video HD con immagini perfette anche con scarse condizioni di illuminazione, effetti affascinanti di sfondo e qualità sorprendente come una videocamera DSLR.Più obiettivi, più creatività. I fotografi professionisti sanno come è importante scegliere l\'obiettivo giusto in ogni situazione. Adesso anche voi avrete a disposizione possibilità illimitate. Scegliete l\'obiettivo giusto per la scena da riprendere. Per un audio migliore. Per dialoghi chiari e suoni perfetti con il microfono Quad Capsule Spatial Array e l\'audio surround a 5.1 canali. Pratica regolazione del volume e collegamenti per microfono esterno e cuffie, per dare al dispositivo un aspetto professionale. Massimo controllo. Impostazioni manuali precise per illuminazione, iride, bilanciamento dei bianchi e altre opzioni. Rotella programmabile, tasti di accesso rapido e touchscreen luminoso per fare in modo che sia facile adattare le impostazioni senza dover interrompere la fase creativa. Dispositivo di qualità, leggero e affidabile. Grazie a Sony tutti potranno godersi immagini di alta qualità. Ergonomia ottimizzata.',
                 'sconto' => null,
@@ -339,7 +339,7 @@ class DatabaseSeeder extends Seeder {
                 'sottocategoria' => 4
             ],
             ['prezzo' => 39.99,
-                'nome' => ' Treppiedi TP-35',
+                'nome' => 'Treppiedi TP-35',
                 'desc_breve' => 'Treppiedi Fotocamera Alluminio Compatto Treppiede Leggero Per Canon Nikon Sony Olympus DSLR DV',
                 'desc_esaustiva' => 'ESDDI è un marchio che si è dedicato al settore dell\'attrezzatura fotografica.Noi si impegna a migliorare l\'esperienza degli utenti fornendo prodotti di buona qualità . Noi considera le tue opinioni, ognuno di voi verrà considerato seriamente quando acquisterà i nostri prodotti. Materiali: Tubi in lega di Alluminio, Plastica ABS per la protezione ambientale. Testa: 3 Vie. Folded length: 63cm. Altezza Massima del Treppiede:170cm.Diametro Massimo dei Tubi: 23mm. Quantità Colonne: 3 Sezioni. Capacità di Carico: 4kg. Peso: 1.35kg La piastra a sgancio rapido è dotata di clip e tappetino in gomma, per fissare e staccare facilmente la fotocamera. Il livello della bolla permette di regolare il tubo per aiutarLa a raggiungere la posizione di livello.',
                 'sconto' => 13,
@@ -409,21 +409,31 @@ class DatabaseSeeder extends Seeder {
                 'sconto' => null,
                 'immagine' => '36.jpg',
                 'sottocategoria' => 10
-            ]
+            ],
         ]);
-    
-		DB::table('utente')->insert([
-            ['nome' => 'Amal', 'cognome' => 'Thaliath', 'email' => 'amal@email.it', 'username' => 'Humanzee',
-                'password' => Hash::make('password'), 'privilegio' => 'cliente'],
-            ['nome' => 'Giovanni', 'cognome' => 'Gregorini', 'email' => 'giovanni@email.it', 'username' => 'Grego_98',
-                'password' => Hash::make('password'), 'privilegio' => 'cliente'],
-			['nome' => 'Federico', 'cognome' => 'Panackal', 'email' => 'federico@email.it', 'username' => 'Federico',
-                'password' => Hash::make('password'), 'privilegio' => 'cliente'],
-			['nome' => 'Matteo', 'cognome' => 'Toma', 'email' => 'matteo@email.it', 'username' => 'matteotoma_98',
-                'password' => Hash::make('password'), 'privilegio' => 'cliente'],
-            ['nome' => 'Admin', 'cognome' => 'The Boss', 'email' => 'Admin@rossi.it', 'username' => 'adminadmin',
-                'password' => Hash::make('adminadmin'), 'privilegio' => 'admin']
+
+        DB::table('utente')->insert([
+        ['nome' => 'user', 'cognome' => 'user', 'email' => 'user@user.it', 'username' => 'useruser',
+        'password' => Hash::make('19UfPKTs'), 'privilegio' => 'cliente',  'occupazione' => 'Studente', 'residenza' => 'Via Brecce Bianche 12, Ancona ', 'data_nasc' => '1998-04-12'],
+        ['nome' => 'staff', 'cognome' => 'staff', 'email' => 'staff@staff.it', 'username' => 'staffstaff',
+        'password' => Hash::make('19UfPKTs'), 'privilegio' => 'staff',  'occupazione' => null, 'residenza' => null, 'data_nasc' => null],
+        ['nome' => 'admin', 'cognome' => 'admin', 'email' => 'admin@admin.it', 'username' => 'adminadmin',
+        'password' => Hash::make('19UfPKTs'), 'privilegio' => 'admin',  'occupazione' => null, 'residenza' => null, 'data_nasc' =>  null],
+            
+        ['nome' => 'Amal', 'cognome' => 'Thaliath', 'email' => 'amal@email.it', 'username' => 'Amal98',
+        'password' => Hash::make('password'), 'privilegio' => 'cliente', 'occupazione' => 'Studente', 'residenza' => 'Via Brecce Bianche 12, Ancona ', 'data_nasc' => '1998-04-12'],
+        ['nome' => 'Giovanni', 'cognome' => 'Gregorini', 'email' => 'giovanni@email.it', 'username' => 'Grego_98',
+        'password' => Hash::make('password'), 'privilegio' => 'cliente', 'occupazione' => 'Studente', 'residenza' => 'Via Brecce Bianche 13, Ancona', 'data_nasc' => '1998-05-12'],
+        ['nome' => 'Federico', 'cognome' => 'Panackal', 'email' => 'federico@email.it', 'username' => 'Federico',
+        'password' => Hash::make('password'), 'privilegio' => 'cliente', 'occupazione' => 'Studente', 'residenza' => 'Via Brecce Bianche 14, Ancona', 'data_nasc' => '1998-08-29'],
+        ['nome' => 'Matteo', 'cognome' => 'Toma', 'email' => 'matteo@email.it', 'username' => 'matteotoma_98',
+        'password' => Hash::make('password'), 'privilegio' => 'cliente', 'occupazione' => 'Studente', 'residenza' => 'Via Brecce Bianche 15, Ancona', 'data_nasc' => '1998-08-31'],
+                
+        ['nome' => 'nometestuser', 'cognome' => 'cognometestuser', 'email' => 'testuser@gmail.com', 'username' => 'testuser',
+        'password' => Hash::make('useruser'), 'privilegio' => 'cliente', 'occupazione' => 'test', 'residenza' => '', 'data_nasc' => '1997-08-31'],
+        ['nome' => 'nometeststaff', 'cognome' => 'cognometeststaff', 'email' => 'teststaff@gmail.com', 'username' => 'teststaff',
+        'password' => Hash::make('19UfPKTs'), 'privilegio' => 'staff', 'occupazione' => 'test', 'residenza' => '', 'data_nasc' => '1996-04-12']
         ]);
-	}
+    }
 
 }
