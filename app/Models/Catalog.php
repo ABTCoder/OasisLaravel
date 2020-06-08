@@ -55,7 +55,9 @@ class Catalog {
     // Estrae i prodotti della sottocategoria (tutti o solo quelli in sconto), eventualmente ordinati
     public function getProdsByTerm($term, $paged = 9, $discounted = false) {
 
-        $prods = Product::where('nome', 'like', "%$term[0]%");
+        $prods = Product::where('nome', 'like', "%$term[0]%")
+						->orWhere('desc_esaustiva', 'like', "%$term[0]%")
+						->orWhere('desc_breve', 'like', "%$term[0]%");
 
         if ($discounted) {
             $prods = $prods->where('sconto', '>=', 0);
