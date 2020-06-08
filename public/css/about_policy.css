@@ -87,7 +87,9 @@ text-align: left;
 }
 .about-policy p {
     margin: 0;
-    font-size: 20px;
+	padding-right: 20px;
+	padding-top: 13px;
+    font-size: 18px;
 }
 .about-policy a[href^="mailto"] {
     text-decoration: none;
