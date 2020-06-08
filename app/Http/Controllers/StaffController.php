@@ -22,25 +22,25 @@ class StaffController extends Controller {
     }
 
     public function index() {
-        return view('staffdashboard');
+        return view('staff.staffdashboard');
     }
 
     public function showProductsList() {
         //Prodotti
         $prods = $this->_catalogModel->getAllProds('nome','asc',false);
-        return view('selectproduct')->with('products', $prods);
+        return view('staff.selectproduct')->with('products', $prods);
     }
 
     public function addProduct() {
         $prodCats = $this->_catalogModel->getSubCats()->pluck('nome', 'id');
-        return view('addproduct')
+        return view('staff.addproduct')
                         ->with('subCategories', $prodCats);
     }
 
     public function editProduct($productCode) {
         $prodCats = $this->_catalogModel->getSubCats()->pluck('nome', 'id');
         $product = $this->_catalogModel->getProductByCode([$productCode]);
-        return view('addproduct')
+        return view('staff.addproduct')
                         ->with('subCategories', $prodCats)
                         ->with('product', $product);
     }
@@ -79,7 +79,7 @@ class StaffController extends Controller {
                 $msg = 'Error';
                 break;
         }
-        return view('completemsg')
+        return view('staff.completemsg')
                         ->with('message', $msg);
     }
 
@@ -137,7 +137,7 @@ class StaffController extends Controller {
         $prods = $this->_catalogModel->getProdsByTerm([$validated['term'],false,false]);
 
 
-        return view('selectproduct')
+        return view('staff.selectproduct')
                         ->with('products', $prods);
     }
 
@@ -146,17 +146,17 @@ class StaffController extends Controller {
     public function showCategoriesList() {
 
         $cats = $this->_catalogModel->getCats();
-        return view('selectcategory')->with('categories', $cats);
+        return view('staff.selectcategory')->with('categories', $cats);
     }
 
     public function addCategory() {
-        return view('addcategory');
+        return view('staff.addcategory');
     }
 
     public function editCategory($catId) {
 
         $category = $this->_catalogModel->getCategoryByID([$catId]);
-        return view('addcategory')
+        return view('staff.addcategory')
                         ->with('category', $category);
     }
 
@@ -196,21 +196,21 @@ class StaffController extends Controller {
 
         $subcats = $this->_catalogModel->getSubCats();
         $cats = $this->_catalogModel->getCats();
-        return view('selectsubcategory')
+        return view('staff.selectsubcategory')
                         ->with('categories', $cats)
                         ->with('subcategories', $subcats);
     }
 
     public function addSubcategory() {
         $cats = $this->_catalogModel->getCats()->pluck('nome', 'id');
-        return view('addsubcategory')
+        return view('staff.addsubcategory')
                         ->with('categories', $cats);
     }
 
     public function editSubcategory($subcategoryID) {
         $cats = $this->_catalogModel->getCats()->pluck('nome', 'id');
         $subcategory = $this->_catalogModel->getSubcategoryByID([$subcategoryID]);
-        return view('addsubcategory')
+        return view('staff.addsubcategory')
                         ->with('categories', $cats)
                         ->with('subcategory', $subcategory);
     }

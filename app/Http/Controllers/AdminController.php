@@ -19,7 +19,7 @@ class AdminController extends Controller {
     }
 
     public function index() {
-        return view('admindashboard');
+        return view('admin.admindashboard');
     }
 
     public function storeStaff(NewStaffRequest $request) {
@@ -75,9 +75,9 @@ class AdminController extends Controller {
         $staff = User::all()->whereIn('id', $id)->first();
 
         if ($users->isEmpty())
-            return view('editstaff');
+            return view('admin.editstaff');
         else {
-            return view('editstaff')
+            return view('admin.editstaff')
                             ->with('users', $users)
                             ->with('staff', $staff);
         }
@@ -88,24 +88,24 @@ class AdminController extends Controller {
         $users = User::all()->whereIn('privilegio', 'staff')->pluck('username', 'id');
 
         if ($users->isEmpty())
-            return view('editstaff');
+            return view('admin.editstaff');
         else {
-            return view('editstaff')
+            return view('admin.editstaff')
                             ->with('users', $users);
         }
     }
 
     public function showStaffForm() {
-        return view('addstaff');
+        return view('admin.addstaff');
     }
 
     public function showdeleteStaff() {
 
         $users = User::all()->whereIn('privilegio', 'staff');
         if ($users->isEmpty())
-            return view('selectuser');
+            return view('admin.selectuser');
         else {
-            return view('selectuser')
+            return view('admin.selectuser')
                             ->with('users', $users);
         }
     }
@@ -120,16 +120,16 @@ class AdminController extends Controller {
                 $msg = 'Staff aggiornato correttamente';
                 break;
             case 2:
-                $msg = 'Staff eliminato correttamente';
+                $msg = 'Staff eliminato/i correttamente';
                 break;
             case 3:
-                $msg = 'Utente eliminato correttamente';
+                $msg = 'Utente/i eliminati correttamente';
                 break;
             default:
                 $msg = 'Error';
                 break;
         }
-        return view('admincompletemsg')
+        return view('admin.admincompletemsg')
                         ->with('message', $msg);
     }
 
@@ -138,16 +138,18 @@ class AdminController extends Controller {
         $users = User::all()->whereIn('privilegio', 'cliente');
 
         if ($users->isEmpty())
-            return view('selectuser');
+            return view('admin.selectuser');
         else {
-            return view('selectuser')
+            return view('admin.selectuser')
                             ->with('users', $users);
         }
     }
 
     public function deleteUser(Request $request) {
-        $cliente = User::all()->whereIn('id', $request->id)->first();
-        $cliente->delete();
+		foreach($request['id'] as $id){
+			$user = User::all()->whereIn('id', $id)->first();
+			$user->delete();
+		}
     }
 
 }

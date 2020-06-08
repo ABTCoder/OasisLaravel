@@ -9,7 +9,7 @@
 @section('content')
 <div class="howtobuy">
     <div>
-        <h1> Come acquistare? </h1>
+        <h1> Come acquistare </h1>
         <hr>
         <br>
         <p> Se desideri acquistare uno o più prodotti del nostro catalogo non devi far altro che seguire le seguenti istruzioni:

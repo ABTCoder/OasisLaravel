@@ -20,7 +20,12 @@
 		</div>
     <div class="mission_content">
         <h1 class="mission_title">Il miglior catalogo di articoli di elettronica</h1>
-        <h4 class="mission">Tra le marche leader di mercato, Oasis seleziona i prodotti migliori. Oasis ti garantisce l'offerta di prodotti di ultima generazione, le tecnologie più avanzate. Nel catalogo di vendita Oasis l'Innovazione è protagonista e soddisfa ogni esigenza di prezzo. Con Oasis sei sempre al passo con i tempi. In tempi brevi e secondo le tue esigenze, Oasis ti garantisce la consegna a domicilio della merce presente in magazzino. </h4>
+        <h4 class="mission">Tra le marche leader di mercato, Oasis seleziona i prodotti migliori. Oasis ti garantisce l'offerta di prodotti di ultima generazione, le tecnologie più avanzate. 
+		Nel catalogo di vendita Oasis l'Innovazione è protagonista e soddisfa ogni esigenza di prezzo. Con Oasis sei sempre al passo con i tempi. In tempi brevi e secondo le tue esigenze, 
+		Oasis ti garantisce la consegna a domicilio della merce presente in magazzino. Il tutto accompagnato da un' eccellente assistenza clienti, lo staff di Oasis si occuperà di risolvere
+		qualunque problema tu abbia durante la registrazione o la procedura di acquisto, il tutto nel minor tempo possibile. Inoltre Oasis offre moltissimi sconti per ognuno dei nostri 
+		clienti, quindi non aspettare a registrarti!
+		</h4>
 			
 		</div>
 </div>

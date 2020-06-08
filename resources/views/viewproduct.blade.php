@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', 'Area Staff')
+@section('title', $product->nome)
 
 @section('asset')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/viewproduct.css') }}" >
@@ -29,7 +29,7 @@
             <div id="description">
                 {{ $product->desc_esaustiva }}
             </div>
-            <a id="buy" href="{{ route('howtobuy') }}"> come acquistare </a>
+            <a id="buy" href="{{ route('howtobuy') }}"> Come acquistare </a>
         </div>
 @endisset
 

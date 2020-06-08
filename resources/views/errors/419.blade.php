@@ -1,4 +1,4 @@
-@extends('layouts.public')
+@extends('layouts.errorlayout')
 
 @section('title', 'Accesso negato')
 

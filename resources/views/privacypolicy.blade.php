@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', 'Pivacy e Policy')
+@section('title', 'Privacy e Policy')
 
 @section('asset')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/about_policy.css') }}" >
