@@ -11,6 +11,8 @@ use App\Http\Requests\NewCategoryRequest;
 use App\Http\Requests\NewSubcategoryRequest;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Validator;
 
 class StaffController extends Controller {
 
@@ -27,7 +29,7 @@ class StaffController extends Controller {
 
     public function showProductsList() {
         //Prodotti
-        $prods = $this->_catalogModel->getAllProds('nome','asc',false);
+        $prods = $this->_catalogModel->getAllProds('nome', 'asc', false);
         return view('staff.selectproduct')->with('products', $prods);
     }
 
@@ -119,14 +121,14 @@ class StaffController extends Controller {
     }
 
     public function deleteProduct(Request $request) {
-		foreach($request->id as $id) {
-			$product = $this->_catalogModel->getProductByCode([$id]);
-			if($product->immagine !=null) {
-				$destinationPath = public_path() . '/images/products_images/' . $product->immagine;
-				unlink($destinationPath);
-			}
-			$product->delete();
-		}
+        foreach ($request->id as $id) {
+            $product = $this->_catalogModel->getProductByCode([$id]);
+            if ($product->immagine != null) {
+                $destinationPath = public_path() . '/images/products_images/' . $product->immagine;
+                unlink($destinationPath);
+            }
+            $product->delete();
+        }
     }
 
     public function showProductsSearch(Request $request) {
@@ -134,7 +136,7 @@ class StaffController extends Controller {
         $validated = $request->validate([
             'term' => ['required', 'max:30'],
         ]);
-        $prods = $this->_catalogModel->getProdsByTerm([$validated['term'],false,false]);
+        $prods = $this->_catalogModel->getProdsByTerm([$validated['term'], false, false]);
 
 
         return view('staff.selectproduct')
@@ -169,25 +171,26 @@ class StaffController extends Controller {
         return redirect()->route('completemsg', 3);
     }
 
-    public function saveCategory(NewCategoryRequest $request, $catId) {
-
+    public function saveCategory(Request $request, $catId) {
         $category = $this->_catalogModel->getCategoryByID([$catId]);
-        $category->fill($request->validated());
+        $validator = Validator::make($request->all(), [
+                    'nome' => ['required', 'min:5', 'max:30', Rule::unique('categoria', 'nome')->ignore($category->id)],
+        ]);
 
+        $category->fill($validator->validated());
         $category->save();
-
         return redirect()->route('completemsg', 4);
     }
 
     public function deleteCategory(Request $request) {
-		try{
-			foreach($request->id as $id) {
-				$category = $this->_catalogModel->getCategoryByID([$id]);
-				$category->delete();
-			}
-		} catch (QueryException $e) {
-			abort(409);
-		}
+        try {
+            foreach ($request->id as $id) {
+                $category = $this->_catalogModel->getCategoryByID([$id]);
+                $category->delete();
+            }
+        } catch (QueryException $e) {
+            abort(409);
+        }
     }
 
     //Sottocategorie
@@ -225,25 +228,30 @@ class StaffController extends Controller {
         return redirect()->route('completemsg', 6);
     }
 
-    public function saveSubcategory(NewSubcategoryRequest $request, $subcategoryID) {
+    public function saveSubcategory(Request $request, $subcategoryID) {
 
         $subcategory = $this->_catalogModel->getSubcategoryByID([$subcategoryID]);
-        $subcategory->fill($request->validated());
 
+        $validator = Validator::make($request->all(), [
+                    'nome' => ['required', 'min:5', 'max:30', Rule::unique('sottocategoria', 'nome')->ignore($subcategory->id)],
+                    'categoria' => 'required',
+        ]);
+
+        $subcategory->fill($validator->validated());
         $subcategory->save();
 
         return redirect()->route('completemsg', 7);
     }
 
     public function deleteSubcategory(Request $request) {
-		try{
-			foreach($request->id as $id) {
-				$subcategory = $this->_catalogModel->getSubcategoryByID([$id]);
-				$subcategory->delete();
-			}
-		} catch (QueryException $e) {
-			abort(409);
-		}
+        try {
+            foreach ($request->id as $id) {
+                $subcategory = $this->_catalogModel->getSubcategoryByID([$id]);
+                $subcategory->delete();
+            }
+        } catch (QueryException $e) {
+            abort(409);
+        }
     }
 
 }

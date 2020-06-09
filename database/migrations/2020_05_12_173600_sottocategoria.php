@@ -13,11 +13,10 @@ class Sottocategoria extends Migration {
      */
     public function up() {
         Schema::create('sottocategoria', function (Blueprint $table) {
-            $table->string('nome', 30);
+            $table->string('nome', 30)->unique();
             $table->bigIncrements('id');
             $table->bigInteger('categoria')->unsigned()->index();
-            $table->foreign('categoria')->references('id')->on('categoria')->onUpdate('cascade')->onDelete('restrict');
-            
+            $table->foreign('categoria')->references('id')->on('categoria')->onUpdate('cascade')->onDelete('restrict'); 
         });
     }
 
