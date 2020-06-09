@@ -26,7 +26,7 @@ class Catalog {
     }
 
     // Estrae i prodotti della categoria (tutti o solo quelli in sconto), eventualmente ordinati
-    public function getProdsByCat($catId,$field = 'nome', $order = 'asc', $paged = 9, $discounted = false) {
+    public function getProdsByCat($catId, $field = 'nome', $order = 'asc', $paged = 9, $discounted = false) {
 
         $prods = Product::whereHas('prodCat', function ($query) use ($catId) {
                     $query->whereIn('categoria', $catId);
@@ -34,21 +34,21 @@ class Catalog {
 
         if ($discounted) {
             $prods = $prods->where('sconto', '>=', 0);
-        } 
-            $prods = $prods->orderBy($field, $order);
-      
+        }
+        $prods = $prods->orderBy($field, $order);
+
         return $prods->paginate($paged);
     }
 
     // Estrae i prodotti della sottocategoria (tutti o solo quelli in sconto), eventualmente ordinati
-    public function getProdsBySubCat($catId, $field = 'nome', $order= 'asc', $paged = 9, $discounted = false) {
+    public function getProdsBySubCat($catId, $field = 'nome', $order = 'asc', $paged = 9, $discounted = false) {
 
         $prods = Product::whereIn('sottocategoria', $catId);
 
         if ($discounted) {
             $prods = $prods->where('sconto', '>=', 0);
         }
-         $prods = $prods->orderBy($field, $order);
+        $prods = $prods->orderBy($field, $order);
         return $prods->paginate($paged);
     }
 
@@ -56,8 +56,9 @@ class Catalog {
     public function getProdsByTerm($term, $paged = 9, $discounted = false) {
 
         $prods = Product::where('nome', 'like', "%$term[0]%")
-						->orWhere('desc_esaustiva', 'like', "%$term[0]%")
-						->orWhere('desc_breve', 'like', "%$term[0]%");
+                ->orWhere('desc_esaustiva', 'like', "%$term[0]%")
+                ->orWhere('desc_breve', 'like', "%$term[0]%")
+                ->orWhere('marca', 'like', "%$term[0]%");
 
         if ($discounted) {
             $prods = $prods->where('sconto', '>=', 0);
@@ -65,7 +66,6 @@ class Catalog {
         $prods = $prods->orderBy('nome');
         return $prods->paginate($paged);
     }
-
 
     public function getProductByCode($code) {
         return Product::whereIn('codice', $code)->firstOrFail();
