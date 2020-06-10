@@ -12,11 +12,11 @@
     @include ('layouts.staffsidenav')
 
     <div class="side_container">
-		<div id="complete_msg">
-        @isset($message)
-		{{$message}}
-        @endisset
-		</div>
+        <div id="complete_msg">
+            @isset($message)
+            {{$message}}
+            @endisset
+        </div>
     </div>
 </div>
 @endsection

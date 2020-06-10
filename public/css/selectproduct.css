@@ -32,7 +32,7 @@
 }
 .list_box{
     margin-top: 1%;
-	margin-bottom: 1%;
+    margin-bottom: 1%;
     height: max-content;
     background: #656565;
     height: 600px;
@@ -59,7 +59,7 @@
     background-color: #47B9FF;
 }
 .selected_row {
-	background-color: #007ECC;
+    background-color: #007ECC;
 }
 
 #immagine{

@@ -5,9 +5,9 @@
 @section('asset')
 <script>
     @isset($staff)
-    var actionUrl =  "{{route('editstaff.save', $staff->id)}}";
+            var actionUrl = "{{route('editstaff.save', $staff->id)}}";
     @endisset
-    var formId = 'editstaff';
+            var formId = 'editstaff';
     var method = 'POST';
 </script>
 <link rel="stylesheet" type="text/css" href="{{ asset('css/products.css') }}" >

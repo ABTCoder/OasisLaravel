@@ -10,12 +10,12 @@
 @section('content')
 <div class="admin_main" id="main">
     @include ('layouts.adminsidenav')
-      <div class="side_container">
-		<div id="complete_msg">
-        @isset($message)
-		{{$message}}
-        @endisset
-		</div>
+    <div class="side_container">
+        <div id="complete_msg">
+            @isset($message)
+            {{$message}}
+            @endisset
+        </div>
     </div>
 </div>
 @endsection

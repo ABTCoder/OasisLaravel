@@ -31,15 +31,15 @@
     </div>
     <!-- fine sidenav -->		
 
-	@isset($products)
+    @isset($products)
     <div class="products_content">
-		{{ Form::open(array('route' => 'products4', 'class' => 'search_bar', 'method' => 'GET')) }}
-			{{ Form::text('term', null, ['placeholder' => 'Ricerca']) }}
-			{{ Form::submit('Cerca') }}
-		{{ Form::close() }}
-		@isset($catString)
-		<div class="products_cat"> Prodotti visualizzati per: {{ $catString }} </div>
-		@endisset
+        {{ Form::open(array('route' => 'products4', 'class' => 'search_bar', 'method' => 'GET')) }}
+        {{ Form::text('term', null, ['placeholder' => 'Ricerca']) }}
+        {{ Form::submit('Cerca') }}
+        {{ Form::close() }}
+        @isset($catString)
+        <div class="products_cat"> Prodotti visualizzati per: {{ $catString }} </div>
+        @endisset
         <div class="products_box">
             <div class="row">
                 @foreach ($products as $product)
@@ -47,7 +47,7 @@
                     <a  style="text-decoration:none" href="{{ route('viewproduct', [$product->codice]) }}">
                         <div class="card_img_container">
                             @include('helpers/imgProducts', ['imgFile' => $product->immagine])
-						</div>
+                        </div>
                         <div class="card_text">
                             <div class="card_info">
                                 <h1  class="name">{{ $product->nome }}</h1>
@@ -63,10 +63,10 @@
             </div>                      
         </div>
         <nav class="page_nav">
-			<!--Paginazione-->
-			@include('pagination.paginator', ['paginator' => $products])
+            <!--Paginazione-->
+            @include('pagination.paginator', ['paginator' => $products])
         </nav>
     </div>
-	@endisset
+    @endisset
 </div>
 @endsection

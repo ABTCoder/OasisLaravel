@@ -2,22 +2,22 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <title>Oasis | @yield('title', 'home')</title>
-		<link rel="icon" href="{{ asset('images/ui_images/favicon.ico') }}"/>
+        <link rel="icon" href="{{ asset('images/ui_images/favicon.ico') }}"/>
         <meta charset="UTF-8">
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" >
-		<script type="text/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}" ></script>
-		<script type="text/javascript" src="{{ asset('js/main.js') }}" ></script>
-		@yield('asset')
+        <script type="text/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}" ></script>
+        <script type="text/javascript" src="{{ asset('js/main.js') }}" ></script>
+        @yield('asset')
     </head>
     <body>
         <header>
-			@include('layouts/navbar')
+            @include('layouts/navbar')
         </header>
-		<div id="main">
-			@yield('content')	
-		</div>
+        <div id="main">
+            @yield('content')	
+        </div>
         <footer class="main_footer">
             <a href="{{ route('about') }}"> Chi siamo </a>
             <br>
@@ -33,6 +33,6 @@
             <div class="copyright"> © 2020  Oasis </div>
             <div class="hide">Tutti i diritti sono riservati. Qualsiasi riproduzione, anche parziale, senza autorizzazione scritta è vietata.</div>
         </footer>
-		@yield('secondaryscripts')
+        @yield('secondaryscripts')
     </body>
 </html>
