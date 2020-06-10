@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+
 use Illuminate\Auth\Events\Registered;
 use App\Http\Controllers\Controller;
 use App\User;
@@ -10,7 +11,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException; //response json
 use Symfony\Component\HttpFoundation\Response;
-
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller {
@@ -45,7 +45,7 @@ use RegistersUsers;
     }
 
     public function register(NewUserRequest $request) {
-        
+
         event(new Registered($user = $this->create($request->validated())));
 
         $this->guard()->login($user);
@@ -71,5 +71,5 @@ use RegistersUsers;
                     'data_nasc' => $data['data_nasc']
         ]);
     }
-    
+
 }

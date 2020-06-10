@@ -25,12 +25,12 @@ class EditStaffRequets extends FormRequest {
      * @return array
      */
     public function rules() {
-        
+
         return [
             'nome' => ['required', 'string', 'max:20'],
             'cognome' => ['required', 'string', 'max:20'],
-            'email' => ['required', 'string', 'email', 'max:50', 'unique:utente',Rule::unique('utente', 'email')->ignore($user->id)],
-            'password' => ['nullable','string', 'min:8', 'confirmed'],
+            'email' => ['required', 'string', 'email', 'max:50', 'unique:utente', Rule::unique('utente', 'email')->ignore($user->id)],
+            'password' => ['nullable', 'string', 'min:8', 'confirmed'],
         ];
     }
 

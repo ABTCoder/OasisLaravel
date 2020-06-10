@@ -146,10 +146,10 @@ class AdminController extends Controller {
     }
 
     public function deleteUser(Request $request) {
-		foreach($request['id'] as $id){
-			$user = User::all()->whereIn('id', $id)->first();
-			$user->delete();
-		}
+        foreach ($request['id'] as $id) {
+            $user = User::all()->whereIn('id', $id)->first();
+            $user->delete();
+        }
     }
 
 }

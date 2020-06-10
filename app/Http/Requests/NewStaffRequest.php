@@ -25,7 +25,7 @@ class NewStaffRequest extends FormRequest {
      * @return array
      */
     public function rules() {
-        
+
         return [
             'nome' => ['required', 'string', 'max:20'],
             'cognome' => ['required', 'string', 'max:20'],

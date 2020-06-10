@@ -12,12 +12,11 @@ class Categoria extends Migration {
      * @return void
      */
     public function up() {
-        
+
         Schema::create('categoria', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome', 30)->unique();
         });
-        
     }
 
     /**

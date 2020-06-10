@@ -6,12 +6,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
-{
+class User extends Authenticatable {
+
     use Notifiable;
-	
-	protected $table = 'utente';
-	
+
+    protected $table = 'utente';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -29,13 +29,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'username', 'remember_token',
     ];
-	
-	protected $casts = [
+    protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-	
-	public function hasRole($privilegio) {
-        $privilegio = (array)$privilegio;
+
+    public function hasRole($privilegio) {
+        $privilegio = (array) $privilegio;
         return in_array($this->privilegio, $privilegio);
     }
+
 }
