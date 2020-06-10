@@ -10,7 +10,7 @@
                 <img class="nav_item_icon"src="{{ asset('images/ui_images//navicons/nav_products.png') }}">PRODOTTI</a></li>
         <li class="{{ Route::is('howtobuy*') ? 'active' : '' }}"><a href="{{ route('howtobuy') }}">
                 <img class="nav_item_icon"src="{{ asset('images/ui_images//navicons/nav_buyinfo.png') }}">COME ACQUISTARE</a></li>
-        <li class="{{ Route::is('relation*') ? 'active' : '' }}"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+        <li class="{{ Route::is('relation*') ? 'active' : '' }}"><a href="https://www.google.it/">
                 <img class="nav_item_icon"src="{{ asset('images/ui_images//navicons/nav_relation.png') }}">RELAZIONE</a></li>
     </ul>
 </nav>

@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" >
         <script type="text/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}" ></script>
         <script type="text/javascript" src="{{ asset('js/main.js') }}" ></script>
+		<noscript> Attenzione , è necessario Javascript per il corretto funzionamento del sito </noscript>
         @yield('asset')
     </head>
     <body>
