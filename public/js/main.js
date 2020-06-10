@@ -40,6 +40,15 @@ $(document).ready(function () {
         $(this).toggleClass("rotate").next().slideToggle(200);
     });
 
+	//RICERCA PRODOTTI
+	$("#search").on("click", function (event)  {
+		event.preventDefault();
+		var term = $("#term").val();
+		if($.trim(term).length) { //Se non è vuoto
+			searchUrl = searchUrl.replace("placeholder", term);
+			window.location.href = searchUrl;
+		}
+	});
 
     //PREVIEW FOTO NEL FORM PRODOTTI
     function readURL(input) {
@@ -113,7 +122,7 @@ $(document).ready(function () {
             formElementId = "password";
         doElemValidation(formElementId, actionUrl, formId);
     });
-    $("#addproduct,#adduser").on('click', function (event) //NON FUNZIONA!
+    $("#addproduct,#adduser").on('click', function (event)
     {
         event.preventDefault();
         doFormValidation(actionUrl, formId);

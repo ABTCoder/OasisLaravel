@@ -87,7 +87,7 @@ class ProductController extends Controller {
                         ->with('catString', $catString);
     }
 
-    public function showProductsSearch(Request $request) {
+    public function showProductsSearch($term) {
 
         //Categorie
         $cats = $this->_catalogModel->getCats();
@@ -96,10 +96,7 @@ class ProductController extends Controller {
         $subCats = $this->_catalogModel->getSubCats();
 
         //Prodotti
-        $validated = $request->validate([
-            'term' => ['required', 'max:30'],
-        ]);
-        $prods = $this->_catalogModel->getProdsByTerm([$validated['term']]);
+        $prods = $this->_catalogModel->getProdsByTerm([$term]);
 
 
         return view('products')

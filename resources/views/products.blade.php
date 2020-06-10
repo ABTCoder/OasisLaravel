@@ -4,6 +4,9 @@
 
 @section('asset')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/products.css') }}" >
+<script>
+	var searchUrl = "{{ route('products4', 'placeholder' ) }}";
+</script>
 @endsection
 
 @section('content')
@@ -33,9 +36,9 @@
 
     @isset($products)
     <div class="products_content">
-        {{ Form::open(array('route' => 'products4', 'class' => 'search_bar', 'method' => 'GET')) }}
-        {{ Form::text('term', null, ['placeholder' => 'Ricerca']) }}
-        {{ Form::submit('Cerca') }}
+        {{ Form::open(array('class' => 'search_bar')) }}
+        {{ Form::text('term', null, ['placeholder' => 'Ricerca', 'id' => 'term']) }}
+        {{ Form::submit('Cerca', ['id' => 'search']) }}
         {{ Form::close() }}
         @isset($catString)
         <div class="products_cat"> Prodotti visualizzati per: {{ $catString }} </div>

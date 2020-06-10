@@ -34,7 +34,7 @@ Route::get('/products/selCat/{catId}', 'ProductController@showProductsCat')
 Route::get('/products/selSubCat/{subCatId}', 'ProductController@showProductsSubCat')
         ->name('products3');
 
-Route::get('/products/search/', 'ProductController@showProductsSearch')
+Route::get('/products/search/{term}', 'ProductController@showProductsSearch')
         ->name('products4');
 
 Route::get('/products/viewproduct/{productCode}', 'ProductController@showProduct')
@@ -115,7 +115,7 @@ Route::post('/staff/addproduct', 'StaffController@storeProduct')
 Route::get('/staff/editproduct', 'StaffController@showProductsList')
         ->name('editproduct');
 
-Route::get('/staff/editproduct/search', 'StaffController@showProductsSearch')
+Route::get('/staff/editproduct/search/{term}', 'StaffController@showProductsSearch')
         ->name('editproduct2');
 
 Route::get('/staff/editproduct/{productCode}', 'StaffController@editProduct') //visualizza la form vuota 
@@ -127,7 +127,7 @@ Route::post('/staff/editproduct/{productCode}', 'StaffController@saveProduct') /
 Route::get('/staff/deleteproduct', 'StaffController@showProductsList')
         ->name('deleteproduct');
 
-Route::get('/staff/deleteproduct/search', 'StaffController@showProductsSearch')
+Route::get('/staff/deleteproduct/search/{term}', 'StaffController@showProductsSearch')
         ->name('deleteproduct2');
 
 Route::delete('/staff/deleteproduct', 'StaffController@deleteProduct')

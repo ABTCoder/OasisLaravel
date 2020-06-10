@@ -11,8 +11,11 @@
     var urledit = "{{ route('editproduct') }}";
     var urldelete = "{{ route('deleteproduct.delete') }}";
     var type = "";
-    if (routeName == 'editproduct' || routeName == 'editproduct2')
+	var searchUrl = "{{ route('deleteproduct2', 'placeholder' ) }}";
+    if (routeName == 'editproduct' || routeName == 'editproduct2'){
         type = "edit";
+		searchUrl = "{{ route('editproduct2', 'placeholder' ) }}";
+	}
     var msgUrl = "{{ route('completemsg', 2 ) }}";
 
 </script>
@@ -23,17 +26,10 @@
 <div class="staff_main">
     @include ('layouts.staffsidenav')
     <div class="searchandbox">
-        @if(Route::is('editproduct') || Route::is('editproduct2'))
-        {{ Form::open(array('route' => 'editproduct2', 'class' => 'search_bar', 'method' => 'GET')) }}
-        {{ Form::text('term', null, ['placeholder' => 'Ricerca']) }}
-        {{ Form::submit('Cerca') }}
+        {{ Form::open(array('class' => 'search_bar')) }}
+        {{ Form::text('term', null, ['placeholder' => 'Ricerca', 'id' => 'term']) }}
+        {{ Form::submit('Cerca', ['id' => 'search']) }}
         {{ Form::close() }}
-        @else
-        {{ Form::open(array('route' => 'deleteproduct2', 'class' => 'search_bar', 'method' => 'GET')) }}
-        {{ Form::text('term', null, ['placeholder' => 'Ricerca']) }}
-        {{ Form::submit('Cerca') }}
-        {{ Form::close() }}
-        @endif
         @if(Route::is('editproduct') || Route::is('editproduct2'))
         <h1 id="title"> Seleziona il prodotto da modificare</h1>
         @else

@@ -131,13 +131,9 @@ class StaffController extends Controller {
         }
     }
 
-    public function showProductsSearch(Request $request) {
+    public function showProductsSearch($term) {
 
-        $validated = $request->validate([
-            'term' => ['required', 'max:30'],
-        ]);
-        $prods = $this->_catalogModel->getProdsByTerm([$validated['term'], false, false]);
-
+        $prods = $this->_catalogModel->getProdsByTerm([$term, false, false]);
 
         return view('staff.selectproduct')
                         ->with('products', $prods);
