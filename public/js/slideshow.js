@@ -1,76 +1,74 @@
 $('#slide').vmcSlide({
-  
-data: [],
-	// width
-	width: 'auto',
 
-	// height
-	height: 662,
+    data: [],
+    // width
+    width: 'auto',
 
-	// image width
-	// 0 = auto
-	imgWidth: 0,
+    // height
+    height: 662,
 
-	// image height
-	// 0 = auto
-	imgHeight: 0,
+    // image width
+    // 0 = auto
+    imgWidth: 0,
 
-	// min width
-	minWidth: 10,
+    // image height
+    // 0 = auto
+    imgHeight: 0,
 
-	// min height
-	minHeight: 10,
-		
+    // min width
+    minWidth: 10,
 
+    // min height
+    minHeight: 10,
 
-	// <a href="https://www.jqueryscript.net/tags.php?/grid/">grid</a> options
-	gridTdX: 10,
-	gridTdY: 5,
-	gridOdX: 30,
-	gridOdY: 10,
+    // <a href="https://www.jqueryscript.net/tags.php?/grid/">grid</a> options
+    gridTdX: 10,
+    gridTdY: 5,
+    gridOdX: 30,
+    gridOdY: 10,
 
-	// shows navigation
-	sideButton: false,
+    // shows navigation
+    sideButton: false,
 
-	// shows pagination
-	navButton: true,
+    // shows pagination
+    navButton: true,
 
-	// shows caption text
-	showText: false,
+    // shows caption text
+    showText: false,
 
-	// the caption contains html
-	isHtml: false,
+    // the caption contains html
+    isHtml: false,
 
-	// autoplay
-	autoPlay: true,
+    // autoplay
+    autoPlay: true,
 
-	// ascending or descending
-	ascending: true,
+    // ascending or descending
+    ascending: true,
 
-	// check out more effects in the vmc.slide.effects.js
-	effects: ['slideX'],
+    // check out more effects in the vmc.slide.effects.js
+    effects: ['slideX'],
 
-	// removes effects in IE6
-	ie6Tidy: false,
+    // removes effects in IE6
+    ie6Tidy: false,
 
-	// random effects
-	random: true,
+    // random effects
+    random: true,
 
-	// duration
-	duration: 3000,
+    // duration
+    duration: 3000,
 
-	// animation speed
-	speed: 800,
+    // animation speed
+    speed: 800,
 
-	// pause on hover
-	hoverStop: true,
+    // pause on hover
+    hoverStop: true,
 
-	// flip callback
-	flip: function (fromIndex, toIndex) {
-	},
+    // flip callback
+    flip: function (fromIndex, toIndex) {
+    },
 
-	// created callback
-	created: function () {
-	},
+    // created callback
+    created: function () {
+    },
 
 });

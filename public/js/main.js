@@ -58,35 +58,36 @@ $(document).ready(function () {
 
     //SELEZIONE PRODOTTI STAFF (usato anche per categorie e sottocategorie)
     var productRows = $(".productrow");
-	var selectedItems = [];
-	var singleItem = null;
-	
-	productRows.on("click", function () {
-		if(type == 'edit') productRows.not(this).removeClass("selected_row");
+    var selectedItems = [];
+    var singleItem = null;
+
+    productRows.on("click", function () {
+        if (type == 'edit')
+            productRows.not(this).removeClass("selected_row");
         $(this).toggleClass("selected_row");
         if ($(this).hasClass("selected_row")) {
             selectedItems.push($(this).attr("id"));
-			singleItem = $(this).attr("id")
-		}
-        else{
+            singleItem = $(this).attr("id")
+        } else {
             selectedItems.splice(selectedItems.indexOf($(this).attr("id")), 1);
-			singleItem = null;
-		}
+            singleItem = null;
+        }
     });
 
-	$("#edit").on("click", function () {
+    $("#edit").on("click", function () {
         if (singleItem == null)
             alert("Non hai effettuato la selezione!");
-        else window.location.href = urledit + "/" + singleItem;
-	});
-	
+        else
+            window.location.href = urledit + "/" + singleItem;
+    });
+
     $("#delete").on("click", function () {
         if (!selectedItems.length)
             alert("Non hai effettuato la selezione!");
         else {
-			var num = selectedItems.length;
+            var num = selectedItems.length;
             if (confirm("Sei sicuro di voler procedere con l'eliminazione? " + num + " elementi")) {
-				var token = $(this).data("token");
+                var token = $(this).data("token");
                 $.ajax({
                     type: "DELETE",
                     url: urldelete,
@@ -94,21 +95,22 @@ $(document).ready(function () {
                     success: function () { //Il return dal controller non funziona con Ajax
                         window.location.href = msgUrl;
                     },
-					error: function (data) {
-						if (data.status === 409) {
-							alert('Alcuni degli elementi selezionati hanno prodotti o sottocategorie associate!');
-							location.reload();
-						}
-					}
+                    error: function (data) {
+                        if (data.status === 409) {
+                            alert('Alcuni degli elementi selezionati hanno prodotti o sottocategorie associate!');
+                            location.reload();
+                        }
+                    }
                 });
             }
         }
     });
-	
+
     //VALIDAZIONE FORM IN JSON
     $(":input").on('blur', function (event) {
         var formElementId = $(this).attr('id');
-		if( formElementId === 'password_confirmation') formElementId = "password";
+        if (formElementId === 'password_confirmation')
+            formElementId = "password";
         doElemValidation(formElementId, actionUrl, formId);
     });
     $("#addproduct,#adduser").on('click', function (event) //NON FUNZIONA!
@@ -145,7 +147,7 @@ $(document).ready(function () {
                 error: function (data) {
                     if (data.status === 422) {
                         var errMsgs = JSON.parse(data.responseText);
-						$("#" + id).parent().find('#error_' + id).html(' ');
+                        $("#" + id).parent().find('#error_' + id).html(' ');
                         $("#" + id).parent().find('#error_' + id).html(getErrorHtml(errMsgs[id]));
                     }
                 },
@@ -191,7 +193,7 @@ $(document).ready(function () {
                 if (data.status === 422) {
                     var errMsgs = JSON.parse(data.responseText);
                     $.each(errMsgs, function (id) {
-						$("#" + id).parent().find('#error_' + id).html(' ');
+                        $("#" + id).parent().find('#error_' + id).html(' ');
                         $("#" + id).parent().find('#error_' + id).html(getErrorHtml(errMsgs[id]));
                     });
                 }

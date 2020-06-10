@@ -3,17 +3,17 @@
 .account_box{
     padding: 1% 0 4%;
     width: 30%;
-	margin-top: 0;
+    margin-top: 0;
     margin-left: auto;
-	margin-right: auto;
+    margin-right: auto;
     margin-bottom: 2%;
     background: #656565;
     text-align: center;
 }
 
 #login {
-	padding-top: 4.9%;
-	padding-bottom: 8%;
+    padding-top: 4.9%;
+    padding-bottom: 8%;
 }
 
 
@@ -102,10 +102,10 @@
 }
 
 .errormsg {
-	font-weight: bold;
+    font-weight: bold;
     color: #ff837a;
 }
 #admin_dash_box.account_box {
     width: 50%;
-	padding: 1% 0 2%;
+    padding: 1% 0 2%;
 }
