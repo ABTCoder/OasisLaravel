@@ -10,7 +10,7 @@
                 <img class="nav_item_icon"src="{{ asset('images/ui_images//navicons/nav_products.png') }}">PRODOTTI</a></li>
         <li class="{{ Route::is('howtobuy*') ? 'active' : '' }}"><a href="{{ route('howtobuy') }}">
                 <img class="nav_item_icon"src="{{ asset('images/ui_images//navicons/nav_buyinfo.png') }}">COME ACQUISTARE</a></li>
-        <li class="{{ Route::is('relation*') ? 'active' : '' }}"><a href="https://www.google.it/">
+        <li class="{{ Route::is('relation*') ? 'active' : '' }}"><a href="http://tweb2.dii.univpm.it/~grp_07/laraProject/public/Relazione.pdf" target="_blank">
                 <img class="nav_item_icon"src="{{ asset('images/ui_images//navicons/nav_relation.png') }}">RELAZIONE</a></li>
     </ul>
 </nav>
