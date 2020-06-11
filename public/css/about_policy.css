@@ -21,6 +21,13 @@
     font-size: 15pt;
 }
 
+.scopes_title2{
+    font-weight: bolder;
+    color: #B5DADE;
+    font-size: 15pt;
+    margin: 0;
+}
+
 .scopes_title_pp{
     font-weight: bolder;
     color: #B5DADE;
@@ -34,6 +41,13 @@
     font-size: 15pt;
 }
 
+.scopes_title_blue2{
+    display: block;
+    margin: 5px 0 3px 0;
+    font-weight: 800;
+    color: #00b6ff!important;
+    font-size: 15pt;
+}
 .about_emails{
     text-align: left;
 }
@@ -88,7 +102,7 @@
 .about-policy p {
     margin: 0;
     padding-right: 20px;
-    padding-top: 13px;
+    padding-top: 3px;
     font-size: 18px;
 }
 .about-policy a[href^="mailto"] {
