@@ -29,10 +29,10 @@ class NewProductRequest extends FormRequest {
             'nome' => 'required|min:5|max:50',
             'sottocategoria' => 'required',
             'marca' => 'required|max:30',
-            'desc_breve' => 'required|max:100',
+            'desc_breve' => 'required|min:50|max:100',
             'desc_esaustiva' => 'required|max:3000',
             'immagine' => 'file|mimes:jpeg,png,webp|max:2048',
-            'prezzo' => 'required|numeric|min:0',
+            'prezzo' => 'required|numeric|min:0.01|max:99999.99',
             'sconto' => 'integer|min:1|max:99|nullable'
         ];
     }
