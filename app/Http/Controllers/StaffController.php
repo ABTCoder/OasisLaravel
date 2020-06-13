@@ -105,16 +105,17 @@ class StaffController extends Controller {
 
 
         $product = $this->_catalogModel->getProductByCode([$productCode]);
+        $tempname = $product->immagine;
         $product->fill($request->validated());
 
         if ($request->hasFile('immagine')) {
             $image = $request->file('immagine');
             $imageName = $image->getClientOriginalName(); //estrae solo il nome dell'immagine
-            if ($product->immagine != null) { //Elimina l'immagine vecchia
-                $destinationPath = public_path() . '/images/products_images/' . $product->immagine;
+            if ($tempname != null) { //Elimina l'immagine vecchia
+                $destinationPath = public_path() . '/images/products_images/' . $tempname;
                 unlink($destinationPath);
             }
-            if($product->immagine == $imageName) 
+            if($tempname == $imageName) 
                 throw new HttpResponseException(response('{"immagine":["Il nome della foto è già utilizzato!"]}', Response::HTTP_UNPROCESSABLE_ENTITY));
             else {
                 $product->immagine = $imageName;
