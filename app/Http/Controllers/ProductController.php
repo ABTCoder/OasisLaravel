@@ -98,11 +98,13 @@ class ProductController extends Controller {
         //Prodotti
         $prods = $this->_catalogModel->getProdsByTerm([$term]);
 
+        $catString = "Prodotti contenenti: ". $term;
 
         return view('products')
                         ->with('categories', $cats)
                         ->with('subCategories', $subCats)
-                        ->with('products', $prods);
+                        ->with('products', $prods)
+                        ->with('catString', $term);
     }
 
     public function showProduct($productCode) {
