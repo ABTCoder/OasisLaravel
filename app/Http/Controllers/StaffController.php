@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Exceptions\HttpResponseException; //response json
+use Symfony\Component\HttpFoundation\Response;
 
 class StaffController extends Controller {
 
