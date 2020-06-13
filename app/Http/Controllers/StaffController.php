@@ -110,9 +110,17 @@ class StaffController extends Controller {
         if ($request->hasFile('immagine')) {
             $image = $request->file('immagine');
             $imageName = $image->getClientOriginalName(); //estrae solo il nome dell'immagine
-            $product->immagine = $imageName;
-            $destinationPath = public_path() . '/images/products_images';
-            $image->move($destinationPath, $imageName);
+            if ($product->immagine != null) { //Elimina l'immagine vecchia
+                $destinationPath = public_path() . '/images/products_images/' . $product->immagine;
+                unlink($destinationPath);
+            }
+            if($product->immagine == $imageName) 
+                throw new HttpResponseException(response('{"immagine":["Il nome della foto è già utilizzato!"]}', Response::HTTP_UNPROCESSABLE_ENTITY));
+            else {
+                $product->immagine = $imageName;
+                $destinationPath = public_path() . '/images/products_images';
+                $image->move($destinationPath, $imageName);
+            }
         }
 
         $product->save();
